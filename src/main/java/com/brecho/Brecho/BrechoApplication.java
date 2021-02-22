@@ -9,5 +9,5 @@ public class BrechoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(BrechoApplication.class, args);
 	}
-
+	
 }
