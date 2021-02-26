@@ -21,7 +21,7 @@ public class Categoria {
 	private Long id;
 
 	@NotNull
-	@Size(min = 3, max = 50, message = "Mínimo de 3 caracteres e máximo de 50.")
+	@Size(min = 3, max = 70, message = "Mínimo de 3 caracteres e máximo de 70.")
 	private String tipo;
 
 	@NotNull
