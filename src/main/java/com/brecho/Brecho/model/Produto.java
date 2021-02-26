@@ -18,7 +18,7 @@ public class Produto {
 	private Long id;
 
 	@NotNull
-	@Size(min = 5, max = 50)
+	@Size(min = 5, max = 70, message = "minimo 5 e maximo 70")// add Message
 	private String nome;
 
 	@NotNull
