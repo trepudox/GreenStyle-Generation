@@ -1,6 +1,8 @@
 package com.brecho.Brecho.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,9 +11,9 @@ import javax.validation.constraints.Size;
 public class Usuario {
     //atributos
 
-    @Id @NotNull private Long cpf;
+	@NotNull @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
 
-    @NotNull @Size(min = 4 , max = 15,  message = "Mínimo de 4 caracteres e máximo de 15." ) private String nome;
+	@NotNull @Size(min = 4 , max = 15,  message = "Mínimo de 4 caracteres e máximo de 15." ) private String nome;
 
     @NotNull @Size(min = 4 , max = 15, message = "Mínimo de 4 caracteres e máximo de 15." ) private String sobrenome;
 
@@ -25,14 +27,6 @@ public class Usuario {
     }
 
     //METODOS DE ACESSO
-
-    public Long getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(Long cpf) {
-		this.cpf = cpf;
-	}    
     
     public String getNome() {
 		return nome;
@@ -64,5 +58,13 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	 public Long getId() {
+			return id;
+	}
+
+	public void setId(Long id) {
+			this.id = id;
 	}
 }
