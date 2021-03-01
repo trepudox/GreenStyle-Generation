@@ -25,14 +25,14 @@ public class Produto {
 	private double preco;
 
 	@NotNull
-	private double promocao;
+	private double desconto;
 
 	@NotNull
 	@Size(min = 5, max = 300)
 	private String descricao;
 
 	@NotNull
-	private boolean disponivel;
+	private boolean disponibilidade;
 
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
@@ -67,12 +67,12 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public double getPromocao() {
-		return promocao;
+	public double getDesconto() {
+		return desconto;
 	}
 
-	public void setPromocao(double promocao) {
-		this.promocao = promocao;
+	public void setDesconto(double promocao) {
+		this.desconto = promocao;
 	}
 
 	public String getDescricao() {
@@ -83,12 +83,12 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public boolean isDisponivel() {
-		return disponivel;
+	public boolean isDisponibilidade() {
+		return disponibilidade;
 	}
 
-	public void setDisponivel(boolean disponivel) {
-		this.disponivel = disponivel;
+	public void setDisponibilidade(boolean disponivel) {
+		this.disponibilidade = disponivel;
 	}
 
 	public Categoria getCategoria() {
