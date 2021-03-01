@@ -10,7 +10,12 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Data @Getter @Setter
 public class Produto {
 
 	@Id
@@ -28,20 +33,15 @@ public class Produto {
 	private double desconto;
 
 	@NotNull
-	@Size(min = 5, max = 300)
+	@Size(min = 5, max = 300, message = "minimo 5 e max 300")
 	private String descricao;
 
 	@NotNull
-	private boolean disponibilidade;
+	private boolean disponivel;
 
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
-
-	@Deprecated
-	public Produto() {
-
-	}
 
 	public Long getId() {
 		return id;
@@ -71,8 +71,8 @@ public class Produto {
 		return desconto;
 	}
 
-	public void setDesconto(double promocao) {
-		this.desconto = promocao;
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
 	}
 
 	public String getDescricao() {
@@ -83,12 +83,12 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public boolean isDisponibilidade() {
-		return disponibilidade;
+	public boolean isDisponivel() {
+		return disponivel;
 	}
 
-	public void setDisponibilidade(boolean disponivel) {
-		this.disponibilidade = disponivel;
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
 	}
 
 	public Categoria getCategoria() {
@@ -98,5 +98,7 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+	
+	
 
 }
