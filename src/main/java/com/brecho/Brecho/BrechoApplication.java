@@ -7,7 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BrechoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BrechoApplication.class, args);
+		SpringApplication.run(BrechoApplication.class, args);		
+		
 	}
 	
 }

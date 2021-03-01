@@ -21,14 +21,15 @@ public class Usuario {
 
     @NotNull @Size(min = 6 , max = 12,  message = "Mínimo de 6 caracteres e máximo de 12." ) private String senha;
 
-    @Deprecated 
-    public Usuario(){
+	public Long getId() {
+		return id;
+	}
 
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    //METODOS DE ACESSO
-    
-    public String getNome() {
+	public String getNome() {
 		return nome;
 	}
 
@@ -36,7 +37,7 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-    public String getSobrenome() {
+	public String getSobrenome() {
 		return sobrenome;
 	}
 
@@ -44,7 +45,7 @@ public class Usuario {
 		this.sobrenome = sobrenome;
 	}
 
-    public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -52,19 +53,13 @@ public class Usuario {
 		this.email = email;
 	}
 
-    public String getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	 public Long getId() {
-			return id;
-	}
-
-	public void setId(Long id) {
-			this.id = id;
-	}
+    
+    
 }
