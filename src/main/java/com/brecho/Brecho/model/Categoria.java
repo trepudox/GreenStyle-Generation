@@ -21,24 +21,12 @@ public class Categoria {
 	private Long id;
 
 	@NotNull
-	@Size(min = 3, max = 70, message = "Mínimo de 3 caracteres e máximo de 70.")
+	@Size(min = 3, max = 50, message = "Mínimo de 3 caracteres e máximo de 50.")
 	private String tipo;
-
-	@NotNull
-	@Size(min = 3, max = 50, message = "Mínimo de 3 caracteres e máximo de 50.")
-	private String secao;
-
-	@NotNull
-	@Size(min = 3, max = 50, message = "Mínimo de 3 caracteres e máximo de 50.")
-	private String departamento;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produtos;
-
-	@Deprecated
-	public Categoria() {
-	}
 
 	public Long getId() {
 		return id;
@@ -56,22 +44,6 @@ public class Categoria {
 		this.tipo = tipo;
 	}
 
-	public String getSecao() {
-		return secao;
-	}
-
-	public void setSecao(String secao) {
-		this.secao = secao;
-	}
-
-	public String getDepartamento() {
-		return departamento;
-	}
-
-	public void setDepartamento(String departamento) {
-		this.departamento = departamento;
-	}
-
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
@@ -79,5 +51,7 @@ public class Categoria {
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
+	
+	
 
 }

@@ -1,6 +1,8 @@
 package com.brecho.Brecho.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -9,9 +11,9 @@ import javax.validation.constraints.Size;
 public class Usuario {
     //atributos
 
-    @Id @NotNull private Long cpf;
+	@NotNull @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
 
-    @NotNull @Size(min = 4 , max = 15,  message = "Mínimo de 4 caracteres e máximo de 15." ) private String nome;
+	@NotNull @Size(min = 4 , max = 15,  message = "Mínimo de 4 caracteres e máximo de 15." ) private String nome;
 
     @NotNull @Size(min = 4 , max = 15, message = "Mínimo de 4 caracteres e máximo de 15." ) private String sobrenome;
 
@@ -19,22 +21,15 @@ public class Usuario {
 
     @NotNull @Size(min = 6 , max = 12,  message = "Mínimo de 6 caracteres e máximo de 12." ) private String senha;
 
-    @Deprecated 
-    public Usuario(){
-
-    }
-
-    //METODOS DE ACESSO
-
-    public Long getCpf() {
-		return cpf;
+	public Long getId() {
+		return id;
 	}
 
-	public void setCpf(Long cpf) {
-		this.cpf = cpf;
-	}    
-    
-    public String getNome() {
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
 		return nome;
 	}
 
@@ -42,7 +37,7 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-    public String getSobrenome() {
+	public String getSobrenome() {
 		return sobrenome;
 	}
 
@@ -50,7 +45,7 @@ public class Usuario {
 		this.sobrenome = sobrenome;
 	}
 
-    public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
 
@@ -58,11 +53,13 @@ public class Usuario {
 		this.email = email;
 	}
 
-    public String getSenha() {
+	public String getSenha() {
 		return senha;
 	}
 
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
+    
+    
 }
