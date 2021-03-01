@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -46,10 +45,10 @@ public class ProdutoController {
 			ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
 	}
 	
-	@GetMapping("/disponivel")
-	public ResponseEntity<List<Produto>> findByDisponivel() {
-		return repository.findByDisponivel().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findByDisponivel());
+	@GetMapping("/disponivel/{disp}")
+	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
+		return repository.findByDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(repository.findByDisponivel(disp));
 	}
 
 	@PostMapping
