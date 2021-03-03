@@ -9,5 +9,5 @@ import com.brecho.Brecho.model.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
-	public List<Categoria> findAllByTipoIgnoreCaseLike(String tipo); 
+	public List<Categoria> findAllByTipoLikeIgnoreCase(String tipo); 
 }

@@ -28,16 +28,20 @@ public class Categoria {
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produtos;
 
-	@Deprecated
-	public Categoria() {
-	}
-
 	public Long getId() {
 		return id;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public List<Produto> getProdutos() {
@@ -47,5 +51,7 @@ public class Categoria {
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
+	
+	
 
 }
