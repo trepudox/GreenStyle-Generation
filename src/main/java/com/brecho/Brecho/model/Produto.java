@@ -15,7 +15,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Data @Getter @Setter
 public class Produto {
 
 	@Id
@@ -42,6 +41,8 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
+	
+	public Produto() {}
 
 	public Long getId() {
 		return id;
