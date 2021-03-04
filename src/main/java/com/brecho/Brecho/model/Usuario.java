@@ -11,7 +11,7 @@ import javax.validation.constraints.Size;
 public class Usuario {
     //atributos
 
-	@NotNull @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
 
 	@NotNull private String nome;
 
