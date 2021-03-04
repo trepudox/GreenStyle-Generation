@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.brecho.Brecho.model.Usuario;
 
-public class UserDetailslmpl implements UserDetails {
+public class UsuarioDetailsImpl implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -18,9 +18,9 @@ public class UserDetailslmpl implements UserDetails {
 	
 	private List<GrantedAuthority> authorities;
 	
-	public UserDetailslmpl() {}
+	public UsuarioDetailsImpl() {}
 	
-	public UserDetailslmpl(Usuario user) {
+	public UsuarioDetailsImpl(Usuario user) {
 		this.username = user.getNome();
 		this.password = user.getSenha();
 	} 
