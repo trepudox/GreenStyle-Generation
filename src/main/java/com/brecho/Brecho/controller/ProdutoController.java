@@ -18,52 +18,59 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Produto;
 import com.brecho.Brecho.repository.ProdutoRepository;
+import com.brecho.Brecho.service.ProdutoService;
 
 @RestController
 @RequestMapping("/produto")
 @CrossOrigin("*")
 public class ProdutoController {
-
+	
 	@Autowired
-	private ProdutoRepository repository;
+	private ProdutoService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Produto>> findAll() {
-		return repository.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
+		return service.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.findAll());
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> findById(@PathVariable(name="id") Long id) {
-		return repository.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findById(id).get());
+		return service.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.findById(id).get());
 	}
 	
 	@GetMapping("/nomeProduto/{nome}")
 	public ResponseEntity<List<Produto>> findByNomeContaining(@PathVariable(name="nome") String nome) {
-		return repository.findByNomeContainingIgnoreCase(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
+		return service.findByName(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.findByName(nome));
 	}
 	
 	@GetMapping("/disponivel/{disp}")
 	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
-		return repository.findByDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findByDisponivel(disp));
+		return service.findDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.findDisponivel(disp));
 	}
-
+	
+	@GetMapping("/brecho/{id}")
+	public ResponseEntity<List<Produto>> findByBrecho(@PathVariable Long id){
+		return service.findByBrecho(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
+			ResponseEntity.status(HttpStatus.OK).body(service.findByBrecho(id));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Produto> post (@Validated @RequestBody Produto produto){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(produto));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Produto> put (@Validated @RequestBody Produto produto){
-		return ResponseEntity.ok(repository.save(produto));
+		return ResponseEntity.ok(service.save(produto));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
-		repository.deleteById(id);
+		service.deleteProduto(id);
 	}
 
 	
