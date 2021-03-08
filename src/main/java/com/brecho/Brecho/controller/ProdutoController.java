@@ -24,9 +24,6 @@ import com.brecho.Brecho.service.ProdutoService;
 @RequestMapping("/produto")
 @CrossOrigin("*")
 public class ProdutoController {
-
-	@Autowired
-	private ProdutoRepository repository;
 	
 	@Autowired
 	private ProdutoService service;
@@ -45,16 +42,16 @@ public class ProdutoController {
 	
 	@GetMapping("/nomeProduto/{nome}")
 	public ResponseEntity<List<Produto>> findByNomeContaining(@PathVariable(name="nome") String nome) {
-		return repository.findByNomeContainingIgnoreCase(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+		return service.findByName(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
 			ResponseEntity.status(HttpStatus.OK).body(service.findByName(nome));
 	}
 	
 	@GetMapping("/disponivel/{disp}")
 	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
-		return repository.findByDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+		return service.findDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
 			ResponseEntity.status(HttpStatus.OK).body(service.findDisponivel(disp));
-	}
-
+	}	
+	
 	@PostMapping
 	public ResponseEntity<Produto> post (@Validated @RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(produto));
