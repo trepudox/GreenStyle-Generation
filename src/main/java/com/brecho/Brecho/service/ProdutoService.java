@@ -1,12 +1,15 @@
 package com.brecho.Brecho.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.brecho.Brecho.model.Brecho;
 import com.brecho.Brecho.model.Produto;
+import com.brecho.Brecho.repository.BrechoRepository;
 import com.brecho.Brecho.repository.ProdutoRepository;
 
 @Service
@@ -14,6 +17,9 @@ public class ProdutoService {
 
 	@Autowired
 	private ProdutoRepository produtoRepository;
+	
+	@Autowired
+	private BrechoRepository brechoRepository;
 
 	public List<Produto> findAll() {
 		return produtoRepository.findAll();
@@ -25,6 +31,18 @@ public class ProdutoService {
 
 	public List<Produto> findDisponivel(boolean disp) {
 		return produtoRepository.findByDisponivel(disp);
+	}
+	
+	public List<Produto> findByBrecho(Long id){
+		Optional<Brecho> b = brechoRepository.findById(id);
+		
+		if(b.isPresent()) {
+			return produtoRepository.findByBrecho(b.get());
+		}
+		else {
+			List<Produto> listEmpty = new ArrayList<>();
+			return  listEmpty;
+		}
 	}
 
 	public void deleteProduto(long id) {

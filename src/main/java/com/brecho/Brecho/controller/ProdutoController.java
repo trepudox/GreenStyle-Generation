@@ -50,7 +50,13 @@ public class ProdutoController {
 	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
 		return service.findDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
 			ResponseEntity.status(HttpStatus.OK).body(service.findDisponivel(disp));
-	}	
+	}
+	
+	@GetMapping("/brecho/{id}")
+	public ResponseEntity<List<Produto>> findByBrecho(@PathVariable Long id){
+		return service.findByBrecho(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
+			ResponseEntity.status(HttpStatus.OK).body(service.findByBrecho(id));
+	}
 	
 	@PostMapping
 	public ResponseEntity<Produto> post (@Validated @RequestBody Produto produto){
