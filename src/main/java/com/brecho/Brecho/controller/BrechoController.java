@@ -26,9 +26,6 @@ import com.brecho.Brecho.service.BrechoService;
 public class BrechoController {
 	
 	@Autowired
-	private BrechoRepository repository;
-	
-	@Autowired
 	private BrechoService service;
 	
 	@GetMapping
@@ -48,12 +45,12 @@ public class BrechoController {
 	
 	@PostMapping
 	public ResponseEntity<Brecho> postBrecho(@Validated @RequestBody Brecho brecho){
-		return new ResponseEntity<Brecho>(service.postBrecho(brecho), HttpStatus.CREATED);
+		return new ResponseEntity<Brecho>(service.save(brecho), HttpStatus.CREATED);
 	}
 	
 	@PutMapping
 	public ResponseEntity<Brecho> putBrecho(@Validated @RequestBody Brecho brecho){
-		return new ResponseEntity<Brecho>(HttpStatus.OK);
+		return new ResponseEntity<Brecho>(service.save(brecho), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/deletarBrecho/{id}")

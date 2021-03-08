@@ -32,7 +32,7 @@ public class BrechoService {
 		return repository.findAllByNomeContainingIgnoreCase(nome);
 	}
 	
-	public Brecho postBrecho (Brecho brecho){
+	public Brecho save (Brecho brecho){
 		return repository.save(brecho);
 	}		
 	
