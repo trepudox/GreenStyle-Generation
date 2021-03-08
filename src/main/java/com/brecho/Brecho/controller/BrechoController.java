@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Brecho;
 import com.brecho.Brecho.repository.BrechoRepository;
+import com.brecho.Brecho.service.BrechoService;
 
 @RestController
 @CrossOrigin(origins="*", allowedHeaders = "*")
@@ -25,38 +26,35 @@ import com.brecho.Brecho.repository.BrechoRepository;
 public class BrechoController {
 	
 	@Autowired
-	private BrechoRepository repository;
+	private BrechoService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Brecho>> findAll(){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
+		return new ResponseEntity<List<Brecho>>(service.findAll(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Brecho> findById(@PathVariable Long id){
-		return repository.findById(id)
-				.map(resp -> ResponseEntity.status(HttpStatus.OK).body(resp))
-				.orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());		
+		return new ResponseEntity<Brecho>(service.findById(id), HttpStatus.OK);		
 	}
 	
 	@GetMapping("/nomeBrecho/{nome}")
 	public ResponseEntity<List<Brecho>> findByNome(@PathVariable String nome){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.findAllByNomeContainingIgnoreCase(nome));
+		return new ResponseEntity<List<Brecho>>(service.findByName(nome), HttpStatus.OK);
 	}
 	
 	@PostMapping
 	public ResponseEntity<Brecho> postBrecho(@Validated @RequestBody Brecho brecho){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(brecho));
+		return new ResponseEntity<Brecho>(service.save(brecho), HttpStatus.CREATED);
 	}
 	
 	@PutMapping
 	public ResponseEntity<Brecho> putBrecho(@Validated @RequestBody Brecho brecho){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(brecho));
+		return new ResponseEntity<Brecho>(service.save(brecho), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/deletarBrecho/{id}")
 	public void deleteBrecho(@PathVariable Long id) {
-		repository.deleteById(id);
+		service.deleteById(id);
 	}
-
 }

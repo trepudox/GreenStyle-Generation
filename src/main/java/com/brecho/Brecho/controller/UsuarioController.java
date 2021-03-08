@@ -2,6 +2,8 @@ package com.brecho.Brecho.controller;
 
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.brecho.Brecho.model.UsuarioLogin;
 import com.brecho.Brecho.model.Usuario;
 import com.brecho.Brecho.service.UsuarioService;
@@ -28,7 +30,7 @@ public class UsuarioController {
 	}
 	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> post(@RequestBody Usuario usuario){
+	public ResponseEntity<Usuario> post(@Valid @RequestBody Usuario usuario){
 		return ResponseEntity.status(HttpStatus.CREATED).body(usuarioService.cadastrarUsuario(usuario));
 	}
 
