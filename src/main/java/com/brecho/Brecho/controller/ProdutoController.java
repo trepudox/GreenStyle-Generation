@@ -24,47 +24,50 @@ import com.brecho.Brecho.service.ProdutoService;
 @RequestMapping("/produto")
 @CrossOrigin("*")
 public class ProdutoController {
+
+	@Autowired
+	private ProdutoRepository repository;
 	
 	@Autowired
 	private ProdutoService service;
 	
 	@GetMapping
 	public ResponseEntity<List<Produto>> findAll() {
-		return service.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.findAll());
+		return repository.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.encontrarTodos());
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> findById(@PathVariable(name="id") Long id) {
-		return service.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.findById(id).get());
+		return repository.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(repository.findById(id).get());
 	}
 	
 	@GetMapping("/nomeProduto/{nome}")
 	public ResponseEntity<List<Produto>> findByNomeContaining(@PathVariable(name="nome") String nome) {
-		return service.findByName(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.findByName(nome));
+		return repository.findByNomeContainingIgnoreCase(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
 	}
 	
 	@GetMapping("/disponivel/{disp}")
 	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
-		return service.findDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.findDisponivel(disp));
-	}	
-	
+		return repository.findByDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(repository.findByDisponivel(disp));
+	}
+
 	@PostMapping
 	public ResponseEntity<Produto> post (@Validated @RequestBody Produto produto){
-		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(produto));
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Produto> put (@Validated @RequestBody Produto produto){
-		return ResponseEntity.ok(service.save(produto));
+		return ResponseEntity.ok(repository.save(produto));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
-		service.deleteProduto(id);
+		repository.deleteById(id);
 	}
 
 	
