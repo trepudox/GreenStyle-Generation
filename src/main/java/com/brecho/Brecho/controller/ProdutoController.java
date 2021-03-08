@@ -46,13 +46,13 @@ public class ProdutoController {
 	@GetMapping("/nomeProduto/{nome}")
 	public ResponseEntity<List<Produto>> findByNomeContaining(@PathVariable(name="nome") String nome) {
 		return repository.findByNomeContainingIgnoreCase(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findByNomeContainingIgnoreCase(nome));
+			ResponseEntity.status(HttpStatus.OK).body(service.findByName(nome));
 	}
 	
 	@GetMapping("/disponivel/{disp}")
 	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
 		return repository.findByDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findByDisponivel(disp));
+			ResponseEntity.status(HttpStatus.OK).body(service.findDisponivel(disp));
 	}
 
 	@PostMapping
@@ -67,7 +67,7 @@ public class ProdutoController {
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable long id) {
-		repository.deleteById(id);
+		service.deleteProduto(id);
 	}
 
 	
