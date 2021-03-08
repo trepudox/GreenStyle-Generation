@@ -48,17 +48,16 @@ public class BrechoController {
 	
 	@PostMapping
 	public ResponseEntity<Brecho> postBrecho(@Validated @RequestBody Brecho brecho){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(brecho));
+		return new ResponseEntity<Brecho>(service.postBrecho(brecho), HttpStatus.CREATED);
 	}
 	
 	@PutMapping
 	public ResponseEntity<Brecho> putBrecho(@Validated @RequestBody Brecho brecho){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(brecho));
+		return new ResponseEntity<Brecho>(HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/deletarBrecho/{id}")
 	public void deleteBrecho(@PathVariable Long id) {
-		repository.deleteById(id);
+		service.deleteById(id);
 	}
-
 }
