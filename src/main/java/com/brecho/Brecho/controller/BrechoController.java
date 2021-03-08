@@ -17,14 +17,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Brecho;
+import com.brecho.Brecho.repository.BrechoRepository;
 import com.brecho.Brecho.service.BrechoService;
 
 @RestController
 @CrossOrigin(origins="*", allowedHeaders = "*")
 @RequestMapping("/brecho")
-public class BrechoController {	
+public class BrechoController {
 	
-		
+	@Autowired
+	private BrechoRepository repository;
+	
 	@Autowired
 	private BrechoService service;
 	
@@ -45,17 +48,17 @@ public class BrechoController {
 	
 	@PostMapping
 	public ResponseEntity<Brecho> postBrecho(@Validated @RequestBody Brecho brecho){
-		return new ResponseEntity<Brecho>(service.postBrecho(brecho), HttpStatus.CREATED);
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(brecho));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Brecho> putBrecho(@Validated @RequestBody Brecho brecho){
-		return new ResponseEntity<Brecho>(HttpStatus.OK);
+		return ResponseEntity.status(HttpStatus.OK).body(repository.save(brecho));
 	}
 	
 	@DeleteMapping("/deletarBrecho/{id}")
 	public void deleteBrecho(@PathVariable Long id) {
-		service.deleteById(id);
+		repository.deleteById(id);
 	}
 
 }

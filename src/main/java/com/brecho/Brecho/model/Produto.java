@@ -37,6 +37,8 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
+	
+	public Produto() {}
 
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
