@@ -10,12 +10,7 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-
 @Entity
-@Data @Getter @Setter
 public class Produto {
 
 	@Id
@@ -42,7 +37,13 @@ public class Produto {
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
+	
+	public Produto() {}
 
+	@ManyToOne
+	@JsonIgnoreProperties("produtos")
+	private Brecho brecho;
+	
 	public Long getId() {
 		return id;
 	}
@@ -98,7 +99,13 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
-	
-	
 
+	public Brecho getBrecho() {
+		return brecho;
+	}
+
+	public void setBrecho(Brecho brecho) {
+		this.brecho = brecho;
+	}
+	
 }

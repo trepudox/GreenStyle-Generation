@@ -16,44 +16,42 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Categoria;
-import com.brecho.Brecho.repository.CategoriaRepository;
+import com.brecho.Brecho.service.CategoriaService;
 
 @RestController
 @RequestMapping(path = "/categoria")
 public class CategoriaController {
 	
 	@Autowired
-	private CategoriaRepository repository;
+	private CategoriaService service;
 	
 	@GetMapping("/{id}")
-		public ResponseEntity<Categoria> getById(@PathVariable Long id){
-		return repository.findById(id).isPresent()?ResponseEntity.status(HttpStatus.OK)
-				.body(repository.findById(id).get()):ResponseEntity.notFound().build();
+		public ResponseEntity<Categoria> findById(@PathVariable Long id){
+			return new ResponseEntity<Categoria>(service.findById(id), HttpStatus.OK);		
+		}
+	
+	@GetMapping("/tipo/{tipo}")
+	public ResponseEntity<List<Categoria>> getByTipo(@PathVariable String tipo){
+		return ResponseEntity.ok(service.findByTipo(tipo));
 	}
 	
 	@GetMapping
 	public ResponseEntity<List<Categoria>> getAll(){
-		return ResponseEntity.ok(repository.findAll());
+		return ResponseEntity.ok(service.findAll());
 	}
 	
 	@PostMapping
 	public ResponseEntity<Categoria> post(@Validated @RequestBody Categoria categoria){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categoria));
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(categoria));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Categoria> put(@RequestBody Categoria categoria){
-		return ResponseEntity.status(HttpStatus.OK).body(repository.save(categoria));
+		return ResponseEntity.status(HttpStatus.OK).body(service.save(categoria));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void delete(@PathVariable Long id) {
-		repository.deleteById(id);
-	}
-	
-	@GetMapping("/tipo/{tipo}")
-	public ResponseEntity<List<Categoria>> getByTipo(@PathVariable String tipo){
-		return ResponseEntity.ok(repository.findAllByTipoLikeIgnoreCase(tipo));
-	}
-	
+		service.delete(id);
+	}	
 }

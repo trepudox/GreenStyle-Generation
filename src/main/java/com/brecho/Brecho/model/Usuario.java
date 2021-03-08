@@ -11,15 +11,17 @@ import javax.validation.constraints.Size;
 public class Usuario {
     //atributos
 
-	@NotNull @Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY) private Long id;
 
-	@NotNull @Size(min = 4 , max = 15,  message = "Mínimo de 4 caracteres e máximo de 15." ) private String nome;
+	@NotNull private String nome;
 
-    @NotNull @Size(min = 4 , max = 15, message = "Mínimo de 4 caracteres e máximo de 15." ) private String sobrenome;
+    @NotNull private String sobrenome;
+    
+    @NotNull @Size(min = 11 , max = 11, message = "Mínimo de 11 caracteres e máximo de 11." ) private String cpf;
 
     @NotNull private String email;
 
-    @NotNull @Size(min = 6 , max = 12,  message = "Mínimo de 6 caracteres e máximo de 12." ) private String senha;
+    @NotNull @Size(min = 6 ,  message = "Mínimo de 6 caracteres e máximo de 12." ) private String senha;
 
 	public Long getId() {
 		return id;
@@ -43,6 +45,14 @@ public class Usuario {
 
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
+	}
+	
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
 
 	public String getEmail() {
