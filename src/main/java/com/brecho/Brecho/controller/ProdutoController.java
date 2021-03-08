@@ -53,7 +53,7 @@ public class ProdutoController {
 	}
 	
 	@GetMapping("/brecho/{id}")
-	public ResponseEntity<List<Produto>> findByBrecho(Long id){
+	public ResponseEntity<List<Produto>> findByBrecho(@PathVariable Long id){
 		return service.findByBrecho(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
 			ResponseEntity.status(HttpStatus.OK).body(service.findByBrecho(id));
 	}
