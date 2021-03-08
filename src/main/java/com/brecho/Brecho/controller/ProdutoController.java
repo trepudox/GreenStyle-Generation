@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Produto;
 import com.brecho.Brecho.repository.ProdutoRepository;
+import com.brecho.Brecho.service.ProdutoService;
 
 @RestController
 @RequestMapping("/produto")
@@ -27,10 +28,13 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository repository;
 	
+	@Autowired
+	private ProdutoService service;
+	
 	@GetMapping
 	public ResponseEntity<List<Produto>> findAll() {
 		return repository.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findAll());
+			ResponseEntity.status(HttpStatus.OK).body(service.encontrarTodos());
 	}
 	
 	@GetMapping("/{id}")
