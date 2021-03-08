@@ -33,14 +33,14 @@ public class ProdutoController {
 	
 	@GetMapping
 	public ResponseEntity<List<Produto>> findAll() {
-		return repository.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.encontrarTodos());
+		return service.findAll().size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.findAll());
 	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> findById(@PathVariable(name="id") Long id) {
-		return repository.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(repository.findById(id).get());
+		return service.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
+			ResponseEntity.status(HttpStatus.OK).body(service.findById(id).get());
 	}
 	
 	@GetMapping("/nomeProduto/{nome}")
@@ -57,12 +57,12 @@ public class ProdutoController {
 
 	@PostMapping
 	public ResponseEntity<Produto> post (@Validated @RequestBody Produto produto){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(produto));
+		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(produto));
 	}
 	
 	@PutMapping
 	public ResponseEntity<Produto> put (@Validated @RequestBody Produto produto){
-		return ResponseEntity.ok(repository.save(produto));
+		return ResponseEntity.ok(service.save(produto));
 	}
 	
 	@DeleteMapping("/{id}")
