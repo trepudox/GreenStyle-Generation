@@ -1,15 +1,30 @@
-.ft-12{
-    font-size: 12pt;
+.fs-20{
+    font-size: 20pt;
 }
 
-.ft-18{
+.fs-18{
     font-size: 18pt;
 }
 
-.ft-8{
+.fs-12{
+    font-size: 12pt;
+}
+
+.fs-10{
     font-size: 10pt;
 }
 
-.fc{
+.fs-8{
+    font-size: 8pt;
+}
+
+.fc-verde{
     color: #75A26C;
 }
+
+
+
+.bg-escuro{
+
+}
+
