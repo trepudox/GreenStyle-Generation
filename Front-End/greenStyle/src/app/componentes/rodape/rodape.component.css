@@ -1,0 +1,21 @@
+.bg-footer{
+    background-color: #2C2E2C;
+}
+
+.bg-hr{
+    background-color: #5e8c58;
+}
+
+.hover-item:hover{
+    transition: 0.2s;
+    transform: scale(1.05);
+    opacity: 0.7;
+    color: #75A26C;
+}
+
+.hover-item:not(:hover){
+    transition: 0.2s;
+    transform: scale(1);
+    opacity: 1;
+    color: #75A26C;
+}
