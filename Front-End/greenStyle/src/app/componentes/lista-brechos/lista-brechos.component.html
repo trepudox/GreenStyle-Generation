@@ -74,23 +74,20 @@
             </div>
         </div>
 
-
-
     </div>
 
     <!-- Fim Lista de Brechos -->
 
     <!-- Inicio jumbotron Parceria -->
-
     <div class="row bg-greenstyle mt-3">
         <div class="col-md-12 ">
-            <div class="jumbotron-fluid text-white ml-3">
+            <div class="jumbotron-fluid text-white mt-2 ml-3">
                 <h2>Conheça nossos parceiros e suas roupas</h2>
                 <p class="lead">Roupas de qualidade e sustentaveis</p>
                 <hr class="my-4">
                 <p>Quer ser um parceiro?
                     <a class="btn btn-outline-light ml-4 bg-greenstyle" data-toggle="modal"
-                        data-target=".bd-example-modal-xl" href="#" role="button">Clique Aqui</a>
+                        data-target=".bd-example-modal-lg" href="#" role="button">Clique Aqui</a>
                 </p>
             </div>
         </div>
@@ -101,7 +98,6 @@
     <div class="row mt-2 text-center fc-verde">
         <div class="col-md-4 d-flex justify-content-center  ">
             <div class="card border-0" style="width: 18rem;">
-
                 <div class="d-flex justify-content-center">
                     <img class="circle" src="../../../assets/images/icone-solicitacao.png" alt="Imagem da solicitaçao">
                 </div>
@@ -109,7 +105,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Solicitação</h5>
                     <p class="card-text">O Algodão organico é uma alternativa para o algodão convencional, que mesmo
-                        sendo uma fibra natural é produzido de modo prejudial ao mei ambiente</p>
+                        sendo uma fibra natural é produzido de modo prejudicial ao meio ambiente</p>
                 </div>
             </div>
         </div>
@@ -125,7 +121,7 @@
                 <div class="card-body">
                     <h5 class="card-title">Análise</h5>
                     <p class="card-text">O Algodão organico é uma alternativa para o algodão convencional, que mesmo
-                        sendo uma fibra natural é produzido de modo prejudial ao mei ambiente</p>
+                        sendo uma fibra natural é produzido de modo prejudicial ao meio ambiente</p>
                 </div>
             </div>
         </div>
@@ -147,57 +143,62 @@
     <!-- inicio Solicitação-Analise-Arpovação -->
 
     <!-- MODAL -->
-    <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
 
-                <div class="row">
-                    <div class="col-md-6 ml-3 fc-verde">
+                <div class="container-fluid">
 
-                        <div class="row">
-                            <div class="col-md-12 border border-light rounded mt-3 ml-2 mr-2 mb-3">
-                                <h2 class=" mt-3">Solicitação</h2>
-                                <hr>
+                    <div class="row d-flex justify-content-center ">
 
-                                <div class="form-group">
-                                    <label for="">Razão social</label>
-                                    <input class="form-control" type="text" name="razao-socail-parceiro" id="razao-social-parceiro">
+                        <div class="col-md-12 ml-3 fc-verde">
 
-                                    <label for="">Nome Fantasia</label>
-                                    <input class="form-control" type="text" name="fantasia-parceiro" id="fantasia-parceiro">
+                            <div class="row d-flex justify-content-center">
 
-                                    <label for="">Endereço</label>
-                                    <input class="form-control" type="text" name="endereco-parceiro" id="endereco-parceiro">
+                                <div class="col-md-10 border border-light rounded mt-3 mb-3">
+                                    <h2 class=" mt-3">Solicitação</h2>
+                                    <hr>
 
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="">CNPJ</label>
-                                            <input type="text" class="form-control">
+                                    <div class="form-group">
+                                        <label for="">Razão social</label>
+                                        <input class="form-control" type="text" name="razao-socail-parceiro"
+                                            id="razao-social-parceiro">
+
+                                        <label for="">Nome Fantasia</label>
+                                        <input class="form-control" type="text" name="fantasia-parceiro"
+                                            id="fantasia-parceiro">
+
+                                        <label for="">Endereço</label>
+                                        <input class="form-control" type="text" name="endereco-parceiro"
+                                            id="endereco-parceiro">
+
+                                        <div class="row d-flex justify-content-center">
+                                            <div class="col">
+                                                <label for="">CNPJ</label>
+                                                <input type="text" class="form-control">
+                                            </div>
+                                            <div class="col">
+                                                <label for="">Telefone</label>
+                                                <input type="text" class="form-control">
+                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <label for="">Telefone</label>
-                                            <input type="text" class="form-control">
-                                        </div> 
+
+                                        <label for="">Email</label>
+                                        <input class="form-control " type="email" name="email-parceiro"
+                                            id="email-parceiro">
+
+                                        <div class="modal-footer mt-5 d-flex justify-content-center">
+                                            <button type="button" class="btn btn-dark"
+                                                data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-success ml-5">Enviar</button>
+                                        </div>
+
                                     </div>
-
-                                    <label for="">Email</label>
-                                    <input class="form-control " type="email" name="email-parceiro" id="email-parceiro">
-
-                                    <div class="modal-footer mt-4 d-flex justify-content-center">
-                                        <button type="button" class="btn btn-dark" data-dismiss="modal">Cancelar</button>
-                                        <button type="button" class="btn btn-success ml-5">Enviar</button>
-                                      </div>
-
                                 </div>
                             </div>
-                        </div>                        
+                        </div>
                     </div>
-                    
-                    <div class="col-md-6">
-                        
-                    </div>
-                    
 
                 </div>
             </div>
@@ -206,3 +207,4 @@
 
 
     </div>
+</div>
