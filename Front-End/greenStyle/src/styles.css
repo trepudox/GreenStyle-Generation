@@ -21,3 +21,33 @@
 .fc-verde{
     color: #75A26C;
 }
+
+
+
+
+
+/* <Scrollbar> */
+
+        /* Width */
+        ::-webkit-scrollbar {
+            width: 13px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            opacity: 0.1;
+            background: #F7F7F7;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            opacity: 0;
+            background: #c7c7c7de;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a7a7a7de;
+        }
+
+        /* </Scrollbar> */
