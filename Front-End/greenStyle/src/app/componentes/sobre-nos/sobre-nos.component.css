@@ -26,13 +26,17 @@
     font-size: 9pt;
 }
 
+.br-10{
+    border-radius: 10px;
+}
+
 .clickable{
     cursor:pointer;
 }
 
 .animado:hover{
     transition: 0.25s;
-    transform: scale(1.03);
+    transform: scale(1.025);
     box-shadow: 4.5px 4.5px 4.5px rgba(0,0,0,0.25);
 }
 
@@ -49,6 +53,7 @@
 .imagem-card{
     max-width: 300px; 
     max-height: 300px;
+    border-radius: 9px 9px 2px 2px;
 }
 
 .icone-anm:hover{
@@ -68,6 +73,14 @@
     border-color: #2C2E2C;
     background-color: #2C2E2C;
     color: #75A26C;
-    border-radius: 0px;
+    border-radius: 10px;
     /*border-color: rgba(0,0,0,0.75);*/
+}
+
+.card-teste{
+    border-color: #b9b9b9;
+}
+
+.ods-borda{
+    border-radius: 3px;
 }
