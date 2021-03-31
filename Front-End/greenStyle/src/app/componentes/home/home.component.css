@@ -1,0 +1,74 @@
+.imgCardfull {
+  width: 100%;
+  min-height: 10em;
+  filter: brightness(35%);
+  transition: all 0.5s;
+}
+
+.imgMenu {
+  width: 100%;
+  min-height: 10em;
+  filter: brightness(46%);
+  transition: all 0.5s;
+}
+.teste-event{
+  filter: brightness(70%);
+  transition: all 1s;
+}
+
+.teste-event:hover{
+  filter: brightness(100%);
+}
+.bg-verde{
+  background-color: #5e8c58;
+}
+
+.bg-img{
+  background-image: url(../../../assets/images/imgPrincipal.png);
+}
+
+.border-radius-2{
+  border-radius: 7px;
+}
+
+.b-verde{
+  border-width: .1px;
+  border-style: solid;
+  border-color: #c1d1c0;
+}
+
+.event-sombra{
+  transition: all 0.5s;
+}
+
+.event-sombra:hover{
+  -webkit-filter: drop-shadow(15px 10px 5px rgba(165, 165, 165, 0.329));
+  filter: drop-shadow(15px 10px 5px rgba(141, 141, 141, 0.5));
+
+}
+
+.event-transform{
+  transition: all 0.5s;
+}
+
+.event-transform:hover{
+  transform: scale(1.1);
+}
+
+.event-transformCategoria{
+  transition: all 0.5s;
+}
+
+.event-transformCategoria:hover{
+  transform: scale(1.1);
+  
+}
+
+.card-body{
+  transition: all 0.3s;
+}
+
+.card:hover .card-body{
+  background-color: #5e8c58;
+  color: white;
+}
