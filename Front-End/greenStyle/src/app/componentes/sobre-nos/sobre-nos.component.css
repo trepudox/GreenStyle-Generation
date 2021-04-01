@@ -53,7 +53,7 @@
 .imagem-card{
     max-width: 300px; 
     max-height: 300px;
-    border-radius: 9px 9px 2px 2px;
+    border-radius: 8.5px 8.5px 2px 2px;
 }
 
 .icone-anm:hover{
@@ -77,10 +77,12 @@
     /*border-color: rgba(0,0,0,0.75);*/
 }
 
-.card-teste{
-    border-color: #b9b9b9;
-}
-
 .ods-borda{
     border-radius: 3px;
 }
+
+.b-verde{
+    border-width: .1px;
+    border-style: solid;
+    border-color: #c1d1c0;
+  }
