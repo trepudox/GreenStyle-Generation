@@ -6,6 +6,18 @@
   width: 100%;
   min-height: 10em;
   filter: brightness(35%);
+  cursor: pointer;
+}
+
+#div-1:hover #div-2{
+  transition: .3s;
+  font-size: 130%;
+  cursor: pointer;
+}
+
+#div-1:not(:hover) #div-2{
+  transition: .3s;
+  
 }
 
 .imgMenu {
