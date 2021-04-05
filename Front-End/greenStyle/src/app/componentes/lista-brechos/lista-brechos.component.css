@@ -1,13 +1,37 @@
-.tam-loja {
-    width: 100%;
-    height: 150px;
+.div-brecho {
+  width: 32rem;
 }
 
-.myImg {
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
+.div-brecho:hover {
+  transition: 0.25s;
+  transform: scale(0.985);
+  cursor: pointer;
+}
+
+.div-brecho:not(:hover) {
+  transition: 0.25s;
+  transform: scale(1);
+}
+
+.div-brecho:hover .titulo {
+  transition: 0.2s;
+  color: #75A26C;
+}
+
+.div-brecho:not(:hover) .titulo {
+  transition: 0.2s;
+  color: #000000;
+}
+
+.imagem-brecho {
+  height: auto; 
+  width: 150px; 
+  border-radius: 8.5px 0px 0px 8.5px;
+}
+
+.br-8{
+  border-radius: 8px;
+}
 
 .b-verde {
     border-width: .1px;
@@ -53,5 +77,30 @@
   height: 100%;
 }
 
+.justify-self-start{
+  justify-self: start;
+}
 
+.btn-green{
+  background-color: #5e8c58;
+  color: white;
+  transition: all 0.25s;
+}
 
+.btn-green:hover{
+  background-color: #4c7247;
+  color: white;
+}
+
+label {
+  display: inline;
+  margin-top: 15px;
+}
+
+.text:focus, input:focus, select:focus {
+  /* box-shadow: 0 0 0 0; */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.045), 0 0 5px #75A26C;
+  border: 1;
+  outline: 0;
+  border-color: #75A26C;
+}
