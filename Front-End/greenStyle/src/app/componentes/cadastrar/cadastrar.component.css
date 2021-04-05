@@ -1,0 +1,27 @@
+.bg-img
+{
+    background-image: url(../../../assets/images/img-cadastrar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bold
+{
+    font-weight: bold;
+}
+
+.border
+{
+    border-radius: 15px;
+}
+
+.login
+{
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.login:hover
+{
+    color: gray;
+}

@@ -14,6 +14,7 @@ import { ListaProdutosGeralComponent } from './componentes/lista-produtos-geral/
 import { ListaProdutosBrechoComponent } from './componentes/lista-produtos-brecho/lista-produtos-brecho.component';
 import { SobreNosComponent } from './componentes/sobre-nos/sobre-nos.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
+import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
     ListaProdutosGeralComponent,
     ListaProdutosBrechoComponent,
     SobreNosComponent,
-    CarrinhoComponent
+    CarrinhoComponent,
+    CadastrarComponent
   ],
   imports: [
     BrowserModule,
