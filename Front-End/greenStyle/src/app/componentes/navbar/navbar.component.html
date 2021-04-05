@@ -1,52 +1,62 @@
-<div class="container-fluid m-0 p-0">
-    <nav class="navbar navbar-expand-lg navbar-light px-5" style="background-color:#f9f9f9">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <a class="navbar-brand mr-4" href="#"><img width="85px" src="../../../assets/images/Icone_GreenStyle.png" alt="Ícone Green Style"></a>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;" href="#"><strong>Home</strong> <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;" routerLink='/brechos'><strong>Brechós</strong></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;" href="#"><strong>Produtos</strong></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;" href="#"><strong>Sobre</strong></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;" href="#"><strong>Contato</strong></a>
-              </li>
-          </ul>
-          
-          <!-- <i class="bi bi-search"></i> -->
 
-          <div class="col-auto">
-            <div class="input-group input-group-sm">
-              <input type="text" class="form-control text" id="autoSizingInputGroup" style="color: #5e8c58;" placeholder="Pesquisar">
-              <button class="btn btn-pesquisar btn-sm text" type="button" id="button-addon2"><i class="bi bi-search"></i></button>
-            </div>
-          </div>
-        
-          <div class="d-flex justify-content-around">
-          <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4"></i>
-            
-            <div class="d-flex align-items-center">
-              <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
-              <div class="d-flex flex-column justify-content-center align-items-center">
-                <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10" style="text-decoration: none;"><strong>Entre</strong></a>&nbsp;ou</p>
-                <p class="fc-verde d-flex m-0"><a href="" class="fc-verde hover-item fs-10" style="text-decoration: none;">&nbsp;<strong>Cadastre-se</strong></a></p>
-              </div>
-            </div>
-            
-          </div>
+<div class="container-fluid fixed-top m-0 p-0">
+  <nav class="navbar navbar-expand-lg navbar-light px-5" style="background-color:#f9f9f9">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
+    <a class="navbar-brand mr-4" routerLink="/home"><img width="85px" src="../../../assets/images/Icone_GreenStyle.png"
+        alt="Ícone Green Style"></a>
 
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
+            routerLink="/home"><strong>Home</strong> <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
+            href="#"><strong>Brechós</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
+            href="#"><strong>Produtos</strong></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
+            routerLink="/sobre-nos"><strong>Sobre</strong></a>
+        </li>
+      </ul>
+
+      <!-- <i class="bi bi-search"></i> -->
+
+      <div class="col-auto">
+        <div class="input-group input-group-sm">
+          <input type="text" class="form-control text" id="autoSizingInputGroup" style="color: #5e8c58;"
+            placeholder="Pesquisar">
+          <button class="btn btn-pesquisar btn-sm text" type="button" id="button-addon2"><i
+              class="bi bi-search"></i></button>
         </div>
-      </nav>
+      </div>
+
+      <div class="d-flex justify-content-around">
+        <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4 pb-1 hover-carrinho"></i>
+
+        <div class="d-flex align-items-center">
+          <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10"
+                style="text-decoration: none;"><strong>Entre</strong></a>&nbsp;ou</p>
+            <p class="fc-verde d-flex m-0"><a href="" class="fc-verde hover-item fs-10"
+                style="text-decoration: none;">&nbsp;<strong>Cadastre-se</strong></a></p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
+  </nav>
+</div>
+
+<div style="margin-bottom: 62px;"></div>
