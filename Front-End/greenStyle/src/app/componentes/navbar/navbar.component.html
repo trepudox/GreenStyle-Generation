@@ -47,7 +47,7 @@
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10"
-                style="text-decoration: none;"><strong>Entre</strong></a>&nbsp;ou</p>
+                style="text-decoration: none;" data-toggle="modal" data-target="#loginModal" ><strong>Entre</strong></a>&nbsp;ou</p>
             <p class="fc-verde d-flex m-0"><a href="" class="fc-verde hover-item fs-10"
                 style="text-decoration: none;">&nbsp;<strong>Cadastre-se</strong></a></p>
           </div>
@@ -60,3 +60,48 @@
 </div>
 
 <div style="margin-bottom: 62px;"></div>
+
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div>
+        <h5 class="modal-title" id="exampleModalLabel">CONTA GREEN STYLE</h5>
+        <p class="lead text-muted">O melhor da moda sustentavel é aqui</p>
+        </div>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+
+        <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
+          <form class="col-md-11">
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">E-mail:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Senha:</label>
+              <input type="password" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+
+
+        <div class="col-md-12 d-flex justify-content-center align-items-center ">
+        <button class="btn btn-green col-md-10 mt-4 mb-3">ENTRAR</button>
+        </div>
+
+        <hr class="mb-4">
+
+        <p class="text-center">Não tem uma conta? <a href="" roterLink='/cadastrar'>Cadastre-se</a></p>
+      </div>
+
+      <!-- <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-primary">Enviar</button>
+      </div> -->
+    </div>
+  </div>
+</div>
