@@ -51,27 +51,34 @@
     border-color: #5e8c58 ;
 }
 
-.text:focus, input:focus, select:focus {
-    box-shadow: 0 0 0 0;
-    border: 1;
-    outline: 0;
-    border-color: #5e8c58;
+
+.btn-green{
+  background-color: #5e8c58;
+  color: white;
+  transition: all 0.5s;
 }
 
+.btn-green:hover{
+  background-color: #4c7247;
+  color: white;
+}
 
-
-
+hr{
+  /* border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, transparent, #75A26C, transparent); */
+}
 
 /* Cor do placeholder */
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #5e8c58;
     opacity: 1; /* Firefox */
   }
-  
+
   :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: #5e8c58;
   }
-  
+
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: #5e8c58;
   }
