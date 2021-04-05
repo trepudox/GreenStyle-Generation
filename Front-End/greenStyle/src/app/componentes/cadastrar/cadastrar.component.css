@@ -1,28 +1,29 @@
-.icone
+.bg-img
 {
-    font-size: 24pt;
-    margin-bottom: 8px;
+    background-image: url(../../../assets/images/img-cadastrar.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.nav-item :hover .teste
+.bold
 {
-    transform: scale(0.9);
+    font-weight: bold;
+}
+
+.border
+{
+    border-radius: 15px;
+}
+
+.login
+{
+   text-decoration: none;
+   font-weight: bold;
+}
+
+.login:hover
+{
     color: gray;
-}
-
-.teste
-{
-    transition: all 0.3s;
-}
-
-.fs-100
-{
-    font-size: 100pt;
-}
-
-.fs-16
-{
-    font-size: 16pt;
 }
 
 .text:focus, input:focus, select:focus {
@@ -43,4 +44,3 @@
     background-color: #4c7247;
     color: white;
   }
-
