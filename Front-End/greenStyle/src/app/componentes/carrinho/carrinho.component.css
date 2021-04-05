@@ -1,0 +1,28 @@
+.icone
+{
+    font-size: 24pt;
+    margin-bottom: 8px;
+}
+
+.nav-item :hover .teste
+{
+    transform: scale(0.9);
+    color: gray;
+}
+
+.teste
+{
+    transition: all 0.3s;
+}
+
+.fs-100
+{
+    font-size: 100pt;
+}
+
+.fs-16
+{
+    font-size: 16pt;
+}
+
+
