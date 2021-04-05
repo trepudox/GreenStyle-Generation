@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Produto;
-import com.brecho.Brecho.repository.ProdutoRepository;
 import com.brecho.Brecho.service.ProdutoService;
 
 @RestController
 @RequestMapping("/produto")
-@CrossOrigin("*")
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class ProdutoController {
 	
 	@Autowired
@@ -44,12 +43,6 @@ public class ProdutoController {
 	public ResponseEntity<List<Produto>> findByNomeContaining(@PathVariable(name="nome") String nome) {
 		return service.findByName(nome).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
 			ResponseEntity.status(HttpStatus.OK).body(service.findByName(nome));
-	}
-	
-	@GetMapping("/disponivel/{disp}")
-	public ResponseEntity<List<Produto>> findByDisponivel(@PathVariable Boolean disp) {
-		return service.findDisponivel(disp).size() == 0 ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.findDisponivel(disp));
 	}
 	
 	@GetMapping("/brecho/{id}")

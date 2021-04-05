@@ -16,12 +16,14 @@ public class Usuario {
 	@NotNull private String nome;
 
     @NotNull private String sobrenome;
-    
+
     @NotNull @Size(min = 11 , max = 11, message = "Mínimo de 11 caracteres e máximo de 11." ) private String cpf;
-
+	
     @NotNull private String email;
-
+	
     @NotNull @Size(min = 6 ,  message = "Mínimo de 6 caracteres e máximo de 12." ) private String senha;
+	
+	@NotNull private String tipo;
 
 	public Long getId() {
 		return id;
@@ -70,6 +72,13 @@ public class Usuario {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-    
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
     
 }

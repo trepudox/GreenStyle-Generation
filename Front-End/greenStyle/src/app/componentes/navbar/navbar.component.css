@@ -1,8 +1,9 @@
 .hover-item:hover{
     transition: 0.15s;
-    transform: scale(1.05);
+    transform: scale(1.03);
     opacity: 0.80;
     color: #75A26C;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
 
 .hover-item:not(:hover){
@@ -12,14 +13,20 @@
     color: #75A26C;
 }
 
-.event-sombra{
-    transition: all 0.5s;
-   }
-   
-.event-sombra:hover{
-       -webkit-filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
-       filter: drop-shadow(15px 10px 5px rgba(0,0,0,.5));
-   }
+.hover-carrinho:hover{
+    transition: 0.15s;
+    transform: scale(1.05);
+    opacity: 0.80;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+
+.hover-carrinho:not(:hover){
+    transition: 0.15s;
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+}
 
 .input-pesquisar{
     border-radius: 15px;
@@ -44,7 +51,18 @@
     border-color: #5e8c58 ;
 }
 
+.text:focus, input:focus, select:focus {
+    box-shadow: 0 0 0 0;
+    border: 1;
+    outline: 0;
+    border-color: #5e8c58;
+}
 
+
+
+
+
+/* Cor do placeholder */
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: #5e8c58;
     opacity: 1; /* Firefox */
@@ -57,10 +75,4 @@
   ::-ms-input-placeholder { /* Microsoft Edge */
     color: #5e8c58;
   }
-
-.text:focus, input:focus, select:focus {
-    box-shadow: 0 0 0 0;
-    border: 1;
-    outline: 0;
-    border-color: #5e8c58;
-}
+/* Cor do placeholder */

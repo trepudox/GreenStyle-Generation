@@ -1,0 +1,138 @@
+.bg-verde {
+  background-color: #75A26C;
+}
+
+.imgCardfull {
+  width: 100%;
+  min-height: 10em;
+  filter: brightness(35%);
+  cursor: pointer;
+}
+
+#div-1:hover #div-2{
+  transition: .3s;
+  font-size: 130%;
+  cursor: pointer;
+}
+
+#div-1:not(:hover) #div-2{
+  transition: .3s;
+  
+}
+
+.imgMenu {
+  width: 100%;
+  min-height: 10em;
+  filter: brightness(46%);
+  transition: all 0.5s;
+}
+
+.bg-verde-escuro {
+  background-color: #5e8c58;
+}
+
+.border-radius-2 {
+  border-radius: 7px;
+}
+
+.b-verde {
+  border-width: .1px;
+  border-style: solid;
+  border-color: #c1d1c0;
+}
+
+.seta-hover:hover {
+  transition: 0.15s;
+  transform: scale(0.98);
+  background-color: #5e8c58;
+}
+
+.seta-hover:not(:hover) {
+  transition: 0.15s;
+  transform: scale(1);
+  background-color: #75A26C;
+}
+
+.animado1:hover {
+  transition: 0.25s;
+  transform: scale(.98);
+  background-color: #5e8c58;
+  color: white;
+}
+
+.animado1:not(:hover) {
+  transition: 0.25s;
+  transform: scale(1);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  color: black;
+}
+
+.icone-impacto {
+  font-size: 90pt;
+  color: #75A26C;
+}
+
+.quadrado:hover {
+  transition: 0.3s;
+  background-color: #75A26C;
+  transform: scale(1.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.quadrado:hover .icone-impacto {
+  transition: 0.3s;
+  color: white;
+}
+
+.quadrado:not(:hover) {
+  transition: 0.3s;
+  background-color: white;
+}
+
+.quadrado:not(:hover) .icone-impacto {
+  transition: 0.3s;
+  color: #75A26C;
+}
+
+.categoria {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.categoria:hover {
+  transition: .25s;
+  transform: scale(.97);
+  color: #5e8c58;
+}
+
+.categoria:not(:hover) {
+  transition: 0.25s;
+  background-color: white;
+}
+
+
+.brecho-parceiro:hover {
+  transition: 0.3s;
+  transform: scale(0.9875);
+  cursor: pointer;
+}
+
+.brecho-parceiro:not(:hover) {
+  transition: 0.3s;
+  transform: scale(1);
+}
+
+.brecho-parceiro:hover .seta-brecho {
+  transition: 0.3s;
+  transform: scale(1.05);
+  color: #5e8c58;
+}
+
+.brecho-parceiro:not(:hover) .seta-brecho {
+  transition: 0.3s;
+  transform: scale(1);
+  color: black;
+}

@@ -22,7 +22,7 @@ public class Categoria {
 
 	@NotNull
 	@Size(min = 3, max = 50, message = "Mínimo de 3 caracteres e máximo de 50.")
-	private String tipo;
+	private String nome;
 
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("categoria")
@@ -37,12 +37,12 @@ public class Categoria {
 		this.id = id;
 	}
 
-	public String getTipo() {
-		return tipo;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public List<Produto> getProdutos() {

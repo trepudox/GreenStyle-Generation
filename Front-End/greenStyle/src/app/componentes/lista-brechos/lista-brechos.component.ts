@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-brechos',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListaBrechosComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+     ) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    window.scroll(0, 0)
   }
 
 }
