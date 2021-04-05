@@ -10,7 +10,7 @@ export class CarrinhoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
+    window.scroll(0, 0)
   }
 
   finalizarCompra ()
