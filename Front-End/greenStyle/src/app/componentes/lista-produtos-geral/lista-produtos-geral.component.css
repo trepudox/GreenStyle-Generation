@@ -1,0 +1,85 @@
+.opa{
+    width: 100%;
+    background-color: black;
+}
+
+
+.imagem{
+    opacity: .3;
+}
+
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+
+ul{
+    list-style: none;
+}
+
+
+.ff{
+    font-family: arial;
+}
+
+
+.fs-13{
+    font-size: 13pt;
+}
+
+
+.cursor{
+    cursor: pointer;
+}
+
+
+input[class="unic"]{
+    display: none;
+}
+
+
+nav{
+    background-color: rgba(229, 229, 190, .7);
+    width: 150px;
+    height: 60%;
+    left: -150px;
+    position: absolute;
+    transition: all .5s;
+}
+
+
+input[type="checkbox"]:checked ~ nav{
+    transform: translateX(150px)
+}
+
+
+ul{
+    top: 70px;
+    position: absolute;
+    width: 100%;
+}
+
+
+a{
+    display: block;
+    padding: 20px 5px;
+    color: #75A26C;
+}
+
+
+label{
+    padding: 15px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+.designButt{    
+    background-color: #daa520;
+    color: white;
+    font-weight: bold;
+    border-radius: 30%;
+    border-style: solid;
+}

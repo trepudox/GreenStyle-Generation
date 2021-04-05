@@ -4,7 +4,6 @@ import java.util.Optional;
 
 import com.brecho.Brecho.model.Usuario;
 import com.brecho.Brecho.repository.UsuarioRepository;
-import com.brecho.Brecho.seguranca.UsuarioDetailsImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -26,8 +26,8 @@ public class CategoriaService {
 				.orElse(null);
 	}
 	
-	public List<Categoria> findByTipo(String tipo){
-		return repository.findAllByTipoLikeIgnoreCase(tipo);
+	public Categoria findByNome(String nome){
+		return repository.findByNome(nome);
 	}
 	
 	public Categoria save(@Validated @RequestBody Categoria categoria) {

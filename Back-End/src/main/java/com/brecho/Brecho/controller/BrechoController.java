@@ -17,12 +17,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.brecho.Brecho.model.Brecho;
-import com.brecho.Brecho.repository.BrechoRepository;
 import com.brecho.Brecho.service.BrechoService;
 
 @RestController
-@CrossOrigin(origins="*", allowedHeaders = "*")
 @RequestMapping("/brecho")
+@CrossOrigin(origins="*", allowedHeaders = "*")
 public class BrechoController {
 	
 	@Autowired
@@ -35,7 +34,7 @@ public class BrechoController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Brecho> findById(@PathVariable Long id){
-		return new ResponseEntity<Brecho>(service.findById(id), HttpStatus.OK);		
+		return new ResponseEntity<Brecho>(service.findById(id), HttpStatus.OK);
 	}
 	
 	@GetMapping("/nomeBrecho/{nome}")

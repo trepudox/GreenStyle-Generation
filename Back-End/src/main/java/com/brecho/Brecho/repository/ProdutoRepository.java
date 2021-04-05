@@ -12,8 +12,6 @@ import com.brecho.Brecho.model.Produto;
 public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
 	public List<Produto> findByNomeContainingIgnoreCase(String nome);
-
-	public List<Produto> findByDisponivel(Boolean disp);
 	
 	public List<Produto> findByBrecho(Brecho brecho);
 }
