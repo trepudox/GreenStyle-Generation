@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { ListaBrechosComponent } from './componentes/lista-brechos/lista-brechos.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'produtos-geral', component: ListaProdutosGeralComponent},
   {path: 'sobre-nos', component: SobreNosComponent},
   {path: 'carrinho', component: CarrinhoComponent},
+  {path: 'cadastrar', component: CadastrarComponent},
 
   {path: '', redirectTo: 'home', pathMatch:'full'}
 ];
