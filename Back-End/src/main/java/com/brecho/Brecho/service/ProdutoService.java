@@ -28,10 +28,6 @@ public class ProdutoService {
 	public List<Produto> findByName(String nome) {
 		return produtoRepository.findByNomeContainingIgnoreCase(nome);
 	}
-
-	public List<Produto> findDisponivel(boolean disp) {
-		return produtoRepository.findByDisponivel(disp);
-	}
 	
 	public List<Produto> findByBrecho(Long id){
 		Optional<Brecho> b = brechoRepository.findById(id);

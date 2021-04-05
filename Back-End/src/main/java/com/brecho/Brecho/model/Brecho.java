@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity //Testar o Lombok
+@Entity
 public class Brecho {
 	//Atributos
 	
@@ -26,6 +26,10 @@ public class Brecho {
 	@NotNull @Size(min = 3 , max = 45)
 		private String descricao;
 	
+	private String fotoPerfil;
+
+	private String fotoCapa;
+
 	@OneToMany(mappedBy = "brecho", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("brecho")
 	private List<Produto> produtos; 
@@ -54,6 +58,22 @@ public class Brecho {
 		this.descricao = descricao;
 	}
 
+	public String getFotoPerfil() {
+		return fotoPerfil;
+	}
+
+	public void setFotoPerfil(String fotoPerfil) {
+		this.fotoPerfil = fotoPerfil;
+	}
+
+	public String getFotoCapa() {
+		return fotoCapa;
+	}
+
+	public void setFotoCapa(String fotoCapa) {
+		this.fotoCapa = fotoCapa;
+	}
+
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
@@ -61,5 +81,5 @@ public class Brecho {
 	public void setProdutos(List<Produto> produtos) {
 		this.produtos = produtos;
 	}
-	
+
 }

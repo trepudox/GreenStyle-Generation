@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,6 +21,7 @@ import com.brecho.Brecho.service.CategoriaService;
 
 @RestController
 @RequestMapping(path = "/categoria")
+@CrossOrigin(allowedHeaders = "*", origins = "*")
 public class CategoriaController {
 	
 	@Autowired
@@ -30,9 +32,9 @@ public class CategoriaController {
 			return new ResponseEntity<Categoria>(service.findById(id), HttpStatus.OK);		
 		}
 	
-	@GetMapping("/tipo/{tipo}")
-	public ResponseEntity<List<Categoria>> getByTipo(@PathVariable String tipo){
-		return ResponseEntity.ok(service.findByTipo(tipo));
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<Categoria> getByNome(@PathVariable String nome){
+		return ResponseEntity.ok(service.findByNome(nome));
 	}
 	
 	@GetMapping

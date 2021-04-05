@@ -18,31 +18,27 @@ public class Produto {
 	private Long id;
 
 	@NotNull
-	@Size(min = 5, max = 70, message = "minimo 5 e maximo 70")// add Message
+	@Size(min = 5, max = 70, message = "minimo 5 e maximo 70")
 	private String nome;
 
 	@NotNull
 	private double preco;
 
 	@NotNull
-	private double desconto;
-
-	@NotNull
 	@Size(min = 5, max = 300, message = "minimo 5 e max 300")
 	private String descricao;
 
-	@NotNull
-	private boolean disponivel;
+	private String foto;
 
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Categoria categoria;
 	
-	public Produto() {}
-
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
 	private Brecho brecho;
+
+	public Produto() {}
 	
 	public Long getId() {
 		return id;
@@ -68,14 +64,6 @@ public class Produto {
 		this.preco = preco;
 	}
 
-	public double getDesconto() {
-		return desconto;
-	}
-
-	public void setDesconto(double desconto) {
-		this.desconto = desconto;
-	}
-
 	public String getDescricao() {
 		return descricao;
 	}
@@ -84,14 +72,14 @@ public class Produto {
 		this.descricao = descricao;
 	}
 
-	public boolean isDisponivel() {
-		return disponivel;
+	public String getFoto() {
+		return foto;
 	}
 
-	public void setDisponivel(boolean disponivel) {
-		this.disponivel = disponivel;
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
-
+	
 	public Categoria getCategoria() {
 		return categoria;
 	}
@@ -107,5 +95,6 @@ public class Produto {
 	public void setBrecho(Brecho brecho) {
 		this.brecho = brecho;
 	}
+
 	
 }
