@@ -9,7 +9,13 @@ export class CarrinhoComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+
+  }
+
+  finalizarCompra ()
+  {
+    alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
   }
 
 }

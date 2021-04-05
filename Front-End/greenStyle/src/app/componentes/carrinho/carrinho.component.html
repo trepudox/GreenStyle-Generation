@@ -1,1 +1,203 @@
-<p>carrinho works!</p>
+<div class="container-fluid">
+    <h2 class="text-center text-white mt-5" style="background-color: #75A26C; padding-bottom: 5px;">RESUMO DA COMPRA
+    </h2>
+
+    <!--Informações de entrega-->
+    <div class="row d-flex justify-content-center mt-5">
+        <div class="col-md-6">
+            <h4 class="text-center mb-5">ENDEREÇO DE ENTREGA</h4>
+            <div class="form">
+                <div class="form-row d-flex justify-content-center mb-3 fc-verde font-weight-bold">
+                    <div class="col-md-6">
+                        <label for="rua">Rua</label>
+                        <input type="text" class="form-control" name="rua" id="rua" placeholder="Rua">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="numero">Número</label>
+                        <input type="text" class="form-control" name="numero" id="numero" placeholder="Número">
+                    </div>
+                </div>
+                <div class="form-row d-flex justify-content-center mb-3 fc-verde font-weight-bold">
+                    <div class="col-md-4">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="cep">CEP</label>
+                        <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP">
+                    </div>
+                </div>
+
+                <div class="form-row justify-content-center mb-3 fc-verde font-weight-bold">
+                    <div class="col-md-3">
+                        <label for="telefone">Telefone</label>
+                        <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone">
+                    </div>
+                    <div class="col-md-5">
+                        <label for="nomeEntrega">Nome do destinarário</label>
+                        <input type="text" class="form-control" name="nomeEntrega" id="nomeEntrega"
+                            placeholder="Nome do destinatário">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--/Informações de entrega-->
+        <!--Itens do carrinho-->
+        <div class="col-md-6">
+            <h4 class="text-center mb-5">CARRINHO</h4>
+            <div class="row d-flex justify-content-center mt-5">
+                <div style="width: 600px; height: 260px; overflow-y: scroll;">
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-3 d-flex align-items-center">
+                                <img width="130px" src="../../../assets/images/Icone_GreenStyle.png" alt="...">
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card-body">
+                                    <h5 class="card-title">Camiseta Amarela</h5>
+                                    <p class="card-text">R$ 1500,00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 d-flex align-items-center justify-content-center">
+                                <i class="fas fa-minus-square mr-5 fs-16" style="color: red;"></i>
+                                <i class="fas fa-plus-square mr-5 fs-16" style="color: green;"></i>
+                                <i class="fas fa-trash fs-16 mr-3" style="color: red;"></i>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--/Itens do carrinho-->
+    <!--Informações de pagamento-->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-md-11">
+                <hr class="mt-5">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <h4 class="text-center mt-3 mb-5">PAGAMENTO</h4>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-6">
+                <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link active text-center" id="cartao-tab" data-toggle="tab" href="#cartao"
+                            role="tab" aria-controls="cartao" aria-selected="true"><i
+                                class="fas fa-credit-card fc-verde icone teste"> </i>
+                            <p class="fc-verde font-weight-bold d-md-block d-none teste">Cartão de Crédito </p>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link text-center" id="boleto-tab" data-toggle="tab" href="#boleto" role="tab"
+                            aria-controls="boleto" aria-selected="false"> <i class="fas fa-receipt fc-verde icone teste"></i>
+                            <p class="fc-verde font-weight-bold d-md-block d-none teste">Boleto</p>
+                        </a>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <a class="nav-link text-center" id="pix-tab" data-toggle="tab" href="#pix" role="tab"
+                            aria-controls="pix" aria-selected="false"><i class="fas fa-piggy-bank fc-verde icone teste"></i>
+                            <p class="fc-verde font-weight-bold d-md-block d-none teste">Pix </p>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content mb-5" id="myTabContent">
+                    <div class="tab-pane fade show active" id="cartao" role="tabpanel" aria-labelledby="cartao-tab">
+                        <div class="container col-md-12">
+                            <div class="col-md-12 d-flex flex-column justify-content-center">
+                                <form>
+                                    <h5 class="text-center mt-5">Dados do cartão</h5>
+                                    <div
+                                        class="form-row d-flex justify-content-center mt-3 mb-3 fc-verde font-weight-bold">
+                                        <div class="col-md-11">
+                                            <label for="numeroCartao">Número do cartão</label>
+                                            <input type="text" name="numeroCartao" id="numeroCartao"
+                                                class="form-control" placeholder="Número do cartão">
+                                        </div>
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center mb-3 fc-verde font-weight-bold">
+                                        <div class="col-md-11">
+                                            <label for="nomeCartao">Nome</label>
+                                            <input type="text" name="nomeCartao" id="nomeCartao" class="form-control"
+                                                placeholder="Nome impresso no cartão">
+                                        </div>
+
+                                    </div>
+                                    <div class="form-row d-flex justify-content-center fc-verde font-weight-bold">
+                                        <div class="col-md-3">
+                                            <label for="cvv">CVV</label>
+                                            <input type="text" name="cvv" id="cvv" class="form-control"
+                                                placeholder="CVV">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="validade">Validade</label>
+                                            <input type="text" name="validade" id="validade" class="form-control"
+                                                placeholder="00/00">
+                                        </div>
+                                        <div class="col-md-5">
+                                            <label for="cpf">CPF</label>
+                                            <input type="text" name="cpf" id="cpf" class="form-control"
+                                                placeholder="CPF do titular">
+                                        </div>
+
+                                    </div>
+                                </form>
+                                <div class="row d-flex justify-content-center mt-4">
+                                    <div class="col-md-11 d-flex justify-content-between ">
+                                        <p class="fs-16 font-weight-bold">TOTAL</p>
+                                        <p class="fs-16 font-weight-bold">R$ 1.500,00</p>
+                                    </div>
+                                </div>
+
+
+                                <div class="row d-flex justify-content-center">
+                                    <button class="btn btn-success mt-3 btn-lg" (click)="finalizarCompra()">
+                                        Finalizar
+                                        compra </button>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="boleto" role="tabpanel" aria-labelledby="boleto-tab">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-6">
+
+                                <p class="text-center fs-20 fc-verde font-weight-bold mt-5">Total R$ 1.500,00 à vista
+                                </p>
+                                <p class="text-center fs-18 fc-verde">Prazo para pagamento do boleto: 01/04/2021</p>
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-center">
+                            <button class="btn btn-success mt-3 btn-lg"> Gerar boleto </button>
+                        </div>
+
+                    </div>
+                    <div class="tab-pane fade" id="pix" role="tabpanel" aria-labelledby="pix-tab">
+
+                        <div class="row d-flex justify-content-center">
+                            <div class="col-md-6">
+
+                                <p class="text-center fs-20 fc-verde font-weight-bold mt-5">Total R$ 1.500,00 à vista
+                                </p>
+
+                                <p class="text-center fc-verde fs-18">Escaneie o QR Code abaixo para pagar agora</p>
+
+                                <p class="text-center fs-100"><i class="fas fa-qrcode"></i></p>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--/Informações de pagamento-->
+        </div>
