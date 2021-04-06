@@ -1,1 +1,363 @@
-<p>tela-admin works!</p>
+<!-- Container -->
+<div class="container-fluid bg-dark">
+  <div class="row d-flex justify-content-center">
+
+    <div class="col-md-10 my-4 d-flex justify-content-center mr-0 pr-0">
+
+      <div class="row">
+        <div class="col-md-10 d-flex justify-content-center align-items-center">
+          <h3></h3>
+          <h3 class="text-center text-light px-3">GREEN STYLE | MODA SUSTAVEL | ADMINISTRE</h3>
+        </div>
+
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+          <img src="../../../assets/images/admin-img/planet-earth.png" alt="Ícone mão no mundo" class="img-fluid py-2"
+            width="50%" style="max-width: 126px; min-width: 63px;">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+<!-- /Container -->
+
+<!-- Paginação -->
+<div class="container d-flex justify-content-center col-md-12">
+  <nav class="mt-5">
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+
+      <a class="nav-item nav-link fc-verde" id="nav-parceiro-tab" data-toggle="tab" href="#nav-parceiro" role="tab" aria-controls="nav-parceiro" aria-selected="true">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-person-fill content-pag" viewBox="0 0 16 16">
+          <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm2 5.755V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-.245S4 12 8 12s5 1.755 5 1.755z"/>
+        </svg>
+        &nbsp;<p class="content-pag m-0">Gestão de Parceiros</p>
+      </a>
+
+      <a class="nav-item nav-link fc-verde item-pag" id="nav-categoria-tab" data-toggle="tab" href="#nav-categoria" role="tab" aria-controls="nav-categoria" aria-selected="false"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bookmarks-fill content-pag" viewBox="0 0 16 16">
+        <path d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5V4z"/>
+        <path d="M4.268 1A2 2 0 0 1 6 0h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L13 13.768V2a1 1 0 0 0-1-1H4.268z"/>
+      </svg>&nbsp;<p class="content-pag m-0">Gestão de Categorias</p></a>
+
+      <a class="nav-item nav-link fc-verde item-pag" id="nav-produto-tab" data-toggle="tab" href="#nav-produto" role="tab" aria-controls="nav-produto" aria-selected="false">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-plus-fill content-pag" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM8.5 8a.5.5 0 0 0-1 0v1.5H6a.5.5 0 0 0 0 1h1.5V12a.5.5 0 0 0 1 0v-1.5H10a.5.5 0 0 0 0-1H8.5V8z"/>
+        </svg>&nbsp;<p class="content-pag m-0">Gestão de Produtos</p></a>
+
+    </div>
+  </nav>
+</div>
+<!-- /Paginação -->
+
+<!-- Conteudo Paginação -->
+<div class="tab-content" id="nav-tabContent" style="margin-bottom:5%;">
+    <!-- conteudo - PAGINAÇÃO 1 -->
+    <div class="tab-pane fade show active" id="nav-parceiro" role="tabpanel" aria-labelledby="nav-parceiro-tab">
+    <div class="container">
+
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header bg-verde" id="headingOne">
+            <h5 class="mb-0 ">
+              <button class="btn subTitulo" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg>
+                Novo Parceiro
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body ">
+              <div class="container col-md-12">
+              <form>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="nomeComercial">Nome Comercial</label>
+                    <input type="text" class="form-control" id="nomeComercial" placeholder="Digite o nome comercial do novo parceiro">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="fotoPerfil">Foto de Perfil</label>
+                  <input type="text" class="form-control" id="fotoPerfil" placeholder="URL da foto de perfil do estabelicemento">
+                </div>
+                <div class="form-group">
+                  <label for="fotoCapa">Foto de Capa</label>
+                  <input type="text" class="form-control" id="fotoCapa" placeholder="URL da foto de capa do estabelicemento">
+                </div>
+
+                <button type="submit" class="btn btn-green">Cadastrar</button>
+              </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header bg-verde" id="headingTwo">
+            <h5 class="mb-0">
+              <button class="btn subTitulo collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                  <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+                </svg>
+                Gestão de Parceiro
+              </button>
+            </h5>
+          </div>
+
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome Comercial</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Foto Perfil</th>
+                    <th scope="col">Foto Capa</th>
+                    <th scope="col">Modificações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Brecho Teste</td>
+                    <td>Descrição Teste</td>
+                    <td>www.FotoPerfilTeste.com</td>
+                    <td>www.FotocapaTeste.com</td>
+                    <td class="d-flex justify-content-end">
+                      <button class="btn btn-info mr-3">Editar</button>
+                      <button class="btn btn-danger">Deletar</button>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!--  FIM CONTENT OPÇÃO -->
+    </div>
+    </div>
+     <!-- conteudo - PAGINAÇÃO 1 -->
+
+    <!-- conteudo - PAGINAÇÃO 2 -->
+    <div class="tab-pane fade" id="nav-categoria" role="tabpanel" aria-labelledby="nav-categoria-tab">
+      <div class="container">
+        <!-- teste de paginação diferenciada -->
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header bg-verde" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn subTitulo" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg>
+                  Nova Categoria
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="container">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="nome">Nome Categoria</label>
+                      <input type="text" class="form-control" id="nome" placeholder="Ex: Camisetas">
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-green">Cadastrar</button>
+                </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-verde" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn subTitulo collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                    <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+                  </svg>
+                  Gestão de Categorias
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body d-flex justify-content-center">
+                <table class="table table-hover col-md-4">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Modificações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Camisetas</td>
+                      <td class="d-flex justify-content-end">
+                        <button class="btn btn-info mr-3">Editar</button>
+                        <button class="btn btn-danger">Deletar</button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--  FIM CONTENT OPÇÃO -->
+      </div>
+    </div>
+    <!-- conteudo - PAGINAÇÃO 2 -->
+
+    <!-- conteudo - PAGINAÇÃO 3 -->
+    <div class="tab-pane fade" id="nav-produto" role="tabpanel" aria-labelledby="nav-produto-tab">
+      <div class="container">
+        <!-- teste de paginação diferenciada -->
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header bg-verde" id="headingOne">
+              <h5 class="mb-0">
+                <button class="btn subTitulo" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
+                    <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                  </svg> Novo Produto
+                </button>
+              </h5>
+            </div>
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="container">
+                <form>
+                  <div class="form-row">
+                    <div class="form-group col-md-12">
+                      <label for="brecho">Brecho</label>
+                      <select id="brecho" class="form-control">
+                        <option selected>Brecho do zézinho</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" class="form-control">
+                      <option selected>Camisetas</option>
+                    </select>
+                  </div>
+                </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="nome">Nome</label>
+                      <input type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="preco">Preço</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="inputGroupPrepend">R$</span>
+                        </div>
+                        <input type="number" class="form-control" id="preco" placeholder="Preço do Produto" aria-describedby="inputGroupPrepend" required>
+                  </div>
+                </div>
+              </div>
+                  <div class="form-group">
+                    <label for="foto">Foto Produto</label>
+                    <input type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                  </div>
+
+
+                  <button type="submit" class="btn btn-green">Cadastrar</button>
+                </form>
+              </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header bg-verde" id="headingTwo">
+              <h5 class="mb-0">
+                <button class="btn subTitulo collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bar-chart-line" viewBox="0 0 16 16">
+                    <path d="M11 2a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v12h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h1V7a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v7h1V2zm1 12h2V2h-2v12zm-3 0V7H7v7h2zm-5 0v-3H2v3h2z"/>
+                  </svg>
+                  Gestão de Produtos
+                </button>
+              </h5>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+              <div class="card-body">
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="inputEstado">Brecho</label>
+                    <select id="inputEstado" class="form-control">
+                      <option selected>Brecho do zézinho</option>
+                    </select>
+                  </div>
+                </div>
+
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Produto</th>
+                      <th scope="col">Preço</th>
+                      <th scope="col">Foto</th>
+                      <th scope="col">Categoria</th>
+                      <th scope="col">Descrição</th>
+                      <th scope="col">Modificações</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>Camiseta amarela - M</td>
+                      <td>30.00</td>
+                      <td>www.teste.com.br</td>
+                      <td>Camisetas</td>
+                      <td>Camiseta amarela - Tamanho G</td>
+                      <td class="d-flex justify-content-end">
+                        <button class="btn btn-info mr-3">Editar</button>
+                        <button class="btn btn-danger">Deletar</button>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!--  FIM CONTENT OPÇÃO -->
+      </div>
+    </div>
+    <!-- conteudo - PAGINAÇÃO 3 -->
+    
+</div>
+<!-- Conteudo Paginação -->
