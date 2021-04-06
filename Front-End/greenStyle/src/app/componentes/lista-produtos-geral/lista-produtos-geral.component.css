@@ -135,3 +135,13 @@ figure.zoom {
     transition: .3s;
     
   }
+
+  .btn-gambiarra
+  {
+    color: #5e8c58;
+    font-weight: bold;
+  }
+
+  .btn-gambiarra:focus{
+    box-shadow: 0 0 0 0;
+  }
