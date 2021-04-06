@@ -18,15 +18,15 @@ export class BrechoService {
   }
 
   getAll(): Observable<Brecho[]> {
-    return this.http.get<Brecho[]>("http://localhost:8080/brecho", this.token)
+    return this.http.get<Brecho[]>("http://localhost:8080/brecho")
   }
 
   getById(id: number): Observable<Brecho> {
-    return this.http.get<Brecho>(`http://localhost:8080/brecho/${id}`, this.token)
+    return this.http.get<Brecho>(`http://localhost:8080/brecho/${id}`)
   }
 
   getByNome(nome: string): Observable<Brecho[]> {
-    return this.http.get<Brecho[]>(`http://localhost:8080/nomeBrecho/${nome}`, this.token)
+    return this.http.get<Brecho[]>(`http://localhost:8080/nomeBrecho/${nome}`)
   }
 
   post(brecho: Brecho): Observable<Brecho> {
