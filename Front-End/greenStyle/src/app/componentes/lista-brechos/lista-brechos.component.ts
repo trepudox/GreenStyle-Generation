@@ -34,7 +34,7 @@ export class ListaBrechosComponent implements OnInit {
 
   irParaBrecho(id: number) {
     console.log(id)
-    this.router.navigate(["/home"])
+    this.router.navigate([`/produtos-brecho/${id}`])
   }
 
 }
