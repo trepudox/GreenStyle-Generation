@@ -15,6 +15,7 @@ import { ListaProdutosBrechoComponent } from './componentes/lista-produtos-brech
 import { SobreNosComponent } from './componentes/sobre-nos/sobre-nos.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
+import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component'
     ListaProdutosBrechoComponent,
     SobreNosComponent,
     CarrinhoComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    TelaAdminComponent
   ],
   imports: [
     BrowserModule,
