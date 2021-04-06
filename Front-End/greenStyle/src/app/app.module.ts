@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 import { AppComponent } from './app.component';
@@ -35,7 +37,8 @@ import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LocationStrategy,
