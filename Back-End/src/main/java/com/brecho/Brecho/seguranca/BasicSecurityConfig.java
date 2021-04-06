@@ -2,6 +2,7 @@ package com.brecho.Brecho.seguranca;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,7 +19,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	private UserDetailsService userDetailsService;
 	
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception  {
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userDetailsService);
 	}
 	
@@ -28,10 +29,11 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	@Override
-	protected void configure(HttpSecurity http) throws Exception{
+	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/usuarios/logar").permitAll()
 		.antMatchers("/usuarios/cadastrar").permitAll()
+		.antMatchers(HttpMethod.GET).permitAll()
 		.anyRequest().authenticated()
 		.and().httpBasic()
 		.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS) 

@@ -23,7 +23,7 @@ public class Brecho {
 	@NotNull @Size(min = 3 , max = 45)
 		private String nome;
 	
-	@NotNull @Size(min = 3 , max = 45)
+	@NotNull @Size(min = 3 , max = 75)
 		private String descricao;
 	
 	private String fotoPerfil;
