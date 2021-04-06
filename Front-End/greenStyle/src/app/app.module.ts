@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
-
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
