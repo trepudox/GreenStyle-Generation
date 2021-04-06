@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Brecho } from 'src/app/Models/Brecho';
-import { BrechoService } from 'src/app/service/brecho.service';
+import { BrechoService } from "src/app/service/brecho.service";
 import { environment } from "src/environments/environment.prod"
 
 @Component({

@@ -49,11 +49,13 @@ nav{
     border-left-width: 0px;
     margin-top: 45px;
     width: 150px;
-    height: 55%;
+    height: 40%;
+    max-height: 430px;
     left: -300px;
     position: absolute;
     transition: all .5s;
     z-index: 1;
+    top: 9px;
 }
 
 
