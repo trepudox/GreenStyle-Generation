@@ -51,6 +51,12 @@ public class ProdutoController {
 			ResponseEntity.status(HttpStatus.OK).body(service.findByBrecho(id));
 	}
 	
+	@GetMapping("/categoria/{id}")
+	public ResponseEntity<List<Produto>> findByCategoria(@PathVariable Long id){
+		return service.findByCategoria(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
+			ResponseEntity.status(HttpStatus.OK).body(service.findByCategoria(id));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Produto> post (@Validated @RequestBody Produto produto){
 		return ResponseEntity.status(HttpStatus.CREATED).body(service.save(produto));
