@@ -6,6 +6,7 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "strictPropertyInitialization": false, //adicionar para criar atributos dentro da model - não vou precisar q tdds variaveis delacaras em classes sejam inicializadas ou seja - Resolver problema das models sem construtor, pois não solicita inicialização dos atributos
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,

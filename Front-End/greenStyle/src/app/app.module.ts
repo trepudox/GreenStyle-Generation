@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HttpClientModule } from '@angular/common/http';
+
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
@@ -15,6 +18,7 @@ import { ListaProdutosBrechoComponent } from './componentes/lista-produtos-brech
 import { SobreNosComponent } from './componentes/sobre-nos/sobre-nos.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
+import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +32,14 @@ import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component'
     ListaProdutosBrechoComponent,
     SobreNosComponent,
     CarrinhoComponent,
-    CadastrarComponent
+    CadastrarComponent,
+    TelaAdminComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [{
     provide: LocationStrategy,
