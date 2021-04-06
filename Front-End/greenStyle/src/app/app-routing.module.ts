@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'brechos', component: ListaBrechosComponent},
   {path: 'solicitacao', component: SolicitacaoParceiroComponent},
-  {path: 'produtos-brecho', component: ListaProdutosBrechoComponent},
+  {path: 'produtos-brecho/:id', component: ListaProdutosBrechoComponent},
   {path: 'produtos-geral', component: ListaProdutosGeralComponent},
   {path: 'sobre-nos', component: SobreNosComponent},
   {path: 'carrinho', component: CarrinhoComponent},
