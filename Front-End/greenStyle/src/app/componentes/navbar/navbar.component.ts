@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { Usuario } from 'src/app/Models/Usuario';
 
 import { UsuarioLogin } from 'src/app/Models/UsuarioLogin';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
+
 
 @Component({
   selector: 'app-navbar',
@@ -12,6 +14,9 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
+
+
+  textoPesquisa: string
 
   usuarioLogin : UsuarioLogin = new UsuarioLogin()
   nome:string
@@ -22,6 +27,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
     this.logado()
+
   }
 
   logado(){
@@ -35,7 +41,6 @@ export class NavbarComponent implements OnInit {
 
     return ok
   }
-
 
   entrar(){
 
@@ -54,6 +59,14 @@ export class NavbarComponent implements OnInit {
       }
     })
   }
+
+pesquisarProduto(s: string) {
+    this.router.navigate([`/produtos-geral/filtro/0/search/${s}`])
+  }
+
+  navegarParaTodosOsProdutos() {
+    this.router.navigate(["/produtos-geral/filtro/0"])
+   }
 
 
 }
