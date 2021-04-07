@@ -10,9 +10,26 @@
 }
 
 
+.filtrar:hover {
+    transition: 0.2s;
+    transform: scale(.975);
+    opacity: 0.80;
+    color: #75A26C;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.filtrar:not(:hover) {
+    transition: 0.2s;
+    transform: scale(1);
+    opacity: 1;
+    color: #75A26C;
+}
+
+
 .imagem{
     opacity: .3;
-    max-height: 300px;
+    max-height: 400px;
     object-fit: cover;
 }
 
@@ -63,6 +80,7 @@ nav{
     transition: all .5s;
     z-index: 1;
     top: 9px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 

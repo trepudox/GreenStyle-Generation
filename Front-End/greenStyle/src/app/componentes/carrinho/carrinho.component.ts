@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit} from '@angular/core';
+import { Produto } from 'src/app/Models/Produto';
+import { CarrinhoService } from 'src/app/service/carrinho.service';
+
 
 @Component({
   selector: 'app-carrinho',
@@ -6,8 +9,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
+  
+  produto = this.carrinhoService.getProdutos()
+  valorProdutos = this.carrinhoService.valorProdutos()
 
-  constructor() { }
+  constructor(
+    private carrinhoService: CarrinhoService
+   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
@@ -17,5 +25,10 @@ export class CarrinhoComponent implements OnInit {
   {
     alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
   }
+
+
+ 
+
+
 
 }

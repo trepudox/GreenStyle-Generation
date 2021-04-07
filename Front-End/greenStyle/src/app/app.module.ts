@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
 
@@ -40,11 +41,11 @@ import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.componen
     FontAwesomeModule,
     HttpClientModule,
     FormsModule
-    ],
+  ],
 
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
   }],
   bootstrap: [AppComponent]
 })
