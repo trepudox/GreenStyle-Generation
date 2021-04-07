@@ -21,6 +21,19 @@
 
       <div class="row d-flex justify-content-around flex-wrap">
 
+        <h2 *ngIf="listaBrecho == null || listaBrecho.length == 0" class="my-3 text-center">Não há nenhum brechó no banco de dados!</h2>
+
+        <div *ngFor="let brecho of listaBrecho" (click)="irParaBrecho(brecho.id)"
+          class="d-flex justify-content-start b-verde div-brecho bg-white br-8 col-md-5 my-3 p-0">
+          <img src="{{brecho.fotoPerfil}}" alt="brecho do gato" class="imagem-brecho img-fluid">
+
+          <div class="d-flex flex-column m-2 p-1">
+            <h4 class="titulo">{{brecho.nome}}</h4>
+            <p class="text-break">{{brecho.descricao}}</p>
+          </div>
+        </div>
+
+        <!--
         <div class="d-flex justify-content-start b-verde div-brecho bg-white br-8 col-md-5 my-3 p-0">
           <img src="../../../assets/images/fotosbrechos/brecho-gato.png" alt="brecho do gato"
             class="imagem-brecho img-fluid">
@@ -84,7 +97,7 @@
               !!!!!!!!!!!!!!!!</p>
           </div>
         </div>
-
+        -->
 
 
       </div>
@@ -216,61 +229,62 @@
 <!-- inicio Solicitação-Analise-Arpovação -->
 
 <!-- MODAL -->
-<div class="modal fade bd-example-modal-lg" id="solicitacao-modal" tabindex="-1" role="dialog" aria-labelledby="solicitacao-modal-label"
-  aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="solicitacao-modal" tabindex="-1" role="dialog"
+  aria-labelledby="solicitacao-modal-label" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content bg-light">
-        <div class="modal-header fc-verde">
-            <h2 class="modal-title text-center" id="solicitacao-modal-label">Solicitação para ser um brechó Green Style</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
+      <div class="modal-header fc-verde">
+        <h2 class="modal-title text-center" id="solicitacao-modal-label">Solicitação para ser um brechó Green Style</h2>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
 
-            <div class="form-group fc-verde mx-4">
-                <label for="fantasia-parceiro">Nome Fantasia</label>
-                <input class="form-control" type="text" name="fantasia-parceiro" id="fantasia-parceiro">
-                <label for="endereco-parceiro">Endereço</label>
-                <input class="form-control" type="text" name="endereco-parceiro" id="endereco-parceiro">
+        <div class="form-group fc-verde mx-4">
+          <label for="fantasia-parceiro">Nome Fantasia</label>
+          <input class="form-control" type="text" name="fantasia-parceiro" id="fantasia-parceiro">
+          <label for="endereco-parceiro">Endereço</label>
+          <input class="form-control" type="text" name="endereco-parceiro" id="endereco-parceiro">
 
-                <div class="row d-flex justify-content-center">
-                  <div class="col">
-                    <label for="">CNPJ</label>
-                    <input type="text" class="form-control">
-                  </div>
-                  <div class="col">
-                    <label for="telefone-parceiro">Telefone</label>
-                    <input type="text" class="form-control" id="telefone-parceiro">
-                  </div>
-                </div>
-
-                <label for="email-parceiro">Email</label>
-                <input class="form-control " type="email" name="email-parceiro" id="email-parceiro">
-
-                <label for="razao-social-parceiro">Razão social</label>
-                <textarea cols="2" class="form-control text" type="text" name="razao-socail-parceiro" id="razao-social-parceiro"></textarea>
-
+          <div class="row d-flex justify-content-center">
+            <div class="col">
+              <label for="">CNPJ</label>
+              <input type="text" class="form-control">
             </div>
+            <div class="col">
+              <label for="telefone-parceiro">Telefone</label>
+              <input type="text" class="form-control" id="telefone-parceiro">
+            </div>
+          </div>
 
-                <div class="modal-footer mt-4 pb-0 d-flex justify-content-center">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-                  <button type="button" class="btn btn-green ml-5">Enviar</button>
-                </div>
+          <label for="email-parceiro">Email</label>
+          <input class="form-control " type="email" name="email-parceiro" id="email-parceiro">
+
+          <label for="razao-social-parceiro">Razão social</label>
+          <textarea cols="2" class="form-control text" type="text" name="razao-socail-parceiro"
+            id="razao-social-parceiro"></textarea>
+
+        </div>
+
+        <div class="modal-footer mt-4 pb-0 d-flex justify-content-center">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-green ml-5">Enviar</button>
+        </div>
 
 
-        
 
 
 
-      
+
+
+      </div>
+
+
+
     </div>
 
 
 
+
   </div>
-
-
-
-
-</div>

@@ -5,6 +5,5 @@ export const environment = {
   email: '',
   token: '',
   tipo: ''
-    
 
 };

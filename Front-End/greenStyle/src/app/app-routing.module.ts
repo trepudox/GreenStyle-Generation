@@ -7,17 +7,17 @@ import { ListaBrechosComponent } from './componentes/lista-brechos/lista-brechos
 import { ListaProdutosBrechoComponent } from './componentes/lista-produtos-brecho/lista-produtos-brecho.component';
 import { ListaProdutosGeralComponent } from './componentes/lista-produtos-geral/lista-produtos-geral.component';
 import { SobreNosComponent } from './componentes/sobre-nos/sobre-nos.component';
-import { SolicitacaoParceiroComponent } from './componentes/solicitacao-parceiro/solicitacao-parceiro.component';
+import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'brechos', component: ListaBrechosComponent},
-  {path: 'solicitacao', component: SolicitacaoParceiroComponent},
-  {path: 'produtos-brecho', component: ListaProdutosBrechoComponent},
+  {path: 'produtos-brecho/:id', component: ListaProdutosBrechoComponent},
   {path: 'produtos-geral', component: ListaProdutosGeralComponent},
   {path: 'sobre-nos', component: SobreNosComponent},
   {path: 'carrinho', component: CarrinhoComponent},
   {path: 'cadastrar', component: CadastrarComponent},
+  {path: 'admin', component: TelaAdminComponent},
 
   {path: '', redirectTo: 'home', pathMatch:'full'}
 ];

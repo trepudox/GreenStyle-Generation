@@ -28,6 +28,12 @@ public class Produto {
 	@Size(min = 5, max = 300, message = "minimo 5 e max 300")
 	private String descricao;
 
+	private String tamanho;
+
+	private String cor;
+
+	private String estadoDeUso;
+
 	private String foto;
 
 	@ManyToOne
@@ -96,5 +102,28 @@ public class Produto {
 		this.brecho = brecho;
 	}
 
+	public String getTamanho() {
+		return tamanho;
+	}
+
+	public void setTamanho(String tamanho) {
+		this.tamanho = tamanho;
+	}
+
+	public String getCor() {
+		return cor;
+	}
+
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
+
+	public String getEstadoDeUso() {
+		return estadoDeUso;
+	}
+
+	public void setEstadoDeUso(String estadoDeUso) {
+		this.estadoDeUso = estadoDeUso;
+	}
 	
 }
