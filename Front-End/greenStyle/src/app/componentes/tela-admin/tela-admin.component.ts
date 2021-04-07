@@ -14,6 +14,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class TelaAdminComponent implements OnInit {
 
+  idBrecho:number
 
   brecho:Brecho = new Brecho
   listaBrechos:Brecho[]
@@ -116,6 +117,7 @@ export class TelaAdminComponent implements OnInit {
   }
 
 // CRUD CATEGORIAS
+
   getAllCategorias(){
     this.categoriaService.getAllCategoria().subscribe((resp:Categoria[])=>{
       this.listaCategorias=resp
@@ -157,6 +159,15 @@ export class TelaAdminComponent implements OnInit {
       this.getAllCategorias()
     })
   }
+
+// CRUD PRODUTOS
+findByIdBrecho(){
+
+}
+findByIdCategoria(){
+
+}
+
 
 
 }

@@ -256,8 +256,9 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="brecho">Brecho</label>
-                      <select id="brecho" class="form-control">
-                        <option selected>Brecho do zézinho</option>
+                      <select id="brecho" class="form-control" name="Brecho" [(ngModel)]="idBrecho"
+                      (change)='findByIdBrecho()'>
+                        <option *ngFor='let brecho of listaBrechos' value="{{brecho.id}}">{{brecho.nome}}</option>
                       </select>
                     </div>
                   </div>
@@ -266,7 +267,7 @@
                   <div class="form-group col-md-12">
                     <label for="categoria">Categoria</label>
                     <select id="categoria" class="form-control">
-                      <option selected>Camisetas</option>
+                      <option *ngFor='let categoria of listaCategorias' value="{{categoria.id}}">{{categoria.nome}}</option>
                     </select>
                   </div>
                 </div>
