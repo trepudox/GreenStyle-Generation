@@ -17,6 +17,7 @@ import { SobreNosComponent } from './componentes/sobre-nos/sobre-nos.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
 import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.componen
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [{
     provide: LocationStrategy,

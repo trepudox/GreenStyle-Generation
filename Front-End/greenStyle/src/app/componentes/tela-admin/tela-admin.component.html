@@ -77,25 +77,25 @@
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="nomeComercial">Nome Comercial</label>
-                    <input type="text" class="form-control" id="nomeComercial" placeholder="Digite o nome comercial do novo parceiro">
+                    <input [(ngModel)]="brecho.nome" name="nome" type="text" class="form-control"  id="nomeComercial"  placeholder="Digite o nome comercial do novo parceiro">
                   </div>
                 </div>
                 <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="descricao">Descrição</label>
-                    <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
+                    <input [(ngModel)]="brecho.descricao" name="descricao" type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="fotoPerfil">Foto de Perfil</label>
-                  <input type="text" class="form-control" id="fotoPerfil" placeholder="URL da foto de perfil do estabelicemento">
+                  <input [(ngModel)]="brecho.fotoPerfil" name="fotoPerfil" type="text" class="form-control" id="fotoPerfil" placeholder="URL da foto de perfil do estabelicemento">
                 </div>
                 <div class="form-group">
                   <label for="fotoCapa">Foto de Capa</label>
-                  <input type="text" class="form-control" id="fotoCapa" placeholder="URL da foto de capa do estabelicemento">
+                  <input [(ngModel)]="brecho.fotoCapa" name="fotoCapa" type="text" class="form-control" id="fotoCapa" placeholder="URL da foto de capa do estabelicemento">
                 </div>
 
-                <button type="submit" class="btn btn-green">Cadastrar</button>
+                <button type="submit" class="btn btn-green" (click)="cadastrarBrecho()">Cadastrar</button>
               </form>
               </div>
             </div>
