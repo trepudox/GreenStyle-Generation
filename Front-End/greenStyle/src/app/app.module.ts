@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './componentes/navbar/navbar.component';
 import { RodapeComponent } from './componentes/rodape/rodape.component';
@@ -18,6 +19,7 @@ import { SobreNosComponent } from './componentes/sobre-nos/sobre-nos.component';
 import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
 import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.componen
     HttpClientModule,
     FormsModule
   ],
+
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy,

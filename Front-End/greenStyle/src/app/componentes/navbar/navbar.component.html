@@ -26,7 +26,7 @@
           <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
             routerLink="/sobre-nos"><strong>Sobre</strong></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="tipo=='adm'">
           <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
             routerLink="/admin"><strong>Admin</strong></a>
         </li>
@@ -49,7 +49,7 @@
         <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4 pb-1 hover-carrinho carrinho" style="border: 0px; outline: 0px;"
           routerLink="/carrinho"></i>
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" *ngIf="!logado()">
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10"
@@ -57,6 +57,14 @@
                 data-target="#loginModal"><strong>Entre</strong></a>&nbsp;ou</p>
             <p class="fc-verde d-flex m-0"><a routerLink="/cadastrar" class="fc-verde hover-item fs-10"
                 style="text-decoration: none;">&nbsp;<strong>Cadastre-se</strong></a></p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center" *ngIf="logado()">
+          <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="fc-verde d-flex m-0 fs-10"><strong>Bem-vinde</strong></p>
+            <p class="fc-verde d-flex m-0">{{nome}}</p>
           </div>
         </div>
 
@@ -77,7 +85,7 @@
           <h5 class="modal-title" id="exampleModalLabel">CONTA GREEN STYLE</h5>
           <p class="lead text-muted">O melhor da moda sustentavel é aqui</p>
         </div>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar" >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -87,18 +95,20 @@
           <form class="col-md-11">
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">E-mail:</label>
-              <input type="text" class="form-control" id="recipient-name">
+              <input [(ngModel)]='usuarioLogin.email' type="text" class="form-control" id="recipient-name" name="loginEmail">
             </div>
             <div class="form-group">
               <label for="message-text" class="col-form-label">Senha:</label>
-              <input type="password" class="form-control" id="recipient-name">
+              <input [(ngModel)]='usuarioLogin.senha' type="password" class="form-control" id="recipient-name" name="loginSenha">
             </div>
           </form>
         </div>
 
 
         <div class="col-md-12 d-flex justify-content-center align-items-center ">
-          <button class="btn btn-green col-md-10 mt-4 mb-3">ENTRAR</button>
+
+        <button data-dismiss="modal" class="btn btn-green col-md-10 mt-4 mb-3" (click)='entrar()'>ENTRAR</button>
+
         </div>
 
         <hr class="mb-4">
