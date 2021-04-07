@@ -1,19 +1,19 @@
 <div class="container-fluid m-0 p-0">
   <section>
     <div class="opa">
-      <div class="col-md 12 d-flex justify-content-end align-items-end text-white" id="div-1">
+      <div class="col-md 12 d-flex justify-content-end align-items-end text-white p-0" id="div-1">
         <img class="imagem" src="../../../assets/images/unknown.png" alt="Imagem de Sustentabilidade" width="100%">
         <div class="col-4 lead justify-content-end text-center position-absolute" id="div-2">
-          <p class="d-flex justify-content-end align-items-center"><b>Brechó </b><i
+          <p class="d-flex justify-content-end align-items-center"><b>TODOS OS PRODUTOS </b><i
               class="bi bi-arrow-right-short pt-1"></i></p>
         </div>
       </div>
     </div>
   </section>
 
-  
 
-  
+
+
   <div class="container-fluid d-flex p-0 flex-wrap">
     <div class="col-md-1 col-1">
       <!--Filtro Categorias-->
@@ -29,7 +29,8 @@
             <label class="categoria fc-verde mt-1" for="tes">Todos</label>
           </li>
           <li *ngFor="let categoria of listaCategoria">
-            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" (click)="setListaFiltro(categoria.id)">
+            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}"
+              (click)="setListaFiltro(categoria.id)">
             <label class="categoria fc-verde mt-1" for="{{categoria.nome}}">{{categoria.nome}}</label>
           </li>
         </ul>
@@ -38,8 +39,14 @@
     <!--/Filtro Categorias-->
     <!--Cards-->
     <div class="col-md-11 col-11 d-flex flex-wrap my-4 p-0 pl-5">
-      <div *ngFor="let produto of listaProduto" class="card principal mb-2 animado1 b-verde mx-2 my-3" data-toggle="modal"
-        data-target="#ExemploModalCentralizado" style="max-width: 250px;" (click)="setProdutoModal(produto.id)">
+
+      <div *ngIf="listaProduto == undefined || listaProduto.length == 0" style="margin-top: 150px; margin-bottom: 150px;">
+        <h2>Não há nenhum produto com esses filtros!</h2>
+      </div>
+
+      <div *ngFor="let produto of listaProduto" class="card principal mb-2 animado1 b-verde mx-2 my-3"
+        data-toggle="modal" data-target="#ExemploModalCentralizado" style="max-width: 250px;"
+        (click)="setProdutoModal(produto.id)">
         <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;">
         <div class="card-body">
           <h5 class="text-center">{{produto.nome}}</h5>
@@ -82,8 +89,7 @@
           <div class="col-md-8 p-0 m-0" style="overflow: hidden;">
             <figure class="zoom bordaImgModal" onmousemove="zoom(event)"
               style="background-image: url({{produtoModal.foto}}); width: 100%; height: 100%;">
-              <img src="{{produtoModal.foto}}"
-                style="width:100%; height: 100%;">
+              <img src="{{produtoModal.foto}}" style="width:100%; height: 100%;">
             </figure>
           </div>
           <div class="col-md-4">
