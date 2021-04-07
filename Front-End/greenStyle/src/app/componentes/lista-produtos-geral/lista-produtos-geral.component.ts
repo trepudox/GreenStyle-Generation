@@ -1,8 +1,10 @@
+
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
+import { CarrinhoService } from 'src/app/service/carrinho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { ProdutoService } from 'src/app/service/produto.service';
 
@@ -11,31 +13,25 @@ import { ProdutoService } from 'src/app/service/produto.service';
   templateUrl: './lista-produtos-geral.component.html',
   styleUrls: ['./lista-produtos-geral.component.css']
 })
-export class ListaProdutosGeralComponent implements OnInit, OnChanges {
 
+export class ListaProdutosGeralComponent implements OnInit {
+
+  categoria: Categoria = new Categoria()
+  produto: Produto = new Produto()
   idFiltro: number
   stringPesquisa: string
-
   nomeCategoriaAtual: String
-
   listaProduto: Produto[]
   listaCategoria: Categoria[]
-
   produtoModal: Produto
-
 
   constructor(
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
-    private router: Router,
+    private carrinhoService: CarrinhoService,
     private route: ActivatedRoute
-  ) { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.route.params.subscribe(p => {
-      changes
-    })
-  }
+  ) {
+   }
 
   ngOnInit(): void {
     window.scroll(0, 0)
@@ -56,7 +52,6 @@ export class ListaProdutosGeralComponent implements OnInit, OnChanges {
     this.setListaCategoria()
     this.setNomeCategoriaAtual(this.idFiltro)
     this.setListaProdutoPorFiltro(this.idFiltro)
-
   }
   
   setListaProdutoPorFiltro(id: number) {
@@ -85,12 +80,20 @@ export class ListaProdutosGeralComponent implements OnInit, OnChanges {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
       this.listaCategoria = resp
     })
+
   }
 
   setProdutoModal(id: number) {
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
       this.produtoModal = resp
     })
+  }
+
+
+  addToCarrinho(produto: Produto)
+  {
+    this.carrinhoService.addToCarrinho(produto)
+    alert("Item adicionado com sucesso")
   }
 
   setNomeCategoriaAtual(id: number) {
