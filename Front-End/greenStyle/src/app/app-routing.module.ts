@@ -12,13 +12,17 @@ import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.componen
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'brechos', component: ListaBrechosComponent},
-  {path: 'produtos-brecho/:id', component: ListaProdutosBrechoComponent},
-  {path: 'produtos-geral', component: ListaProdutosGeralComponent},
   {path: 'sobre-nos', component: SobreNosComponent},
   {path: 'carrinho', component: CarrinhoComponent},
   {path: 'cadastrar', component: CadastrarComponent},
   {path: 'admin', component: TelaAdminComponent},
 
+  {path: 'produtos-brecho/:id', component: ListaProdutosBrechoComponent},
+  {path: 'produtos-geral/filtro/:id', component: ListaProdutosGeralComponent},
+  {path: 'produtos-geral/filtro/:id/search/:nome', component: ListaProdutosGeralComponent},
+  
+  {path: 'produtos-geral/filtro', redirectTo: 'produtos-geral/filtro/0', pathMatch:'full'},
+  {path: 'produtos-geral', redirectTo: 'produtos-geral/filtro/0', pathMatch:'full'},
   {path: '', redirectTo: 'home', pathMatch:'full'}
 ];
 

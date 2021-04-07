@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
@@ -11,10 +13,14 @@ import { ProdutoService } from 'src/app/service/produto.service';
   templateUrl: './lista-produtos-geral.component.html',
   styleUrls: ['./lista-produtos-geral.component.css']
 })
+
 export class ListaProdutosGeralComponent implements OnInit {
 
   categoria: Categoria = new Categoria()
   produto: Produto = new Produto()
+  idFiltro: number
+  stringPesquisa: string
+  nomeCategoriaAtual: String
   listaProduto: Produto[]
   listaCategoria: Categoria[]
   produtoModal: Produto
@@ -22,13 +28,19 @@ export class ListaProdutosGeralComponent implements OnInit {
   constructor(
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    private route: ActivatedRoute
   ) {
    }
 
   ngOnInit(): void {
     window.scroll(0, 0)
 
+    this.route.params.subscribe(p => {
+      this.stringPesquisa = p.nome
+      this.idFiltro = p.id
+    })
+    
     this.produtoModal = <Produto>({
       id: 0,
       nome: "",
@@ -37,21 +49,38 @@ export class ListaProdutosGeralComponent implements OnInit {
       categoria: new Categoria(),
       brecho: new Brecho()
     })
-    this.setListaProduto()
     this.setListaCategoria()
-   
+    this.setNomeCategoriaAtual(this.idFiltro)
+    this.setListaProdutoPorFiltro(this.idFiltro)
+  }
+  
+  setListaProdutoPorFiltro(id: number) {
+    if (id == 0) {
+      this.setListaProduto(this.stringPesquisa)
+    } else {
+      this.produtoService.getByIdCategoriaProdutos(id).subscribe((resp: Produto[]) => {
+        this.listaProduto = resp
+      })
+    }
   }
 
-  setListaProduto() {
-    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => this.listaProduto = resp)
+  setListaProduto(s: string) {
+    if (this.idFiltro == 0 && this.stringPesquisa != undefined) {
+      this.produtoService.getByNomeProduto(s).subscribe((resp: Produto[]) => {
+        this.listaProduto = resp
+      })
+    } else {
+      this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+        this.listaProduto = resp
+      })
+    }
   }
 
   setListaCategoria() {
-    this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => this.listaCategoria = resp)
-  }
+    this.categoriaService.getAllCategoria().subscribe((resp: Categoria[]) => {
+      this.listaCategoria = resp
+    })
 
-  setListaFiltro(id: number) {
-    this.produtoService.getByIdCategoriaProdutos(id).subscribe((resp: Produto[]) => this.listaProduto = resp)
   }
 
   setProdutoModal(id: number) {
@@ -60,10 +89,23 @@ export class ListaProdutosGeralComponent implements OnInit {
     })
   }
 
+
   addToCarrinho(produto: Produto)
   {
     this.carrinhoService.addToCarrinho(produto)
     alert("Item adicionado com sucesso")
+  }
+
+  setNomeCategoriaAtual(id: number) {
+    if (id == 0) {
+      this.nomeCategoriaAtual = "Todos os produtos"
+    } else {
+      this.categoriaService.getById(id).subscribe((resp: Categoria) => {
+        this.nomeCategoriaAtual = resp.nome
+      })
+    }
+
+    this.nomeCategoriaAtual = this.nomeCategoriaAtual == undefined ? "Erro 404" : this.nomeCategoriaAtual
   }
 
 }

@@ -1,4 +1,3 @@
-
 <div class="container-fluid fixed-top m-0 p-0">
   <nav class="navbar navbar-expand-lg navbar-light px-5" style="background-color:#f9f9f9">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -21,7 +20,7 @@
         </li>
         <li class="nav-item">
           <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
-          routerLink="/produtos-geral"><strong>Produtos</strong></a>
+            routerLink="/produtos-geral"><strong>Produtos</strong></a>
         </li>
         <li class="nav-item">
           <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
@@ -37,21 +36,25 @@
 
       <div class="col-auto">
         <div class="input-group input-group-sm">
-          <input type="text" class="form-control text" id="autoSizingInputGroup" style="color: #5e8c58;"
-            placeholder="Pesquisar">
-          <button class="btn btn-pesquisar btn-sm text" type="button" id="button-addon2"><i
-              class="bi bi-search"></i></button>
+          <input [(ngModel)]="textoPesquisa" type="text" class="form-control text" name="pesquisa" id="pesquisa" style="color: #5e8c58;"
+            placeholder="Pesquisar produtos">
+          <label for="pesquisa">
+            <button class="btn btn-pesquisar btn-sm text" type="button" id="button-addon2" (click)="pesquisarProduto(textoPesquisa)"><i
+                class="bi bi-search"></i></button>
+          </label>
         </div>
       </div>
 
       <div class="d-flex justify-content-around">
-        <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4 pb-1 hover-carrinho carrinho" style="border: 0px; outline: 0px;" routerLink="/carrinho"></i>
+        <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4 pb-1 hover-carrinho carrinho" style="border: 0px; outline: 0px;"
+          routerLink="/carrinho"></i>
 
         <div class="d-flex align-items-center">
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10"
-                style="text-decoration: none;" data-toggle="modal" data-target="#loginModal"><strong>Entre</strong></a>&nbsp;ou</p>
+                style="text-decoration: none;" data-toggle="modal"
+                data-target="#loginModal"><strong>Entre</strong></a>&nbsp;ou</p>
             <p class="fc-verde d-flex m-0"><a routerLink="/cadastrar" class="fc-verde hover-item fs-10"
                 style="text-decoration: none;">&nbsp;<strong>Cadastre-se</strong></a></p>
           </div>
@@ -65,13 +68,14 @@
 
 <div style="margin-bottom: 62px;"></div>
 
-<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <div>
-        <h5 class="modal-title" id="exampleModalLabel">CONTA GREEN STYLE</h5>
-        <p class="lead text-muted">O melhor da moda sustentavel é aqui</p>
+          <h5 class="modal-title" id="exampleModalLabel">CONTA GREEN STYLE</h5>
+          <p class="lead text-muted">O melhor da moda sustentavel é aqui</p>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
@@ -94,12 +98,13 @@
 
 
         <div class="col-md-12 d-flex justify-content-center align-items-center ">
-        <button class="btn btn-green col-md-10 mt-4 mb-3">ENTRAR</button>
+          <button class="btn btn-green col-md-10 mt-4 mb-3">ENTRAR</button>
         </div>
 
         <hr class="mb-4">
 
-        <p class="text-center">Não tem uma conta? <a routerLink='/cadastrar' data-dismiss="modal" class="login fc-verde">Cadastre-se</a></p>
+        <p class="text-center">Não tem uma conta? <a routerLink='/cadastrar' data-dismiss="modal"
+            class="login fc-verde">Cadastre-se</a></p>
       </div>
 
       <!-- <div class="modal-footer">
