@@ -40,7 +40,7 @@ import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.componen
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
   }],
   bootstrap: [AppComponent]
 })
