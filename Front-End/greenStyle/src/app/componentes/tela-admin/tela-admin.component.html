@@ -135,8 +135,8 @@
                     <td>www.FotoPerfilTeste.com</td>
                     <td>www.FotocapaTeste.com</td>
                     <td class="d-flex justify-content-end">
-                      <button class="btn btn-info mr-3">Editar</button>
-                      <button class="btn btn-danger">Deletar</button>
+                      <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editParceiro">Editar</button>
+                      <button class="btn btn-danger"  data-toggle="modal" data-target="#deleteParceiro">Deletar</button>
                     </td>
                   </tr>
 
@@ -212,8 +212,8 @@
                       <th scope="row">1</th>
                       <td>Camisetas</td>
                       <td class="d-flex justify-content-end">
-                        <button class="btn btn-info mr-3">Editar</button>
-                        <button class="btn btn-danger">Deletar</button>
+                        <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editCategoria">Editar</button>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCategoria">Deletar</button>
                       </td>
                     </tr>
                   </tbody>
@@ -342,8 +342,8 @@
                       <td>Camisetas</td>
                       <td>Camiseta amarela - Tamanho G</td>
                       <td class="d-flex justify-content-end">
-                        <button class="btn btn-info mr-3">Editar</button>
-                        <button class="btn btn-danger">Deletar</button>
+                        <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editProduto">Editar</button>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProduto">Deletar</button>
                       </td>
                     </tr>
 
@@ -358,6 +358,224 @@
       </div>
     </div>
     <!-- conteudo - PAGINAÇÃO 3 -->
-    
+
 </div>
 <!-- Conteudo Paginação -->
+<!-- ----------------------------------------------------------------------------------------- -->
+
+<!-- Modal edit parceiro-->
+<div class="modal fade" id="editParceiro" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">NomeProduto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="nomeComercial">Nome Comercial</label>
+              <input type="text" class="form-control" id="nomeComercial" placeholder="Digite o nome comercial do novo parceiro">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="descricao">Descrição</label>
+              <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="fotoPerfil">Foto de Perfil</label>
+            <input type="text" class="form-control" id="fotoPerfil" placeholder="URL da foto de perfil do estabelicemento">
+          </div>
+          <div class="form-group">
+            <label for="fotoCapa">Foto de Capa</label>
+            <input type="text" class="form-control" id="fotoCapa" placeholder="URL da foto de capa do estabelicemento">
+          </div>
+
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-green">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal edit parceiro -->
+
+<!-- Modal delete parceiro-->
+<div class="modal fade" id="deleteParceiro" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">NomeProduto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir o Produto:
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal delete parceiro -->
+
+<!-- ----------------------------------------------------------------------------------------- -->
+
+<!-- Modal edit categoria-->
+<div class="modal fade" id="editCategoria" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">NomeCategoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="nome">Nome Categoria</label>
+              <input type="text" class="form-control" id="nome" placeholder="Ex: Camisetas">
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-green">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal edit categoria -->
+
+<!-- ----------------------------------------------------------------------------------------- -->
+
+<!-- Modal delete categoria-->
+<div class="modal fade" id="deleteCategoria" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Excluir Categoria</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir a Categoria:
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal delete categoria -->
+
+<!-- ----------------------------------------------------------------------------------------- -->
+
+<!-- Modal edit produto-->
+<div class="modal fade" id="editProduto" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">NomeParceiro</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container">
+          <form>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label for="brecho">Brecho</label>
+                <select id="brecho" class="form-control">
+                  <option selected>Brecho do zézinho</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+            <div class="form-group col-md-12">
+              <label for="categoria">Categoria</label>
+              <select id="categoria" class="form-control">
+                <option selected>Camisetas</option>
+              </select>
+            </div>
+          </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="nome">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
+              </div>
+
+              <div class="form-group col-md-6">
+                <label for="preco">Preço</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupPrepend">R$</span>
+                  </div>
+                  <input type="number" class="form-control" id="preco" placeholder="Preço do Produto" aria-describedby="inputGroupPrepend" required>
+            </div>
+          </div>
+        </div>
+            <div class="form-group">
+              <label for="foto">Foto Produto</label>
+              <input type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
+            </div>
+            <div class="form-group">
+              <label for="descricao">Descrição</label>
+              <textarea class="form-control" id="descricao" rows="3"></textarea>
+            </div>
+
+
+
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-green">Salvar mudanças</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal edit produto -->
+
+<!-- Modal delete produto-->
+<div class="modal fade" id="deleteProduto" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="TituloModalCentralizado">Excluir Produto</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente excluir o Produto:<br>
+        do Brecho:
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="submit" class="btn btn-danger">Deletar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal delete produto -->
