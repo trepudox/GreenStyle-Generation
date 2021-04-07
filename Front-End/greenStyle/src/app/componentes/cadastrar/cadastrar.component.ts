@@ -8,11 +8,12 @@ import { AuthService } from 'src/app/service/auth.service';
   templateUrl: './cadastrar.component.html',
   styleUrls: ['./cadastrar.component.css']
 })
+
 export class CadastrarComponent implements OnInit {
-  
+
   usuario: Usuario = new Usuario()
-  confirmeSenha: string  
-  tipoUsuario: string
+  confirmeSenha: string
+
 
 
   constructor(
@@ -21,33 +22,29 @@ export class CadastrarComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    window.scroll(0,0)   
+    window.scroll(0, 0)
   }
 
-  confirmarSenha(event: any){
+  confirmarSenha(event: any) {
     this.confirmeSenha = event.target.value
   }
 
-  cadastrar(){
-    // this.usuario.tipo = this.tipoUsuario
+  cadastrar() {
+    this.usuario.tipo = "normal"
+    if (this.usuario.senha != this.confirmeSenha) {      
+      alert('As senhas não são iguais')
 
-    // if(this.usuario.senha != this.confirmeSenha){
-    //   alert('As senhas não são iguais')
-    // }else{
-    //   this.tipoUsuario = "normal"
-    //   this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-    //     this.usuario = resp        
-    //     this.router.navigate(['/home'])
-    //     alert("Cadastro Realizado com sucesso!")
 
-    //   })
-    
-    // }
-    this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-      this.usuario = resp 
-      alert("Cadastro Realizado com sucesso!")
-       })
+    } else {
+      this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
+        this.usuario = resp
+        this.router.navigate(['/home'])
+        alert("Cadastro Realizado com sucesso!")
+      })
+
+    }
+
   }
-  
+
 
 }
