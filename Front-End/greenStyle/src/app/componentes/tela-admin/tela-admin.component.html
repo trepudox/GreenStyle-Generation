@@ -116,6 +116,7 @@
 
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
+              <div class="container">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -128,20 +129,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>Brecho Teste</td>
-                    <td>Descrição Teste</td>
-                    <td>www.FotoPerfilTeste.com</td>
-                    <td>www.FotocapaTeste.com</td>
+                  <tr *ngFor='let brecho of listaBrechos'>
+                    <th scope="row">{{brecho.id}}</th>
+                    <td>{{brecho.nome}}</td>
+                    <td>{{brecho.descricao}}</td>
+                    <td>{{brecho.fotoPerfil}}</td>
+                    <td>{{brecho.fotoCapa}}</td>
                     <td class="d-flex justify-content-end">
-                      <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editParceiro">Editar</button>
-                      <button class="btn btn-danger"  data-toggle="modal" data-target="#deleteParceiro">Deletar</button>
+                      <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editParceiro"
+                      (click)="setBrechoModal(brecho.id)">Editar</button>
+                      <button class="btn btn-danger"  data-toggle="modal" data-target="#deleteParceiro"
+                      (click)="setBrechoModal(brecho.id)">Deletar</button>
                     </td>
                   </tr>
 
                 </tbody>
               </table>
+            </div>
             </div>
           </div>
         </div>
@@ -177,10 +181,10 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="nome">Nome Categoria</label>
-                      <input type="text" class="form-control" id="nome" placeholder="Ex: Camisetas">
+                      <input [(ngModel)]="categoria.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camisetas">
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-green">Cadastrar</button>
+                  <button type="submit" class="btn btn-green" (click)="cadastrarCategoria()">Cadastrar</button>
                 </form>
                 </div>
               </div>
@@ -208,9 +212,9 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Camisetas</td>
+                    <tr *ngFor="let categoria of listaCategorias ">
+                      <th scope="row">{{categoria.id}}</th>
+                      <td>{{categoria.nome}}</td>
                       <td class="d-flex justify-content-end">
                         <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editCategoria">Editar</button>
                         <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCategoria">Deletar</button>
@@ -361,14 +365,19 @@
 
 </div>
 <!-- Conteudo Paginação -->
-<!-- ----------------------------------------------------------------------------------------- -->
+
+
+
+
+
+<!-- -------------------------------------MODAL---------------------------------------------------- -->
 
 <!-- Modal edit parceiro-->
 <div class="modal fade" id="editParceiro" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">NomeProduto</h5>
+        <h5 class="modal-title" id="TituloModalCentralizado">ATUALIZAR PARCEIRO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -378,22 +387,22 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="nomeComercial">Nome Comercial</label>
-              <input type="text" class="form-control" id="nomeComercial" placeholder="Digite o nome comercial do novo parceiro">
+              <input [(ngModel)]="brechoModal.nome" name="nome" type="text" class="form-control" id="nomeComercial" placeholder="Digite o nome comercial do novo parceiro">
             </div>
           </div>
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="descricao">Descrição</label>
-              <input type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
+              <input [(ngModel)]="brechoModal.descricao" name="descricao" type="text" class="form-control" id="descricao" placeholder="Digite a descrição">
             </div>
           </div>
           <div class="form-group">
             <label for="fotoPerfil">Foto de Perfil</label>
-            <input type="text" class="form-control" id="fotoPerfil" placeholder="URL da foto de perfil do estabelicemento">
+            <input [(ngModel)]="brechoModal.fotoPerfil" name="fotoPerfil" type="text" class="form-control" id="fotoPerfil" placeholder="URL da foto de perfil do estabelicemento">
           </div>
           <div class="form-group">
             <label for="fotoCapa">Foto de Capa</label>
-            <input type="text" class="form-control" id="fotoCapa" placeholder="URL da foto de capa do estabelicemento">
+            <input [(ngModel)]="brechoModal.fotoCapa" name="fotoCapa" type="text" class="form-control" id="fotoCapa" placeholder="URL da foto de capa do estabelicemento">
           </div>
 
 
@@ -401,7 +410,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-green">Salvar mudanças</button>
+        <button type="submit" class="btn btn-green" data-dismiss="modal" (click)="atualizarBrecho()">Salvar mudanças</button>
       </div>
     </div>
   </div>
@@ -413,17 +422,17 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">NomeProduto</h5>
+        <h5 class="modal-title" id="TituloModalCentralizado">Excluir Parceiro</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        Deseja realmente excluir o Produto:
+        Deseja realmente excluir o Parceiro: <b>{{brechoModal.nome}}</b>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-danger">Deletar</button>
+        <button type="submit" class="btn btn-danger"data-dismiss="modal" (click)="deletarBrecho()">Deletar</button>
       </div>
     </div>
   </div>
