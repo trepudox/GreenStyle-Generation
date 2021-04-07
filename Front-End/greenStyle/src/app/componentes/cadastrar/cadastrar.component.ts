@@ -31,7 +31,7 @@ export class CadastrarComponent implements OnInit {
 
   cadastrar() {
     this.usuario.tipo = "normal"
-    if (this.usuario.senha != this.confirmeSenha) {      
+    if (this.usuario.senha != this.confirmeSenha) {
       alert('As senhas não são iguais')
 
 

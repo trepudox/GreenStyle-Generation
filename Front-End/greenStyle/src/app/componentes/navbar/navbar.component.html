@@ -27,7 +27,7 @@
           <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
             routerLink="/sobre-nos"><strong>Sobre</strong></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="tipo=='adm'">
           <a class="nav-link fs-12 fc-verde hover-item ml-2" style="color: #75A26C;"
             routerLink="/admin"><strong>Admin</strong></a>
         </li>
@@ -47,13 +47,21 @@
       <div class="d-flex justify-content-around">
         <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4 pb-1 hover-carrinho carrinho" style="border: 0px; outline: 0px;" routerLink="/carrinho"></i>
 
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center" *ngIf="!logado()">
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10"
                 style="text-decoration: none;" data-toggle="modal" data-target="#loginModal"><strong>Entre</strong></a>&nbsp;ou</p>
             <p class="fc-verde d-flex m-0"><a routerLink="/cadastrar" class="fc-verde hover-item fs-10"
                 style="text-decoration: none;">&nbsp;<strong>Cadastre-se</strong></a></p>
+          </div>
+        </div>
+
+        <div class="d-flex align-items-center" *ngIf="logado()">
+          <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
+          <div class="d-flex flex-column justify-content-center align-items-center">
+            <p class="fc-verde d-flex m-0 fs-10"><strong>Bem-vinde</strong></p>
+            <p class="fc-verde d-flex m-0">{{nome}}</p>
           </div>
         </div>
 

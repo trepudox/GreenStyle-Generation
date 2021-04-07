@@ -12,28 +12,41 @@ import { environment } from 'src/environments/environment.prod';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  
+
   usuarioLogin : UsuarioLogin = new UsuarioLogin()
+  nome:string
+  tipo:string = environment.tipo
 
   constructor( private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
     window.scroll(0,0)
+    this.logado()
   }
 
+  logado(){
+    let ok = false
+
+      if(environment.token != ''){
+        ok = true
+        this.nome=environment.nome
+        this.tipo=environment.tipo
+      }
+
+    return ok
+  }
+
+
   entrar(){
-    
-    this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {      
-      this.usuarioLogin = resp     
+
+    this.auth.entrar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
+      this.usuarioLogin = resp
 
       environment.token = this.usuarioLogin.token
       environment.nome = this.usuarioLogin.nome
       environment.id = this.usuarioLogin.id
       environment.email = this.usuarioLogin.email
-      environment.tipo = this.usuarioLogin.tipo      
-
-      alert("login realizado com sucesso")
-     
+      environment.tipo = this.usuarioLogin.tipo
 
     }, erro => {
       if(erro.status == 500){
