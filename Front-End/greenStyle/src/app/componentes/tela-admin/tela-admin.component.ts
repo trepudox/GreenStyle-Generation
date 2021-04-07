@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
+import { Produto } from 'src/app/Models/Produto';
 import { BrechoService } from 'src/app/service/brecho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { environment } from 'src/environments/environment.prod';
@@ -14,8 +15,6 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class TelaAdminComponent implements OnInit {
 
-  idBrecho:number
-
   brecho:Brecho = new Brecho
   listaBrechos:Brecho[]
   brechoModal = new Brecho
@@ -23,6 +22,10 @@ export class TelaAdminComponent implements OnInit {
   categoria:Categoria = new Categoria
   listaCategorias:Categoria[]
   categoriaModal = new Categoria
+
+  produto:Produto = new Produto
+  idBrecho:number
+  idCategoria:number
 
   constructor(
     private brechoService: BrechoService,

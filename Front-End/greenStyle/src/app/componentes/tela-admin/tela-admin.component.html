@@ -256,7 +256,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-12">
                       <label for="brecho">Brecho</label>
-                      <select id="brecho" class="form-control" name="Brecho" [(ngModel)]="idBrecho"
+                      <select id="brecho" class="form-control" name="brecho" [(ngModel)]="idBrecho"
                       (change)='findByIdBrecho()'>
                         <option *ngFor='let brecho of listaBrechos' value="{{brecho.id}}">{{brecho.nome}}</option>
                       </select>
@@ -266,7 +266,8 @@
                   <div class="form-row">
                   <div class="form-group col-md-12">
                     <label for="categoria">Categoria</label>
-                    <select id="categoria" class="form-control">
+                    <select id="categoria" class="form-control" name="categoria" [(ngModel)]="idCategoria"
+                    (change)='findByIdCategoria()'>
                       <option *ngFor='let categoria of listaCategorias' value="{{categoria.id}}">{{categoria.nome}}</option>
                     </select>
                   </div>
@@ -275,7 +276,7 @@
                   <div class="form-row">
                     <div class="form-group col-md-6">
                       <label for="nome">Nome</label>
-                      <input type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
+                      <input [(ngModel)]="produto.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
                     </div>
 
                     <div class="form-group col-md-6">
@@ -284,14 +285,27 @@
                         <div class="input-group-prepend">
                           <span class="input-group-text" id="inputGroupPrepend">R$</span>
                         </div>
-                        <input type="number" class="form-control" id="preco" placeholder="Preço do Produto" aria-describedby="inputGroupPrepend" required>
+                        <input type="number" name="preco" [(ngModel)]="produto.preco" class="form-control" id="preco" placeholder="Preço do Produto" aria-describedby="inputGroupPrepend" required>
                   </div>
                 </div>
               </div>
                   <div class="form-group">
                     <label for="foto">Foto Produto</label>
-                    <input type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
+                    <input [(ngModel)]="produto.foto" name="foto" type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
                   </div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <label for="cor">Cor</label>
+                      <input [(ngModel)]="produto.cor" name="cor" type="text" class="form-control" id="nome" placeholder="Ex: Verde">
+                    </div>
+
+                    <div class="form-group col-md-6">
+                      <label for="nome">Estado de Uso</label>
+                      <input [(ngModel)]="produto.estadoDeUso" name="estadoDeUso" type="text" class="form-control" id="nome" placeholder="Ex: Novo">
+                    </div>
+              </div>
+
                   <div class="form-group">
                     <label for="descricao">Descrição</label>
                     <textarea class="form-control" id="descricao" rows="3"></textarea>
