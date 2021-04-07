@@ -54,6 +54,7 @@ export class TelaAdminComponent implements OnInit {
         fotoCapa:''
       })
       this.categoriaModal = <Categoria> ({
+        id:0,
         nome:''
       })
 
@@ -128,8 +129,34 @@ export class TelaAdminComponent implements OnInit {
         this.getAllCategorias()
     })
   }
+  atualizarCategoria(){
+    this.categoriaService.putCategoria(this.categoriaModal).subscribe((resp: Categoria)=>{
+      this.categoriaModal = resp
+      alert('Categoria Atualizada com sucesso')
+      this.categoriaModal = <Categoria> ({
+        id:0,
+        nome:''
+      })
 
+      this.getAllCategorias()
+    })
+  }
+  setCategoriaModal(id:number){
+    this.categoriaService.getById(id).subscribe((resp:Categoria)=>{
+      this.categoriaModal=resp
+    })
+  }
+  deletarCategoria(){
+    this.categoriaService.deleteCategoria(this.categoriaModal.id).subscribe(()=>{
 
+      alert('Categoria apagada com sucesso')
+      this.categoriaModal = <Categoria> ({
+        id:0,
+        nome:''
+      })
+      this.getAllCategorias()
+    })
+  }
 
 
 }

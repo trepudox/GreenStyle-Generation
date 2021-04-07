@@ -216,8 +216,8 @@
                       <th scope="row">{{categoria.id}}</th>
                       <td>{{categoria.nome}}</td>
                       <td class="d-flex justify-content-end">
-                        <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editCategoria">Editar</button>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteCategoria">Deletar</button>
+                        <button class="btn btn-info mr-3" (click)="setCategoriaModal(categoria.id)" data-toggle="modal" data-target="#editCategoria">Editar</button>
+                        <button class="btn btn-danger" (click)="setCategoriaModal(categoria.id)" data-toggle="modal" data-target="#deleteCategoria">Deletar</button>
                       </td>
                     </tr>
                   </tbody>
@@ -446,7 +446,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">NomeCategoria</h5>
+        <h5 class="modal-title" id="TituloModalCentralizado">Atualizar Categoria</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -456,21 +456,20 @@
           <div class="form-row">
             <div class="form-group col-md-12">
               <label for="nome">Nome Categoria</label>
-              <input type="text" class="form-control" id="nome" placeholder="Ex: Camisetas">
+              <input [(ngModel)]="categoriaModal.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camisetas">
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-green">Salvar mudanças</button>
+        <button type="submit" class="btn btn-green" (click)="atualizarCategoria()" data-dismiss="modal">Salvar mudanças</button>
       </div>
     </div>
   </div>
 </div>
 <!-- /Modal edit categoria -->
 
-<!-- ----------------------------------------------------------------------------------------- -->
 
 <!-- Modal delete categoria-->
 <div class="modal fade" id="deleteCategoria" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
@@ -483,11 +482,11 @@
         </button>
       </div>
       <div class="modal-body">
-        Deseja realmente excluir a Categoria:
+        Deseja realmente excluir a Categoria: <b>{{categoriaModal.nome}}</b>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-danger">Deletar</button>
+        <button type="submit" class="btn btn-danger" data-dismiss="modal" (click)="deletarCategoria()">Deletar</button>
       </div>
     </div>
   </div>
