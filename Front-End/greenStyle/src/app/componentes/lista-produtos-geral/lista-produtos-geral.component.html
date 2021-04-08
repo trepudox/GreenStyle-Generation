@@ -20,11 +20,11 @@
       <nav>
         <ul>
           <li>
-            <input class="caixa mt-4" type="radio" name="categoria" id="tes" (click)="setListaProduto(stringPesquisa)" (click)="this.setNomeCategoriaAtual(0)" routerLink="/produtos-geral/filtro/0">
+            <input class="caixa mt-4" type="radio" name="categoria" id="tes" routerLink="/produtos-geral/filtro/0">
             <label class="categoria fc-verde mt-1" for="tes">Todos</label>
           </li>
           <li *ngFor="let categoria of listaCategoria">
-            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" routerLink="/produtos-geral/filtro/{{categoria.id}}" (click)="this.setListaProdutoPorFiltro(categoria.id)" (click)="this.setNomeCategoriaAtual(categoria.id)">
+            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" routerLink="/produtos-geral/filtro/{{categoria.id}}">
             <label class="categoria fc-verde mt-1" for="{{categoria.nome}}">{{categoria.nome}}</label>
           </li>
         </ul>
@@ -34,7 +34,7 @@
     <!--Cards-->
     <div class="col-md-11 col-11 d-flex flex-wrap my-5 p-0 pl-5">
 
-      <div *ngIf="listaProduto == undefined || listaProduto.length == 0" class="d-flex justify-content-center" style="margin-top: 150px; margin-bottom: 150px;">
+      <div *ngIf="listaProduto == undefined || listaProduto.length == 0" class="d-flex justify-content-center col-md-11" style="margin-top: 150px; margin-bottom: 150px;">
           <h2 class="text-center">Não há nenhum produto com esses filtros!</h2>
       </div>
 

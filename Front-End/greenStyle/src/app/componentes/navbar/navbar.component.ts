@@ -31,15 +31,17 @@ export class NavbarComponent implements OnInit {
   }
 
   logado(){
-    let ok = false
 
       if(environment.token != ''){
-        ok = true
         this.nome=environment.nome
         this.tipo=environment.tipo
+
+        return true
+      }
+      else{
+        return false
       }
 
-    return ok
   }
 
   entrar(){

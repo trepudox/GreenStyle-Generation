@@ -3,8 +3,7 @@
     background-color: black;
 }
 
-
-.imagem{
+.imagem {
   opacity: .3;
   max-height: 400px;
   object-fit: cover;

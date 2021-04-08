@@ -1,6 +1,6 @@
 
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, ResolveEnd, Router, RoutesRecognized } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
@@ -29,18 +29,32 @@ export class ListaProdutosGeralComponent implements OnInit {
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-   }
+
+    router.events.subscribe((e) => {
+
+      if (e instanceof NavigationEnd) {
+        route.params.subscribe(p => {
+          this.idFiltro = p.id
+          this.stringPesquisa = p.nome
+        })
+
+        this.setNomeCategoriaAtual(this.idFiltro)
+        this.setListaProduto(this.idFiltro, this.stringPesquisa)
+      }
+
+    })
+
+  }
 
   ngOnInit(): void {
     window.scroll(0, 0)
 
-    this.route.params.subscribe(p => {
-      this.stringPesquisa = p.nome
-      this.idFiltro = p.id
-    })
-    
+    this.idFiltro = 0
+    this.stringPesquisa = ""
+
     this.produtoModal = <Produto>({
       id: 0,
       nome: "",
@@ -50,29 +64,29 @@ export class ListaProdutosGeralComponent implements OnInit {
       brecho: new Brecho()
     })
     this.setListaCategoria()
-    this.setNomeCategoriaAtual(this.idFiltro)
-    this.setListaProdutoPorFiltro(this.idFiltro)
+    
   }
-  
-  setListaProdutoPorFiltro(id: number) {
+
+  setListaProduto(id: number, s: string) {
     if (id == 0) {
-      this.setListaProduto(this.stringPesquisa)
+
+      if (this.stringPesquisa != undefined) {
+        this.produtoService.getByNomeProduto(s).subscribe((resp: Produto[]) => {
+          this.listaProduto = resp
+        })
+
+      } else {
+        this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+          this.listaProduto = resp
+        })
+      }
+
     } else {
+
       this.produtoService.getByIdCategoriaProdutos(id).subscribe((resp: Produto[]) => {
         this.listaProduto = resp
       })
-    }
-  }
 
-  setListaProduto(s: string) {
-    if (this.idFiltro == 0 && this.stringPesquisa != undefined) {
-      this.produtoService.getByNomeProduto(s).subscribe((resp: Produto[]) => {
-        this.listaProduto = resp
-      })
-    } else {
-      this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-        this.listaProduto = resp
-      })
     }
   }
 
@@ -90,8 +104,7 @@ export class ListaProdutosGeralComponent implements OnInit {
   }
 
 
-  addToCarrinho(produto: Produto)
-  {
+  addToCarrinho(produto: Produto) {
     this.carrinhoService.addToCarrinho(produto)
     alert("Item adicionado com sucesso")
   }
@@ -109,3 +122,4 @@ export class ListaProdutosGeralComponent implements OnInit {
   }
 
 }
+
