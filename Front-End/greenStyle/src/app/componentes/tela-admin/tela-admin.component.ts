@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
+import { Produto } from 'src/app/Models/Produto';
 import { BrechoService } from 'src/app/service/brecho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
+import { ProdutoService } from 'src/app/service/produto.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -14,8 +16,6 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class TelaAdminComponent implements OnInit {
 
-  idBrecho:number
-
   brecho:Brecho = new Brecho
   listaBrechos:Brecho[]
   brechoModal = new Brecho
@@ -24,9 +24,18 @@ export class TelaAdminComponent implements OnInit {
   listaCategorias:Categoria[]
   categoriaModal = new Categoria
 
+  produto:Produto = new Produto
+  listaProdutos:Produto[]
+  idBrecho:number
+  idCategoria:number
+  brechoProduto:Brecho = new Brecho
+  categoriaProduto:Categoria = new Categoria
+  idListaBrecho:number
+
   constructor(
     private brechoService: BrechoService,
     private categoriaService: CategoriaService,
+    private produtoService: ProdutoService,
     private router: Router
   ) { }
 
@@ -75,6 +84,8 @@ export class TelaAdminComponent implements OnInit {
       alert('Parceiro Cadastrado com sucesso')
       this.brecho=new Brecho
       this.getAllBrechos()
+    }, erro => {
+      alert("Preencha os campos do parceiro corretamente!")
     })
   }
   atualizarBrecho(){
@@ -90,6 +101,8 @@ export class TelaAdminComponent implements OnInit {
       })
 
       this.getAllBrechos()
+    }, erro => {
+      alert("Preencha os campos do parceiro corretamente!")
     })
   }
   deletarBrecho(){
@@ -129,6 +142,8 @@ export class TelaAdminComponent implements OnInit {
         alert("Categoria Cadastrada com sucesso")
         this.categoria=new Categoria
         this.getAllCategorias()
+    }, erro => {
+      alert("")
     })
   }
   atualizarCategoria(){
@@ -162,10 +177,31 @@ export class TelaAdminComponent implements OnInit {
 
 // CRUD PRODUTOS
 findByIdBrecho(){
-
+  this.brechoService.getById(this.idBrecho).subscribe((resp: Brecho) => {
+    this.brechoProduto = resp
+  })
 }
 findByIdCategoria(){
+  this.categoriaService.getById(this.idCategoria).subscribe((resp: Categoria)=>{
+    this.categoriaProduto = resp
+  })
+}
 
+cadastrarProduto(){
+  this.produto.brecho = this.brechoProduto
+  this.produto.tamanho = "p"
+  this.produto.categoria = this.categoriaProduto
+
+  this.produtoService.postProduto(this.produto).subscribe((resp:Produto)=>{
+    alert('Produto cadastrado com sucesso');
+    this.produto = new Produto()
+  })
+}
+
+listaProdutosBrecho(){
+  this.produtoService.getByIdBrechoProdutos( this.idListaBrecho).subscribe((resp:Produto[])=>{
+    this.listaProdutos=resp
+  })
 }
 
 
