@@ -1,6 +1,6 @@
 
 import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, ResolveEnd, Router, RoutesRecognized } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
@@ -29,18 +29,32 @@ export class ListaProdutosGeralComponent implements OnInit {
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
-   }
+
+    router.events.subscribe((e) => {
+
+      if (e instanceof NavigationEnd) {
+        route.params.subscribe(p => {
+          this.stringPesquisa = p.nome
+          this.idFiltro = p.id
+        })
+
+        this.setNomeCategoriaAtual(this.idFiltro)
+        this.setListaProdutoPorFiltro(this.idFiltro, this.stringPesquisa)
+      }
+
+    })
+
+  }
 
   ngOnInit(): void {
     window.scroll(0, 0)
 
-    this.route.params.subscribe(p => {
-      this.stringPesquisa = p.nome
-      this.idFiltro = p.id
-    })
-    
+    this.idFiltro = 0
+    this.stringPesquisa = ""
+
     this.produtoModal = <Produto>({
       id: 0,
       nome: "",
@@ -50,13 +64,13 @@ export class ListaProdutosGeralComponent implements OnInit {
       brecho: new Brecho()
     })
     this.setListaCategoria()
-    this.setNomeCategoriaAtual(this.idFiltro)
-    this.setListaProdutoPorFiltro(this.idFiltro)
+    this.setNomeCategoriaAtual(this.route.snapshot.params["id"])
+    this.setListaProdutoPorFiltro(this.route.snapshot.params["id"], this.route.snapshot.params["nome"])
   }
-  
-  setListaProdutoPorFiltro(id: number) {
+
+  setListaProdutoPorFiltro(id: number, s: string) {
     if (id == 0) {
-      this.setListaProduto(this.stringPesquisa)
+      this.setListaProduto(s)
     } else {
       this.produtoService.getByIdCategoriaProdutos(id).subscribe((resp: Produto[]) => {
         this.listaProduto = resp
@@ -90,8 +104,7 @@ export class ListaProdutosGeralComponent implements OnInit {
   }
 
 
-  addToCarrinho(produto: Produto)
-  {
+  addToCarrinho(produto: Produto) {
     this.carrinhoService.addToCarrinho(produto)
     alert("Item adicionado com sucesso")
   }
@@ -109,3 +122,4 @@ export class ListaProdutosGeralComponent implements OnInit {
   }
 
 }
+

@@ -20,11 +20,11 @@
       <nav>
         <ul>
           <li>
-            <input class="caixa mt-4" type="radio" name="categoria" id="tes" (click)="setListaProduto(stringPesquisa)" (click)="this.setNomeCategoriaAtual(0)" routerLink="/produtos-geral/filtro/0">
+            <input class="caixa mt-4" type="radio" name="categoria" id="tes" routerLink="/produtos-geral/filtro/0">
             <label class="categoria fc-verde mt-1" for="tes">Todos</label>
           </li>
           <li *ngFor="let categoria of listaCategoria">
-            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" routerLink="/produtos-geral/filtro/{{categoria.id}}" (click)="this.setListaProdutoPorFiltro(categoria.id)" (click)="this.setNomeCategoriaAtual(categoria.id)">
+            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" routerLink="/produtos-geral/filtro/{{categoria.id}}">
             <label class="categoria fc-verde mt-1" for="{{categoria.nome}}">{{categoria.nome}}</label>
           </li>
         </ul>
