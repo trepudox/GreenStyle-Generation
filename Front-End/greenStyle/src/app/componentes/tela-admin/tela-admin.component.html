@@ -273,11 +273,11 @@
                   </div>
                 </div>
 
-                  <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="nome">Nome</label>
-                      <input [(ngModel)]="produto.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
-                    </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="nome">Nome</label>
+                    <input [(ngModel)]="produto.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
+                  </div>
 
                     <div class="form-group col-md-6">
                       <label for="preco">Preço</label>
@@ -308,11 +308,11 @@
 
                   <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <textarea class="form-control" id="descricao" rows="3"></textarea>
+                    <textarea [(ngModel)]="produto.descricao" name="descricao" class="form-control" id="descricao" rows="3"></textarea>
                   </div>
 
 
-                  <button type="submit" class="btn btn-green">Cadastrar</button>
+                  <button type="submit" class="btn btn-green" (click)="cadastrarProduto()">Cadastrar</button>
                 </form>
               </div>
               </div>
@@ -333,10 +333,11 @@
               <div class="card-body">
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="inputEstado">Brecho</label>
-                    <select id="inputEstado" class="form-control">
-                      <option selected>Brecho do zézinho</option>
-                    </select>
+                    <label for="brecho">Brecho</label>
+                      <select id="brecho" class="form-control" name="brecho" [(ngModel)]="idListaBrecho"
+                      (change)='listaProdutosBrecho()'>
+                        <option *ngFor='let brecho of listaBrechos' value="{{brecho.id}}">{{brecho.nome}}</option>
+                      </select>
                   </div>
                 </div>
 
@@ -353,13 +354,13 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Camiseta amarela - M</td>
-                      <td>30.00</td>
-                      <td>www.teste.com.br</td>
-                      <td>Camisetas</td>
-                      <td>Camiseta amarela - Tamanho G</td>
+                    <tr *ngFor="let produto of listaProdutos">
+                      <th scope="row">{{produto.id}}</th>
+                      <td>{{produto.nome}}</td>
+                      <td>{{produto.preco}}</td>
+                      <td>{{produto.foto}}</td>
+                      <td>{{produto.categoria.nome}}</td>
+                      <td>{{produto.descricao}}</td>
                       <td class="d-flex justify-content-end">
                         <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editProduto">Editar</button>
                         <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProduto">Deletar</button>
