@@ -37,12 +37,12 @@ export class ListaProdutosGeralComponent implements OnInit {
 
       if (e instanceof NavigationEnd) {
         route.params.subscribe(p => {
-          this.stringPesquisa = p.nome
           this.idFiltro = p.id
+          this.stringPesquisa = p.nome
         })
 
         this.setNomeCategoriaAtual(this.idFiltro)
-        this.setListaProdutoPorFiltro(this.idFiltro, this.stringPesquisa)
+        this.setListaProduto(this.idFiltro, this.stringPesquisa)
       }
 
     })
@@ -64,29 +64,29 @@ export class ListaProdutosGeralComponent implements OnInit {
       brecho: new Brecho()
     })
     this.setListaCategoria()
-    this.setNomeCategoriaAtual(this.route.snapshot.params["id"])
-    this.setListaProdutoPorFiltro(this.route.snapshot.params["id"], this.route.snapshot.params["nome"])
+    
   }
 
-  setListaProdutoPorFiltro(id: number, s: string) {
+  setListaProduto(id: number, s: string) {
     if (id == 0) {
-      this.setListaProduto(s)
+
+      if (this.stringPesquisa != undefined) {
+        this.produtoService.getByNomeProduto(s).subscribe((resp: Produto[]) => {
+          this.listaProduto = resp
+        })
+
+      } else {
+        this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+          this.listaProduto = resp
+        })
+      }
+
     } else {
+
       this.produtoService.getByIdCategoriaProdutos(id).subscribe((resp: Produto[]) => {
         this.listaProduto = resp
       })
-    }
-  }
 
-  setListaProduto(s: string) {
-    if (this.idFiltro == 0 && this.stringPesquisa != undefined) {
-      this.produtoService.getByNomeProduto(s).subscribe((resp: Produto[]) => {
-        this.listaProduto = resp
-      })
-    } else {
-      this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-        this.listaProduto = resp
-      })
     }
   }
 
