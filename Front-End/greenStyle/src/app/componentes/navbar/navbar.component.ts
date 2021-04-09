@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
     this.logado()
-
+    this.adm()
   }
 
   logado(){
@@ -42,6 +42,15 @@ export class NavbarComponent implements OnInit {
         return false
       }
 
+  }
+
+  adm(){
+    if(environment.tipo=="adm"){
+      return true
+    }
+    else{
+      return false
+    }
   }
 
   entrar(){

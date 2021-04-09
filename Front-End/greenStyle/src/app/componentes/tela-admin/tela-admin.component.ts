@@ -31,6 +31,8 @@ export class TelaAdminComponent implements OnInit {
   brechoProduto:Brecho = new Brecho
   categoriaProduto:Categoria = new Categoria
   idListaBrecho:number
+  produtoModal= new Produto
+  disponibilidadevar:boolean
 
   constructor(
     private brechoService: BrechoService,
@@ -45,12 +47,13 @@ export class TelaAdminComponent implements OnInit {
 
   verificaUser(){
     if(environment.token==''){
-      alert('AVISO: VOCÊ NÃO ESTA LOGADO, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
       this.router.navigate(['/home'])
+      alert('AVISO: VOCÊ NÃO ESTA LOGADO, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
+
     }
     else if(environment.tipo != 'adm'){
-      alert('AVISO: VOCÊ NÃO É UM ADM, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
       this.router.navigate(['/home'])
+      alert('AVISO: VOCÊ NÃO É UM ADM, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
     }
     else{
       this.getAllBrechos()
@@ -176,33 +179,42 @@ export class TelaAdminComponent implements OnInit {
   }
 
 // CRUD PRODUTOS
-findByIdBrecho(){
-  this.brechoService.getById(this.idBrecho).subscribe((resp: Brecho) => {
-    this.brechoProduto = resp
-  })
-}
-findByIdCategoria(){
-  this.categoriaService.getById(this.idCategoria).subscribe((resp: Categoria)=>{
-    this.categoriaProduto = resp
-  })
-}
+  findByIdBrecho(){
+    this.brechoService.getById(this.idBrecho).subscribe((resp: Brecho) => {
+      this.brechoProduto = resp
+    })
+  }
+  findByIdCategoria(){
+    this.categoriaService.getById(this.idCategoria).subscribe((resp: Categoria)=>{
+      this.categoriaProduto = resp
+    })
+  }
+  cadastrarProduto(){
+    this.produto.brecho = this.brechoProduto
+    this.produto.tamanho = "G"
+    this.produto.categoria = this.categoriaProduto
 
-cadastrarProduto(){
-  this.produto.brecho = this.brechoProduto
-  this.produto.tamanho = "p"
-  this.produto.categoria = this.categoriaProduto
+    this.produtoService.postProduto(this.produto).subscribe((resp:Produto)=>{
+      alert('Produto cadastrado com sucesso');
+      this.produto = new Produto()
+      this.listaProdutosBrecho()
+    })
+  }
+  listaProdutosBrecho(){
+    this.produtoService.getByIdBrechoProdutos( this.idListaBrecho).subscribe((resp:Produto[])=>{
+      this.listaProdutos=resp
+    })
+  }
+  setProdutoModal(id:number){
+    this.produtoService.getByIdProduto(id).subscribe((resp:Produto)=>{
+      this.produtoModal=resp
+    })
+  }
+  disponibilidade(event: any){
+    this.disponibilidadevar = event.target.value
+  }
 
-  this.produtoService.postProduto(this.produto).subscribe((resp:Produto)=>{
-    alert('Produto cadastrado com sucesso');
-    this.produto = new Produto()
-  })
-}
 
-listaProdutosBrecho(){
-  this.produtoService.getByIdBrechoProdutos( this.idListaBrecho).subscribe((resp:Produto[])=>{
-    this.listaProdutos=resp
-  })
-}
 
 
 

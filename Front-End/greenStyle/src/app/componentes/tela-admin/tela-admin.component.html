@@ -115,9 +115,9 @@
           </div>
 
           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-              <div class="container">
-              <table class="table table-hover">
+            <div class="card-body" >
+              <div class="container" style="overflow-x: auto;">
+              <table class="table table-hover" >
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -301,8 +301,12 @@
                     </div>
 
                     <div class="form-group col-md-6">
-                      <label for="nome">Estado de Uso</label>
-                      <input [(ngModel)]="produto.estadoDeUso" name="estadoDeUso" type="text" class="form-control" id="nome" placeholder="Ex: Novo">
+                      <label for="categoria">Disponibilidade</label>
+                    <select id="categoria" class="form-control" name="categoria"
+                    (change)='disponibilidade($event)'>
+                    <option value=true>Disponivel</option>
+                    <option value=false>Indisponivel</option>
+                    </select>
                     </div>
               </div>
 
@@ -362,7 +366,8 @@
                       <td>{{produto.categoria.nome}}</td>
                       <td>{{produto.descricao}}</td>
                       <td class="d-flex justify-content-end">
-                        <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editProduto">Editar</button>
+                        <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editProduto"
+                        (click)='setProdutoModal(produto.id)'>Editar</button>
                         <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProduto">Deletar</button>
                       </td>
                     </tr>
@@ -516,7 +521,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">NomeParceiro</h5>
+        <h5 class="modal-title" id="TituloModalCentralizado">ATUALIZAR PRODUTO</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -524,28 +529,21 @@
       <div class="modal-body">
         <div class="container">
           <form>
-            <div class="form-row">
-              <div class="form-group col-md-12">
-                <label for="brecho">Brecho</label>
-                <select id="brecho" class="form-control">
-                  <option selected>Brecho do zézinho</option>
-                </select>
-              </div>
-            </div>
 
             <div class="form-row">
             <div class="form-group col-md-12">
               <label for="categoria">Categoria</label>
-              <select id="categoria" class="form-control">
-                <option selected>Camisetas</option>
-              </select>
+                    <select id="categoria" class="form-control" name="categoria" [(ngModel)]="idCategoria"
+                    (change)='findByIdCategoria()'>
+                      <option *ngFor='let categoria of listaCategorias' value="{{categoria.id}}">{{categoria.nome}}</option>
+                    </select>
             </div>
           </div>
 
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="nome">Nome</label>
-                <input type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
+                <input [(ngModel)]="produtoModal.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
               </div>
 
               <div class="form-group col-md-6">
@@ -554,17 +552,33 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroupPrepend">R$</span>
                   </div>
-                  <input type="number" class="form-control" id="preco" placeholder="Preço do Produto" aria-describedby="inputGroupPrepend" required>
+                  <input [(ngModel)]="produtoModal.preco" type="number" name="preco"  class="form-control" id="preco" placeholder="Preço do Produto" aria-describedby="inputGroupPrepend">
             </div>
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="cor">Cor</label>
+            <input [(ngModel)]="produtoModal.cor" name="cor" type="text" class="form-control" id="nome" placeholder="Ex: Verde">
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="categoria">Disponibilidade</label>
+          <select id="categoria" class="form-control" name="categoria"
+          (change)='disponibilidade($event)'>
+          <option value=true>Disponivel</option>
+          <option value=false>Indisponivel</option>
+          </select>
+          </div>
+    </div>
+
             <div class="form-group">
               <label for="foto">Foto Produto</label>
-              <input type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
+              <input [(ngModel)]="produtoModal.foto" name="foto" type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
             </div>
             <div class="form-group">
               <label for="descricao">Descrição</label>
-              <textarea class="form-control" id="descricao" rows="3"></textarea>
+              <textarea [(ngModel)]="produtoModal.descricao" class="form-control" id="descricao" rows="3"></textarea>
             </div>
 
 
