@@ -30,8 +30,7 @@ export class ListaProdutosGeralComponent implements OnInit {
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService,
     private route: ActivatedRoute
-  ) {
-   }
+  ) {}
 
   ngOnInit(): void {
     window.scroll(0, 0)
