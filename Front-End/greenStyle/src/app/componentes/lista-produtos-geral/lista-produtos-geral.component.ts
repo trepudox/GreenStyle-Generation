@@ -95,7 +95,6 @@ export class ListaProdutosGeralComponent implements OnInit {
   addToCarrinho(produto: Produto)
   {
     this.carrinhoService.addToCarrinho(produto)
-    this.alertas.showAlertSuccess("Item adicionado com sucesso")
   }
 
   setNomeCategoriaAtual(id: number) {
