@@ -1,5 +1,6 @@
 import { Component, Input, OnInit} from '@angular/core';
 import { Produto } from 'src/app/Models/Produto';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
 
 
@@ -14,7 +15,8 @@ export class CarrinhoComponent implements OnInit {
   valorProdutos = this.carrinhoService.valorProdutos()
 
   constructor(
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    private alertas: AlertasService
    ) { }
 
   ngOnInit() {
@@ -23,7 +25,7 @@ export class CarrinhoComponent implements OnInit {
 
   finalizarCompra ()
   {
-    alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
+    this.alertas.showAlertSuccess("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
   }
 
 
