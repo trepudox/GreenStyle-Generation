@@ -20,11 +20,11 @@
       <nav>
         <ul>
           <li>
-            <input class="caixa mt-4" type="radio" name="categoria" id="tes" (click)="setListaProduto(stringPesquisa)" (click)="this.setNomeCategoriaAtual(0)" routerLink="/produtos-geral/filtro/0">
+            <input class="caixa mt-4" type="radio" name="categoria" id="tes" routerLink="/produtos-geral/filtro/0">
             <label class="categoria fc-verde mt-1" for="tes">Todos</label>
           </li>
           <li *ngFor="let categoria of listaCategoria">
-            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" routerLink="/produtos-geral/filtro/{{categoria.id}}" (click)="this.setListaProdutoPorFiltro(categoria.id)" (click)="this.setNomeCategoriaAtual(categoria.id)">
+            <input class="caixa mt-4" type="radio" name="categoria" value="{{categoria.id}}" id="{{categoria.nome}}" routerLink="/produtos-geral/filtro/{{categoria.id}}">
             <label class="categoria fc-verde mt-1" for="{{categoria.nome}}">{{categoria.nome}}</label>
           </li>
         </ul>
@@ -34,13 +34,14 @@
     <!--Cards-->
     <div class="col-md-11 col-11 d-flex flex-wrap my-5 p-0 pl-5">
 
-      <div *ngIf="listaProduto == undefined || listaProduto.length == 0" class="d-flex justify-content-center" style="margin-top: 150px; margin-bottom: 150px;">
+      <div *ngIf="listaProduto == undefined || listaProduto.length == 0" class="d-flex justify-content-center col-md-11" style="margin-top: 150px; margin-bottom: 150px;">
           <h2 class="text-center">Não há nenhum produto com esses filtros!</h2>
       </div>
 
       <div *ngFor="let produto of listaProduto" class="card principal mb-2 animado1 b-verde mx-2 my-3"
         style="max-width: 250px;">
-        <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;" data-toggle="modal" data-target="#ExemploModalCentralizado" (click)="setProdutoModal(produto.id)">
+        
+        <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;" data-toggle="modal" data-target="#modal-produto" (click)="setProdutoModal(produto.id)">
         <div class="card-body">
           <h5 class="text-center">{{produto.nome}}</h5>
           <div class="row d-flex justify-content-around align-items-center">
@@ -59,20 +60,20 @@
           </div>
         </div>
 
-
       </div>
+      
     </div>
   </div>
   <!--/Cards-->
 
   <!--Modal-->
-  <div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
-    aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+  <div class="modal fade" id="modal-produto" tabindex="-1" role="dialog"
+    aria-labelledby="titulo-modal-produto" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <div>
-            <h6>{{produtoModal.brecho.nome}} | {{produtoModal.nome}}</h6>
+            <h6 id="titulo-modal-produto">{{produtoModal.brecho.nome}} | {{produtoModal.nome}}</h6>
           </div>
           <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
             <span aria-hidden="true">&times;</span>

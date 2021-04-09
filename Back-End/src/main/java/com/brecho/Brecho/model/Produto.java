@@ -32,9 +32,9 @@ public class Produto {
 
 	private String cor;
 
-	private String estadoDeUso;
-
 	private String foto;
+
+	private boolean disponivel;
 
 	@ManyToOne
 	@JsonIgnoreProperties("produtos")
@@ -118,12 +118,12 @@ public class Produto {
 		this.cor = cor;
 	}
 
-	public String getEstadoDeUso() {
-		return estadoDeUso;
+	public boolean isDisponivel() {
+		return disponivel;
 	}
 
-	public void setEstadoDeUso(String estadoDeUso) {
-		this.estadoDeUso = estadoDeUso;
+	public void setDisponivel(boolean disponivel) {
+		this.disponivel = disponivel;
 	}
-	
+
 }
