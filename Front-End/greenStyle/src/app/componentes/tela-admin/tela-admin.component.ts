@@ -28,11 +28,13 @@ export class TelaAdminComponent implements OnInit {
   listaProdutos:Produto[]
   idBrecho:number
   idCategoria:number
+  idCategoria2:number
   brechoProduto:Brecho = new Brecho
   categoriaProduto:Categoria = new Categoria
+  categoriaProduto2: Categoria = new Categoria
   idListaBrecho:number
   produtoModal= new Produto
-  disponibilidadevar:boolean
+  disponibilidadevar:string
 
   constructor(
     private brechoService: BrechoService,
@@ -189,19 +191,42 @@ export class TelaAdminComponent implements OnInit {
       this.categoriaProduto = resp
     })
   }
+  findByIdCategoria2(){
+    this.categoriaService.getById(this.idCategoria2).subscribe((resp: Categoria)=>{
+      this.categoriaProduto2 = resp
+    })
+  }
   cadastrarProduto(){
     this.produto.brecho = this.brechoProduto
-    this.produto.tamanho = "G"
     this.produto.categoria = this.categoriaProduto
+    this.disponibilidade()
 
-    this.produtoService.postProduto(this.produto).subscribe((resp:Produto)=>{
-      alert('Produto cadastrado com sucesso');
+    this.produtoService.postProduto(this.produto).subscribe(()=>{
+      alert('Produto cadastrado com sucesso!');
       this.produto = new Produto()
       this.listaProdutosBrecho()
     })
   }
+
+  atualizarProduto() {
+    this.produtoModal.categoria = this.categoriaProduto2
+    this.produtoService.putProduto(this.produtoModal).subscribe(() => {
+      alert("Produto atualizado com sucesso!")
+      this.produtoModal = new Produto()
+      this.listaProdutosBrecho()
+    })
+  }
+
+  deletarProduto() {
+    this.produtoService.deleteProduto(this.produtoModal.id).subscribe(() => {
+      alert("Produto deletado com sucesso!")
+      this.produtoModal = new Produto()
+      this.listaProdutosBrecho()
+    })
+  }
+
   listaProdutosBrecho(){
-    this.produtoService.getByIdBrechoProdutos( this.idListaBrecho).subscribe((resp:Produto[])=>{
+    this.produtoService.getByIdBrechoProdutos(this.idListaBrecho).subscribe((resp:Produto[])=>{
       this.listaProdutos=resp
     })
   }
@@ -210,8 +235,8 @@ export class TelaAdminComponent implements OnInit {
       this.produtoModal=resp
     })
   }
-  disponibilidade(event: any){
-    this.disponibilidadevar = event.target.value
+  disponibilidade(){
+    this.produto.disponivel = this.disponibilidadevar == "true" ? true : false
   }
 
 
