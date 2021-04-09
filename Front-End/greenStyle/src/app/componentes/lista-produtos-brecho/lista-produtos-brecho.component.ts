@@ -4,6 +4,7 @@ import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
 import { BrechoService } from 'src/app/service/brecho.service';
+import { CarrinhoService } from 'src/app/service/carrinho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { ProdutoService } from 'src/app/service/produto.service';
 
@@ -26,7 +27,8 @@ export class ListaProdutosBrechoComponent implements OnInit {
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
     private brechoService: BrechoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private carrinhoService: CarrinhoService
   ) { }
 
   ngOnInit() {
@@ -81,6 +83,12 @@ export class ListaProdutosBrechoComponent implements OnInit {
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
       this.produtoModal = resp
     })
+  }
+
+  addToCarrinho(produto: Produto)
+  {
+    this.carrinhoService.addToCarrinho(produto)
+    alert("Item adicionado com sucesso")
   }
 
 }
