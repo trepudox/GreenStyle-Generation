@@ -30,7 +30,7 @@ public class Brecho {
 
 	private String fotoCapa;
 
-	@OneToMany(mappedBy = "brecho", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "brecho", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("brecho")
 	private List<Produto> produtos; 
 
