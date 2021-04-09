@@ -1,7 +1,8 @@
-import { Component, Input, OnInit} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/Models/Produto';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
+import { ProdutoService } from 'src/app/service/produto.service';
 
 
 @Component({
@@ -10,42 +11,65 @@ import { CarrinhoService } from 'src/app/service/carrinho.service';
   styleUrls: ['./carrinho.component.css']
 })
 export class CarrinhoComponent implements OnInit {
-  
- 
+
+  rua: string
+  numero: string
+  bairro: string
+  cep: string
+  telefone: string
+  nomeDestinatario: string
+
+  numeroCartao: string
+  nomeCartao: string
+  cvv: string
+  validade: string
+  cpf: string
+
   produto = this.carrinhoService.getProdutos()
   total = this.carrinhoService.calculaTotal()
-  
+
   constructor(
     private carrinhoService: CarrinhoService,
     private router: Router
-   ) { }
+  ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
 
   }
 
-  finalizarCompra ()
-  {
-    alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
-    this.carrinhoService.limparCarrinho()
-    this.router.navigate(['/home'])
+  finalizarCompra() {
 
+    if (this.rua == null && this.numero == null && this.bairro == null && this.cep == null && this.telefone == null && this.nomeDestinatario == null) {
+
+      alert("Por favor, preencha corretamente os dados de entrega")
+    }
+    else {
+      if (this.numeroCartao == null && this.nomeCartao == null && this.cvv == null && this.validade == null && this.cpf == null) {
+        alert("Por favor, preencha corretamente os dados do cartão")
+      }
+      else {
+        alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
+        this.carrinhoService.limparCarrinho()
+        this.router.navigate(['/home'])
+      }
+    }
   }
 
-  apagarItem(id: number)
-  {
-    this.carrinhoService.apagarItem(id)
-    console.log(this.produto)
-  }
 
-
-
+    //this.produto.forEach(item => { 
+    //});
   
 
+apagarItem(produto: Produto) {
 
- 
+  this.carrinhoService.apagarItem(produto)
 
+}
+
+calculaTotal() {
+  return this.carrinhoService.calculaTotal()
+}
 
 
 }

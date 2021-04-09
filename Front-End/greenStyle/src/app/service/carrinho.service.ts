@@ -11,40 +11,46 @@ export class CarrinhoService {
   produto: Produto[] = []
   total: number = 0
 
+
   constructor(
     private http: HttpClient,
-    private produtoService: ProdutoService
   ) { }
 
-  addToCarrinho(produto: Produto)
-  {
-    this.produto.push(produto)
-    this.total = this.total + produto.preco
+  addToCarrinho(produto: Produto) {
+
+    const index: number = this.produto.indexOf(produto)
+    if (index == -1) {
+      this.produto.push(produto)
+      this.total = this.total + produto.preco
+      alert("Item adicionado com sucesso")
+    }
+    else {
+      alert("Esse produto já foi adicionado no carrinho")
+    }
+
   }
 
-  apagarItem(id: number)
-  {
-    let itemDelete = new Produto
-    this.produtoService.getByIdProduto(id).subscribe((resp: Produto)=> { itemDelete = resp
-    })
-   this.produto = this.produto.filter(item => item !== itemDelete)
-   console.log(itemDelete)
+  apagarItem(produto: Produto) {
+
+    const index: number = this.produto.indexOf(produto)
+    if (index !== -1) {
+      this.produto.splice(index, 1)
+    }
+    this.total = this.total - produto.preco
   }
 
-  getProdutos()
-  {
+  getProdutos() {
     return this.produto
   }
 
-  limparCarrinho()
-  {
+  limparCarrinho() {
     this.produto = []
     this.total = 0
     return this.produto
   }
 
-  calculaTotal()
-  {
+  calculaTotal() {
     return this.total
   }
+
 }
