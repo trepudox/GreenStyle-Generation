@@ -47,7 +47,7 @@ export class ProdutoService {
   }
 
   deleteProduto(id:number){
-    return this.httpClient.delete (`http://localhost:8080/produto/${id}`, this.token)
+    return this.httpClient.delete(`http://localhost:8080/produto/${id}`, this.token)
   }
 
 
