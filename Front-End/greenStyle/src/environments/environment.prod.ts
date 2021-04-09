@@ -1,5 +1,10 @@
+import { Produto } from "src/app/Models/Produto";
+
 export const environment = {
   production: true,
-  token: "",
-  nome: ""
+  id: 0,
+  nome: '',  
+  email: '',
+  token: '',
+  tipo: ''
 };

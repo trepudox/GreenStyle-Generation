@@ -21,7 +21,7 @@
 
       <div class="row d-flex justify-content-around flex-wrap">
 
-        <h2 *ngIf="listaBrecho == null">Não há nenhum brechó no banco de dados!</h2>
+        <h2 *ngIf="listaBrecho == null || listaBrecho.length == 0" class="my-3 text-center">Não há nenhum brechó no banco de dados!</h2>
 
         <div *ngFor="let brecho of listaBrecho" (click)="irParaBrecho(brecho.id)"
           class="d-flex justify-content-start b-verde div-brecho bg-white br-8 col-md-5 my-3 p-0">

@@ -4,8 +4,33 @@
 }
 
 
+.bg-estilo {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+
+.filtrar:hover {
+    transition: 0.2s;
+    transform: scale(.975);
+    opacity: 0.80;
+    color: #75A26C;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+
+.filtrar:not(:hover) {
+    transition: 0.2s;
+    transform: scale(1);
+    opacity: 1;
+    color: #75A26C;
+}
+
+
 .imagem{
     opacity: .3;
+    max-height: 400px;
+    object-fit: cover;
 }
 
 
@@ -49,11 +74,13 @@ nav{
     border-left-width: 0px;
     margin-top: 45px;
     width: 150px;
-    height: 55%;
+    height: 325px;
     left: -300px;
     position: absolute;
     transition: all .5s;
     z-index: 1;
+    top: 9px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -124,14 +151,12 @@ figure.zoom {
     width: 100%;
   }
 
-
-  #div-1:hover #div-2{
-    transition: .3s;
-    font-size: 130%;
-    cursor: pointer;
+  .btn-gambiarra
+  {
+    color: #5e8c58;
+    font-weight: bold;
   }
-  
-  #div-1:not(:hover) #div-2{
-    transition: .3s;
-    
+
+  .btn-gambiarra:focus{
+    box-shadow: 0 0 0 0;
   }

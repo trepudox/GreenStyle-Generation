@@ -24,10 +24,9 @@ public class Categoria {
 	@Size(min = 3, max = 50, message = "Mínimo de 3 caracteres e máximo de 50.")
 	private String nome;
 
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<Produto> produtos;
-	
 
 	public Long getId() {
 		return id;

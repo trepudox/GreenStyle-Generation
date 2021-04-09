@@ -23,14 +23,14 @@ public class Brecho {
 	@NotNull @Size(min = 3 , max = 45)
 		private String nome;
 	
-	@NotNull @Size(min = 3 , max = 75)
+	@NotNull @Size(min = 3 , max = 100)
 		private String descricao;
 	
 	private String fotoPerfil;
 
 	private String fotoCapa;
 
-	@OneToMany(mappedBy = "brecho", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "brecho", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("brecho")
 	private List<Produto> produtos; 
 

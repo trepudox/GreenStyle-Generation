@@ -1,87 +1,83 @@
-.hover-item:hover{
-    transition: 0.15s;
-    transform: scale(1.03);
-    opacity: 0.80;
-    color: #75A26C;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+.hover-item:hover {
+  transition: 0.15s;
+  transform: scale(1.03);
+  opacity: 0.80;
+  color: #75A26C;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.hover-item:not(:hover){
-    transition: 0.15s;
-    transform: scale(1);
-    opacity: 1;
-    color: #75A26C;
+.hover-item:not(:hover) {
+  transition: 0.15s;
+  transform: scale(1);
+  opacity: 1;
+  color: #75A26C;
 }
 
-.hover-carrinho:hover{
-    transition: 0.15s;
-    transform: scale(1.05);
-    opacity: 0.80;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    cursor: pointer;
+.hover-carrinho:hover {
+  transition: 0.15s;
+  transform: scale(1.05);
+  opacity: 0.80;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
 
-.hover-carrinho:not(:hover){
-    transition: 0.15s;
-    transform: scale(1);
-    opacity: 1;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+.hover-carrinho:not(:hover) {
+  transition: 0.15s;
+  transform: scale(1);
+  opacity: 1;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.input-pesquisar{
-    border-radius: 15px;
-    width: 100%;
-    height: 35%;
-    border: 1.6px solid #75A26C;
-    outline: 0;
-    font-size: 10pt;
-    color: #5e8c58;
-    caret-color: #5e8c58;
+.input-pesquisar {
+  border-radius: 15px;
+  width: 100%;
+  height: 35%;
+  border: 1.6px solid #75A26C;
+  outline: 0;
+  font-size: 10pt;
+  color: #5e8c58;
+  caret-color: #5e8c58;
 }
 
-.btn-pesquisar{
-    background-color: #f9f9f9;
-    color: #5e8c58;
-    border-color: #5e8c58 ;
+.btn-pesquisar {
+  background-color: #f9f9f9;
+  color: #5e8c58;
+  border-color: #5e8c58;
 }
 
-.btn-pesquisar:hover{
-    background-color: #5e8c58;
-    color: #f9f9f9;
-    border-color: #5e8c58 ;
-}
-
-
-hr{
-  /* border: 0;
-  height: 2px;
-  background-image: linear-gradient(to right, transparent, #75A26C, transparent); */
+.btn-pesquisar:hover {
+  background-color: #5e8c58;
+  color: #f9f9f9;
+  border-color: #5e8c58;
 }
 
 /* Cor do placeholder */
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #5e8c58;
-    opacity: 1; /* Firefox */
-  }
-
-  :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: #5e8c58;
-  }
-
-  ::-ms-input-placeholder { /* Microsoft Edge */
-    color: #5e8c58;
-  }
-/* Cor do placeholder */
-
-.login
-{
-   text-decoration: none;
-   font-weight: bold;
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #5e8c58;
+  opacity: 1;
+  /* Firefox */
 }
 
-.login:hover
-{
-    color: gray;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #5e8c58;
+}
+
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #5e8c58;
+}
+
+/* Cor do placeholder */
+
+.login {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login:hover {
+  color: gray;
 }
 
 .text:focus, input:focus, select:focus, textarea:focus {
@@ -99,13 +95,13 @@ textarea:focus {
   border-color: #75A26C;
 }
 
-.btn-green{
+.btn-green {
   background-color: #5e8c58;
   color: white;
   transition: all 0.5s;
 }
 
-.btn-green:hover{
+.btn-green:hover {
   background-color: #4c7247;
   color: white;
 }
