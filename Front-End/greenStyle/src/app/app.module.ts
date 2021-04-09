@@ -2,12 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-<<<<<<< HEAD
-
-=======
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
->>>>>>> 1b0ad901300170ba2cc55b7675bac5c8f4a04eee
 
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
