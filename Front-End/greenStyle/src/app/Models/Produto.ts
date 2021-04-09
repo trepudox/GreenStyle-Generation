@@ -6,8 +6,8 @@ export class Produto{
     public nome: string
     public descricao: string
     public tamanho: string
-	  public cor: string
-	  public estadoDeUso: string
+	public cor: string
+	public disponivel: boolean
     public preco: number
     public foto: string
     public categoria: Categoria

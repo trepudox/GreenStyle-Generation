@@ -7,7 +7,7 @@
       <div class="row">
         <div class="col-md-10 d-flex justify-content-center align-items-center">
           <h3></h3>
-          <h3 class="text-center text-light px-3">GREEN STYLE | MODA SUSTAVEL | ADMINISTRE</h3>
+          <h3 class="text-center text-light px-3">GREEN STYLE | MODA SUSTENTÁVEL | ADMINISTRE</h3>
         </div>
 
         <div class="col-md-2 d-flex justify-content-center align-items-center">
@@ -275,8 +275,8 @@
 
                 <div class="form-row">
                   <div class="form-group col-md-6">
-                    <label for="nome">Nome</label>
-                    <input [(ngModel)]="produto.nome" name="nome" type="text" class="form-control" id="nome" placeholder="Ex: Camiseta Branca - G">
+                    <label for="nome-produto">Nome</label>
+                    <input [(ngModel)]="produto.nome" name="nome" type="text" class="form-control" id="nome-produto" placeholder="Ex: Camiseta Branca - G">
                   </div>
 
                     <div class="form-group col-md-6">
@@ -295,24 +295,28 @@
                   </div>
 
                   <div class="form-row">
-                    <div class="form-group col-md-6">
-                      <label for="cor">Cor</label>
-                      <input [(ngModel)]="produto.cor" name="cor" type="text" class="form-control" id="nome" placeholder="Ex: Verde">
+                    <div class="form-group col-md-4">
+                      <label for="tamanho">Tamanho</label>
+                      <input [(ngModel)]="produto.tamanho" name="cor" type="text" class="form-control" id="tamanho" placeholder="Ex: P ou 40">
                     </div>
 
-                    <div class="form-group col-md-6">
+                    <div class="form-group col-md-4">
+                      <label for="cor">Cor</label>
+                      <input [(ngModel)]="produto.cor" name="cor" type="text" class="form-control" id="cor" placeholder="Ex: Verde">
+                    </div>
+
+                    <div class="form-group col-md-4">
                       <label for="categoria">Disponibilidade</label>
-                    <select id="categoria" class="form-control" name="categoria"
-                    (change)='disponibilidade($event)'>
-                    <option value=true>Disponivel</option>
-                    <option value=false>Indisponivel</option>
+                    <select id="categoria" class="form-control" name="categoria" [(ngModel)]="disponibilidadevar">
+                    <option value="true">Disponivel</option>
+                    <option value="false">Indisponivel</option>
                     </select>
                     </div>
-              </div>
+                  </div>
 
                   <div class="form-group">
-                    <label for="descricao">Descrição</label>
-                    <textarea [(ngModel)]="produto.descricao" name="descricao" class="form-control" id="descricao" rows="3"></textarea>
+                    <label for="descricao-produto">Descrição</label>
+                    <textarea [(ngModel)]="produto.descricao" name="descricao" class="form-control" id="descricao-produto" rows="3"></textarea>
                   </div>
 
 
@@ -334,7 +338,11 @@
               </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
+              
+
+
+              <div class="container" style="overflow-x: auto;">
+              <div class="card-body pb-0">
                 <div class="form-row">
                   <div class="form-group col-md-6">
                     <label for="brecho">Brecho</label>
@@ -350,9 +358,11 @@
                     <tr>
                       <th scope="col">#</th>
                       <th scope="col">Produto</th>
-                      <th scope="col">Preço</th>
-                      <th scope="col">Foto</th>
                       <th scope="col">Categoria</th>
+                      <th scope="col">Preço</th>
+                      <th scope="col">Tamanho</th>
+                      <th scope="col">Cor</th>
+                      <th scope="col">Disponibilidade</th>
                       <th scope="col">Descrição</th>
                       <th scope="col">Modificações</th>
                     </tr>
@@ -361,20 +371,26 @@
                     <tr *ngFor="let produto of listaProdutos">
                       <th scope="row">{{produto.id}}</th>
                       <td>{{produto.nome}}</td>
-                      <td>{{produto.preco}}</td>
-                      <td>{{produto.foto}}</td>
                       <td>{{produto.categoria.nome}}</td>
+                      <td>{{produto.preco}}</td>
+                      <td>{{produto.tamanho}}</td>
+                      <td>{{produto.cor}}</td>
+                      <td *ngIf="produto.disponivel == true" class="text-success">Disponível</td>
+                      <td *ngIf="produto.disponivel == false" class="text-danger">Indisponível</td>
                       <td>{{produto.descricao}}</td>
                       <td class="d-flex justify-content-end">
                         <button class="btn btn-info mr-3" data-toggle="modal" data-target="#editProduto"
                         (click)='setProdutoModal(produto.id)'>Editar</button>
-                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProduto">Deletar</button>
+                        <button class="btn btn-danger" data-toggle="modal" data-target="#deleteProduto" (click)="setProdutoModal(produto.id)">Deletar</button>
                       </td>
                     </tr>
 
                   </tbody>
                 </table>
               </div>
+              </div>
+
+
             </div>
           </div>
 
@@ -533,8 +549,8 @@
             <div class="form-row">
             <div class="form-group col-md-12">
               <label for="categoria">Categoria</label>
-                    <select id="categoria" class="form-control" name="categoria" [(ngModel)]="idCategoria"
-                    (change)='findByIdCategoria()'>
+                    <select id="categoria" class="form-control" name="categoria" [(ngModel)]="idCategoria2"
+                    (change)='findByIdCategoria2()'>
                       <option *ngFor='let categoria of listaCategorias' value="{{categoria.id}}">{{categoria.nome}}</option>
                     </select>
             </div>
@@ -558,27 +574,30 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <label for="cor">Cor</label>
-            <input [(ngModel)]="produtoModal.cor" name="cor" type="text" class="form-control" id="nome" placeholder="Ex: Verde">
+            <label for="tamanho">Tamanho</label>
+            <input [(ngModel)]="produtoModal.tamanho" name="tamanho" type="text" class="form-control" id="tamanho" placeholder="Ex: Verde">
           </div>
 
           <div class="form-group col-md-6">
-            <label for="categoria">Disponibilidade</label>
-          <select id="categoria" class="form-control" name="categoria"
-          (change)='disponibilidade($event)'>
-          <option value=true>Disponivel</option>
-          <option value=false>Indisponivel</option>
-          </select>
+            <label for="cor">Cor</label>
+            <input [(ngModel)]="produtoModal.cor" name="cor" type="text" class="form-control" id="cor" placeholder="Ex: Verde">
           </div>
-    </div>
+        </div>
 
+            <div class="form-group">
+              <label for="categoria">Disponibilidade</label>
+              <select id="categoria" class="form-control" name="categoria" [(ngModel)]="produtoModal.disponivel">
+              <option value="true">Disponivel</option>
+              <option value="false">Indisponivel</option>
+              </select>
+            </div>
             <div class="form-group">
               <label for="foto">Foto Produto</label>
               <input [(ngModel)]="produtoModal.foto" name="foto" type="text" class="form-control" id="foto" placeholder="Ex: www.URLdaFoto.com">
             </div>
             <div class="form-group">
               <label for="descricao">Descrição</label>
-              <textarea [(ngModel)]="produtoModal.descricao" class="form-control" id="descricao" rows="3"></textarea>
+              <textarea [(ngModel)]="produtoModal.descricao" name="descricao" class="form-control" id="descricao" rows="3"></textarea>
             </div>
 
 
@@ -588,7 +607,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-green">Salvar mudanças</button>
+        <button type="submit" class="btn btn-green" (click)="atualizarProduto()" data-dismiss="modal">Salvar mudanças</button>
       </div>
     </div>
   </div>
@@ -600,18 +619,18 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="TituloModalCentralizado">Excluir Produto</h5>
+        <h5 class="modal-title" id="TituloModalCentralizado">Excluir produto</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        Deseja realmente excluir o Produto:<br>
-        do Brecho:
+      <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+       <h6 class="text-center">Tem certeza que deseja remover esse produto? Essa ação é irreversível<br><br>{{produtoModal.nome}}</h6>
+       <img src="{{produtoModal.foto}}" alt="Foto do produto" class="img-fluid" style="max-width: 250px; max-height: 250px;">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        <button type="submit" class="btn btn-danger">Deletar</button>
+        <button type="button" class="btn btn-danger" (click)="deletarProduto()" data-dismiss="modal">Deletar</button>
       </div>
     </div>
   </div>

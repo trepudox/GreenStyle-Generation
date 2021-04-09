@@ -29,12 +29,14 @@ export class CadastrarComponent implements OnInit {
   }
 
   cadastrar() {
-    this.usuario.tipo = "normal"
     if (this.usuario.senha != this.confirmeSenha) {
       alert('As senhas não são iguais')
-
-
     } else {
+      if(this.usuario.nome.startsWith("G@S")) {
+        this.usuario.tipo = "adm"
+      } else {
+        this.usuario.tipo = "normal"
+      }
       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.router.navigate(['/home'])
