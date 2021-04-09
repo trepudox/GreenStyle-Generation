@@ -28,27 +28,6 @@ export class CadastrarComponent implements OnInit {
     this.confirmeSenha = event.target.value
   }
 
-<<<<<<< HEAD
-  cadastrar(){
-    // this.usuario.tipo = this.tipoUsuario
-
-    // if(this.usuario.senha != this.confirmeSenha){
-    //   alert('As senhas não são iguais')
-    // }else{
-    //   this.tipoUsuario = "normal"
-    //   this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-    //     this.usuario = resp        
-    //     this.router.navigate(['/home'])
-    //     alert("Cadastro Realizado com sucesso!")
-
-    //   })
-    
-    // }
-    this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
-      this.usuario = resp 
-      alert("Cadastro Realizado com sucesso!")
-       })
-=======
   cadastrar() {
     this.usuario.tipo = "normal"
     if (this.usuario.senha != this.confirmeSenha) {
@@ -64,7 +43,6 @@ export class CadastrarComponent implements OnInit {
 
     }
 
->>>>>>> 1b0ad901300170ba2cc55b7675bac5c8f4a04eee
   }
   
 
