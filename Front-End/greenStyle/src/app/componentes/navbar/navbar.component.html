@@ -35,10 +35,10 @@
       <!-- <i class="bi bi-search"></i> -->
 
       <div class="col-auto">
-        <div class="input-group input-group-sm">
+        <div class="input-group input-group-sm d-flex align-items-center">
           <input [(ngModel)]="textoPesquisa" type="text" class="form-control text" name="pesquisa" id="pesquisa" style="color: #5e8c58;"
             placeholder="Pesquisar produtos">
-          <label for="pesquisa">
+          <label for="pesquisa" class="mb-auto mt-auto">
             <button class="btn btn-pesquisar btn-sm text" type="button" id="button-addon2" (click)="pesquisarProduto(textoPesquisa)"><i
                 class="bi bi-search"></i></button>
           </label>
@@ -46,10 +46,10 @@
       </div>
 
       <div class="d-flex justify-content-around">
-        <i class="bi bi-cart4 fc-verde fs-20 ml-5 mr-4 pb-1 hover-carrinho carrinho" style="border: 0px; outline: 0px;"
+        <i class="bi bi-cart4 fc-verde fs-20 ml-4 mr-4 pb-1 hover-carrinho" style="border: 0px; outline: 0px;"
           routerLink="/carrinho"></i>
 
-        <div class="d-flex align-items-center" *ngIf="!logado()">
+        <div class="d-flex align-items-center mx-2" *ngIf="!logado()">
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
             <p class="fc-verde d-flex m-0 fs-10"><a href="" class="fc-verde hover-item fs-10"
@@ -60,13 +60,13 @@
           </div>
         </div>
 
-        <div class="d-flex align-items-center" *ngIf="logado()">
+        <div class="d-flex align-items-center mx-2" *ngIf="logado()">
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="fc-verde d-flex m-0 fs-10">Bem-vinde<br>
-            {{nome}}</p>
+            <p class="fc-verde d-flex m-0 fs-10 text-center">Olá,</p>
+            <p class="fc-verde d-flex m-0 fs-10 text-center"><strong>{{nome}}</strong></p>
           </div>
-          <div ><i class="bi bi-box-arrow-right fc-verde ml-3" style="cursor: pointer;" (click)="sair()"></i></div>
+          <i class="bi bi-box-arrow-right fc-verde ml-4 pl-1 fs-16 hover-sair" style="cursor: pointer;" (click)="sair()"></i>
         </div>
 
       </div>

@@ -36,8 +36,12 @@ export class HomeComponent implements OnInit {
     this.setListasProduto()
   }
 
+
+
+
   setListasProduto() {
-    for (let x = 1; x <= 8; x++)
+
+    for (let x = 1; x <= 8; x++) {
 
       this.produtoService.getByIdProduto(x).subscribe((resp: Produto) => {
         if (x < 5) {
@@ -47,7 +51,40 @@ export class HomeComponent implements OnInit {
         }
       })
 
+    }
+
   }
+
+  setListasProduto2() {
+    let listaProdutoRandom: Produto[] = []
+    
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+      let listaTodosOsProdutos: Produto[] = resp
+
+      for ( ; listaProdutoRandom.length < 8;) {
+        let nDaVez = Math.floor(Math.random() * listaTodosOsProdutos.length)
+        
+        if(listaProdutoRandom.indexOf(listaTodosOsProdutos[nDaVez]) === -1) {
+          
+          this.produtoService.getByIdProduto(nDaVez).subscribe((resp: Produto) => {
+
+            listaProdutoRandom.push(resp)
+
+          })
+          
+        }
+      
+      }
+
+      this.listaProduto1 = listaProdutoRandom.slice(0, 4)
+      this.listaProduto2 = listaProdutoRandom.slice(4, 8)
+      alert("saiu")
+
+    })
+
+  }
+
+
 
   setProdutoModal(id: number) {
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
