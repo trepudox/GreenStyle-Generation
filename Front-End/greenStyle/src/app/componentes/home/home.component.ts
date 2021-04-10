@@ -33,14 +33,20 @@ export class HomeComponent implements OnInit {
       categoria: new Categoria(),
       brecho: new Brecho()
     })
-    this.setListaProduto()
+    this.setListasProduto()
   }
 
-  setListaProduto() {
-    for (let x = 1; x < 5; x++)
+  setListasProduto() {
+    for (let x = 1; x <= 8; x++)
+
       this.produtoService.getByIdProduto(x).subscribe((resp: Produto) => {
-        this.listaProduto1.push(resp)
+        if (x < 5) {
+          this.listaProduto1.push(resp)
+        } else {
+          this.listaProduto2.push(resp)
+        }
       })
+
   }
 
   setProdutoModal(id: number) {
@@ -55,3 +61,4 @@ export class HomeComponent implements OnInit {
   }
 
 }
+

@@ -1,88 +1,88 @@
-.bg-verde{
-    background-color: #75A26C;
+.bg-verde {
+  background-color: #75A26C;
 }
 
-.bg-verde-escuro{
-    background-color: #5E8C58;
+.bg-verde-escuro {
+  background-color: #5E8C58;
 }
 
-.fc-verde-escuro{
-    color: #5E8C58;
+.fc-verde-escuro {
+  color: #5E8C58;
 }
 
-.fc-amarelo{
-    color: #EECA16;
+.fc-amarelo {
+  color: #EECA16;
 }
 
-.fs-16{
-    font-size: 16pt;
+.fs-16 {
+  font-size: 16pt;
 }
 
-.fs-14{
-    font-size: 14pt;
+.fs-14 {
+  font-size: 14pt;
 }
 
-.fs-9{
-    font-size: 9pt;
+.fs-9 {
+  font-size: 9pt;
 }
 
-.br-10{
-    border-radius: 10px;
+.br-10 {
+  border-radius: 10px;
 }
 
-.clickable{
-    cursor:pointer;
+.clickable {
+  cursor: pointer;
 }
 
-.animado:hover{
-    transition: 0.25s;
-    transform: scale(1.025);
-    box-shadow: 4.5px 4.5px 4.5px rgba(0,0,0,0.25);
+.animado:hover {
+  transition: 0.25s;
+  transform: scale(1.025);
+  box-shadow: 4.5px 4.5px 4.5px rgba(0, 0, 0, 0.25);
 }
 
-.animado:not(:hover){
-    transition: 0.25s;
-    transform: scale(1);
-    box-shadow: 0px 0px 0px rgba(0,0,0,0.25);
+.animado:not(:hover) {
+  transition: 0.25s;
+  transform: scale(1);
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.25);
 }
 
-.naoclickable{
-    cursor: default;
+.naoclickable {
+  cursor: default;
 }
 
-.imagem-card{
-    max-width: 300px; 
-    max-height: 300px;
-    border-radius: 8.5px 8.5px 2px 2px;
+.imagem-card {
+  max-width: 300px;
+  max-height: 300px;
+  border-radius: 8.5px 8.5px 2px 2px;
 }
 
-.icone-anm:hover{
-    transition: 0.20s;
-    color: #75A26C;
-    transform: scale(1.05);
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+.icone-anm:hover {
+  transition: 0.20s;
+  color: #75A26C;
+  transform: scale(1.05);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
-.icone-anm:not(:hover){
-    transition: 0.25s;
-    color: #000000;
-    transform: scale(1);
+.icone-anm:not(:hover) {
+  transition: 0.25s;
+  color: #000000;
+  transform: scale(1);
 }
 
-.corpo-card{
-    border-color: #2C2E2C;
-    background-color: #2C2E2C;
-    color: #75A26C;
-    border-radius: 10px;
-    /*border-color: rgba(0,0,0,0.75);*/
+.corpo-card {
+  border-color: #2C2E2C;
+  background-color: #2C2E2C;
+  color: #75A26C;
+  border-radius: 10px;
+  /*border-color: rgba(0,0,0,0.75);*/
 }
 
-.ods-borda{
-    border-radius: 3px;
+.ods-borda {
+  border-radius: 3px;
 }
 
-.b-verde{
-    border-width: .1px;
-    border-style: solid;
-    border-color: #c1d1c0;
-  }
+.b-verde {
+  border-width: .2px;
+  border-style: solid;
+  border-color: #bdcebc;
+}
