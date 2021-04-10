@@ -64,6 +64,7 @@ export class NavbarComponent implements OnInit {
       environment.email = this.usuarioLogin.email
       environment.tipo = this.usuarioLogin.tipo
 
+
     }, erro => {
       if(erro.status == 500){
         alert("Usuário ou senha estão incorretos")
@@ -79,10 +80,11 @@ export class NavbarComponent implements OnInit {
       environment.token=''
 
       this.usuarioLogin = new UsuarioLogin()
+      this.logado()
       this.router.navigate(['/home'])
   }
 
-pesquisarProduto(s: string) {
+  pesquisarProduto(s: string) {
     this.router.navigate([`/produtos-geral/filtro/0/search/${s}`])
   }
 
