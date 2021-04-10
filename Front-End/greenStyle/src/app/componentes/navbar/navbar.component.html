@@ -63,9 +63,10 @@
         <div class="d-flex align-items-center" *ngIf="logado()">
           <i class="bi bi-person-circle fs-20 fc-verde mr-2"></i>
           <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="fc-verde d-flex m-0 fs-10">Bem-vinde</p>
-            <p class="fc-verde d-flex m-0">{{nome}}</p>
+            <p class="fc-verde d-flex m-0 fs-10">Bem-vinde<br>
+            {{nome}}</p>
           </div>
+          <div ><i class="bi bi-box-arrow-right fc-verde ml-3" style="cursor: pointer;" (click)="sair()"></i></div>
         </div>
 
       </div>

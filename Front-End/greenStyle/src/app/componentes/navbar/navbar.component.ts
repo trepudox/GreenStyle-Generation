@@ -71,6 +71,17 @@ export class NavbarComponent implements OnInit {
     })
   }
 
+  sair(){
+      environment.id=0
+      environment.email=''
+      environment.nome=''
+      environment.tipo=''
+      environment.token=''
+
+      this.usuarioLogin = new UsuarioLogin()
+      this.router.navigate(['/home'])
+  }
+
 pesquisarProduto(s: string) {
     this.router.navigate([`/produtos-geral/filtro/0/search/${s}`])
   }
