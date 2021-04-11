@@ -64,7 +64,6 @@ export class ListaProdutosGeralComponent implements OnInit {
       brecho: new Brecho()
     })
     this.setListaCategoria()
-    
   }
 
   setListaProduto(id: number, s: string) {
@@ -102,7 +101,6 @@ export class ListaProdutosGeralComponent implements OnInit {
       this.produtoModal = resp
     })
   }
-
 
   addToCarrinho(produto: Produto) {
     this.carrinhoService.addToCarrinho(produto)

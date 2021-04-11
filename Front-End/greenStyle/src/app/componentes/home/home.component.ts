@@ -33,15 +33,58 @@ export class HomeComponent implements OnInit {
       categoria: new Categoria(),
       brecho: new Brecho()
     })
-    this.setListaProduto()
+    this.setListasProduto()
   }
 
-  setListaProduto() {
-    for (let x = 1; x < 5; x++)
+
+
+
+  setListasProduto() {
+
+    for (let x = 1; x <= 8; x++) {
+
       this.produtoService.getByIdProduto(x).subscribe((resp: Produto) => {
-        this.listaProduto1.push(resp)
+        if (x < 5) {
+          this.listaProduto1.push(resp)
+        } else {
+          this.listaProduto2.push(resp)
+        }
       })
+
+    }
+
   }
+
+  setListasProduto2() {
+    let listaProdutoRandom: Produto[] = []
+    
+    this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
+      let listaTodosOsProdutos: Produto[] = resp
+
+      for ( ; listaProdutoRandom.length < 8;) {
+        let nDaVez = Math.floor(Math.random() * listaTodosOsProdutos.length)
+        
+        if(listaProdutoRandom.indexOf(listaTodosOsProdutos[nDaVez]) === -1) {
+          
+          this.produtoService.getByIdProduto(nDaVez).subscribe((resp: Produto) => {
+
+            listaProdutoRandom.push(resp)
+
+          })
+          
+        }
+      
+      }
+
+      this.listaProduto1 = listaProdutoRandom.slice(0, 4)
+      this.listaProduto2 = listaProdutoRandom.slice(4, 8)
+      alert("saiu")
+
+    })
+
+  }
+
+
 
   setProdutoModal(id: number) {
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
@@ -51,7 +94,7 @@ export class HomeComponent implements OnInit {
 
   addToCarrinho(produto: Produto) {
     this.carrinhoService.addToCarrinho(produto)
-    alert("Item adicionado com sucesso")
   }
 
 }
+
