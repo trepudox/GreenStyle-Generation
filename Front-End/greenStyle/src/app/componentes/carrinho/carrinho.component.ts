@@ -30,6 +30,7 @@ export class CarrinhoComponent implements OnInit {
 
   constructor(
     private carrinhoService: CarrinhoService,
+    private produtoService: ProdutoService,
     private router: Router
   ) { }
 
@@ -40,36 +41,34 @@ export class CarrinhoComponent implements OnInit {
 
   finalizarCompra() {
 
-    if (this.rua == null && this.numero == null && this.bairro == null && this.cep == null && this.telefone == null && this.nomeDestinatario == null) {
-
-      alert("Por favor, preencha corretamente os dados de entrega")
-    }
-    else {
-      if (this.numeroCartao == null && this.nomeCartao == null && this.cvv == null && this.validade == null && this.cpf == null) {
-        alert("Por favor, preencha corretamente os dados do cartão")
-      }
-      else {
-        alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
-        this.carrinhoService.limparCarrinho()
-        this.router.navigate(['/home'])
-      }
-    }
+    /* if (this.rua == null && this.numero == null && this.bairro == null && this.cep == null && this.telefone == null && this.nomeDestinatario == null) {
+ 
+       alert("Por favor, preencha corretamente os dados de entrega")
+     }
+     else {
+       if (this.numeroCartao == null && this.nomeCartao == null && this.cvv == null && this.validade == null && this.cpf == null) {
+         alert("Por favor, preencha corretamente os dados do cartão")
+       }
+       else {*/
+        this.produto.forEach(element => {
+          element.disponivel = false
+          this.produtoService.putProduto(element).subscribe((resp: Produto)=> {element = resp})
+    });
+    
+    alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
+    this.carrinhoService.limparCarrinho()
+    this.router.navigate(['/home'])
+    /* }
+   }*/
   }
 
+  apagarItem(produto: Produto) {
 
-    //this.produto.forEach(item => { 
-    //});
-  
+    this.carrinhoService.apagarItem(produto)
+  }
 
-apagarItem(produto: Produto) {
-
-  this.carrinhoService.apagarItem(produto)
-
-}
-
-calculaTotal() {
-  return this.carrinhoService.calculaTotal()
-}
-
+  calculaTotal() {
+    return this.carrinhoService.calculaTotal()
+  }
 
 }

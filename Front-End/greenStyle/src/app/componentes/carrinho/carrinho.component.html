@@ -57,7 +57,7 @@
                             <div class="col-md-5">
                                 <div class="card-body">
                                     <h5 class="card-title">{{produto.nome}}</h5>
-                                    <p class="card-text">R$ {{produto.preco}}</p>
+                                    <p class="card-text"> {{produto.preco | currency:'BRL'}}</p>
                                 </div>
                             </div>
                             <div class="col-md-4 d-flex align-items-center justify-content-center">
@@ -149,7 +149,7 @@
                                 <div class="row d-flex justify-content-center mt-4">
                                     <div class="col-md-11 d-flex justify-content-between ">
                                         <p class="fs-16 font-weight-bold">TOTAL</p>
-                                        <p class="fs-16 font-weight-bold ng">R$ {{ calculaTotal() }}</p>
+                                        <p class="fs-16 font-weight-bold ng"> {{ calculaTotal() | currency:'BRL' }}</p>
                                     </div>
                                 </div>
                                 <div class="row d-flex justify-content-center">
@@ -167,7 +167,7 @@
                             <div class="col-md-8">
 
 
-                                <p class="text-center fs-18 font-weight-bold mt-5">Total R$ {{ calculaTotal() }} à vista
+                                <p class="text-center fs-18 font-weight-bold mt-5">Total {{ calculaTotal() | currency:'BRL'}} à vista
 
                                 </p>
                                 <p class="text-center fs-18 fc-verde">Prazo para pagamento do boleto: 01/04/2021</p>
@@ -182,7 +182,7 @@
 
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-8">
-                                <p class="text-center fs-18 font-weight-bold mt-5">Total R$ {{ calculaTotal() }} à vista
+                                <p class="text-center fs-18 font-weight-bold mt-5">Total {{ calculaTotal() | currency:'BRL' }} à vista
                                 </p>
 
                                 <p class="text-center fc-verde fs-18">Escaneie o QR Code abaixo para pagar agora</p>
