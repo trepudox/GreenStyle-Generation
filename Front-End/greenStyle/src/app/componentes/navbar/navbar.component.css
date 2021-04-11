@@ -25,7 +25,20 @@
   transition: 0.15s;
   transform: scale(1);
   opacity: 1;
+}
+
+.hover-sair:hover {
+  transition: 0.15s;
+  transform: scale(1.05);
+  opacity: .8;
+  color: rgb(218, 30, 30);
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.hover-sair:not(:hover) {
+  transition: 0.15s;
+  transform: scale(1);
+  color: #75A26C;
 }
 
 .input-pesquisar {

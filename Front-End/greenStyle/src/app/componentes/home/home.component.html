@@ -107,151 +107,99 @@
 
   <div class="col-md-12">
     <div id="multi-item-example" data-ride="carousel" class="carousel slide carousel-multi-item">
-      <ol class="carousel-indicators">
-        <li data-target="#multi-item-example" data-slide-to="0" class="active bg-secondary"></li>
-        <li data-target="#multi-item-example" data-slide-to="1" class="bg-secondary"></li>
-      </ol>
 
-      <div class="carousel-inner pb-3">
+      <div class="carousel-inner pb-5">
 
         <!-- Carrossel Pag 1 -->
         <div class="carousel-item active mt-3">
 
+          <div *ngFor="let produto of listaProduto1" class="col-md-3" style="float: left;">
+            <div class="card principal animado2 b-verde mx-2 my-3" style="max-width: 500px;">
 
-          <div *ngFor="let produto of listaProduto1" class="card principal mb-2 animado1 b-verde mx-2 my-3"
-            style="max-width: 250px;">
+              <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;"
+                data-toggle="modal" data-target="#modal-produto" (click)="setProdutoModal(produto.id)">
 
-            <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;"
-              data-toggle="modal" data-target="#modal-produto" (click)="setProdutoModal(produto.id)">
-            <div class="card-body">
-              <h5 class="text-center">{{produto.nome}}</h5>
-              <div class="row d-flex justify-content-around align-items-center">
-                <p class="mt-3">
-                  R$ {{produto.preco}}
-                </p>
-                <button type="button" class="btn bg-green d-flex justify-content-around align-items-center"
-                  (click)="addToCarrinho(produto)">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart4"
-                    viewBox="0 0 16 16">
-                    <path
-                      d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z">
-                    </path>
-                  </svg>
-                  &nbsp;Comprar
-                </button>
+              <div class="card-body d-flex flex-column justify-content-around" style="cursor: default;">
+                <h5 class="text-center">{{produto.nome}}</h5>
+                <div class="row d-flex justify-content-around align-items-center">
+                  <p class="mt-3" style="font-weight: 600; font-size: 120%;">
+                    {{produto.preco | currency:'BRL'}}
+                  </p>
+                  <button type="button"
+                    class="btn bg-green d-flex justify-content-around align-items-center botao-focus"
+                    (click)="addToCarrinho(produto)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart4" viewBox="0 0 16 16">
+                      <path
+                        d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z">
+                      </path>
+                    </svg>
+                    &nbsp;Comprar
+                  </button>
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
 
         </div>
 
+        <!-- /Carrossel Pag 1 -->
 
-      
-      <!-- /Carrossel Pag 1 -->
+        <div class="carousel-item mt-3">
 
-      <div class="carousel-item mt-3">
-        
-        <div class="col-md-3 " style="float: left;">
-          <div class="card  mb-2 animado1 b-verde">
-            <img
-              src="https://anjuss.vteximg.com.br/arquivos/ids/164367-500-500/Touca-Masculina-Lenhador-Anjuss-Lumberjack-Amarelo-Unico.jpg?v=637288061184270000"
-              alt="Card image cap" class="card-img-top" style="width: 100%;">
-            <div class="card-body">
-              <h5 class="text-center">Camiseta básica</h5>
-              <p class="card-text text-center">
-                R$ 15,00
-              </p>
+          <div *ngFor="let produto of listaProduto2" class="col-md-3" style="float: left;">
+            <div class="card principal animado2 b-verde mx-2 my-3" style="max-width: 500px;">
 
-            </div>
-          </div>
-        </div>
+              <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;"
+                data-toggle="modal" data-target="#modal-produto" (click)="setProdutoModal(produto.id)">
 
-        <div class="col-md-3 " style="float: left;">
-          <div class="card  mb-2 animado1 b-verde">
-            <img
-              src="https://www.heroisdaestrada.com.br/image/cache/catalog/camisetas/COSTAS%20PRETA%20LISA-01%20(1)-500x500.png"
-              alt="Card image cap" class="card-img-top" style="width: 100%;">
-            <div class="card-body">
-              <h5 class="text-center">Camiseta básica</h5>
-              <p class="card-text text-center">
-                R$ 15,00
-              </p>
+              <div class="card-body d-flex flex-column justify-content-around" style="cursor: default;">
+                <h5 class="text-center">{{produto.nome}}</h5>
+                <div class="row d-flex justify-content-around align-items-center">
+                  <p class="mt-3" style="font-weight: 600; font-size: 120%;">
+                    {{produto.preco | currency:'BRL'}}
+                  </p>
+                  <button type="button"
+                    class="btn bg-green d-flex justify-content-around align-items-center botao-focus"
+                    (click)="addToCarrinho(produto)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-cart4" viewBox="0 0 16 16">
+                      <path
+                        d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z">
+                      </path>
+                    </svg>
+                    &nbsp;Comprar
+                  </button>
+                </div>
+              </div>
 
             </div>
           </div>
-        </div>
 
-        <div class="col-md-3 " style="float: left;">
-          <div class="card mb-2 animado1 b-verde">
-            <img src="https://images-americanas.b2w.io/produtos/01/00/img/1288517/7/1288517702_1GG.jpg"
-              alt="Card image cap" class="card-img-top" style="width: 100%;">
-            <div class="card-body">
-              <h5 class="text-center">Camiseta básica</h5>
-              <p class="card-text text-center">
-                R$ 15,00
-              </p>
-
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3 " style="float: left;">
-          <div class="card  mb-2 animado1 b-verde">
-            <img
-              src="https://decathlonpro.vteximg.com.br/arquivos/ids/2710123-500-500/calcas-slim-para-ginastica-e-pilates-homem-500-com-fecho-preto-trousers-500-slim-zip-gym-xl---w37-l341.jpg?v=637503709168970000"
-              alt="Card image cap" class="card-img-top" style="width: 100%;">
-            <div class="card-body">
-              <h5 class="text-center">Camiseta básica</h5>
-              <p class="card-text text-center">
-                R$ 15,00
-              </p>
-
-            </div>
-          </div>
         </div>
 
       </div>
 
-    </div>
-    
-    </div>
+      <div class=" d-flex justify-content-between pb-2">
+        <a href="#multi-item-example" data-slide="prev"
+          class="btn bg-verde ml-5 seta-hover d-flex align-items-center justify-content-center botao-focus">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <ol class="carousel-indicators pt-5">
+          <li data-target="#multi-item-example" data-slide-to="0" class="active bg-secondary"></li>
+          <li data-target="#multi-item-example" data-slide-to="1" class="bg-secondary"></li>
+        </ol>
+        <a href="#multi-item-example" data-slide="next"
+          class="btn bg-verde mr-5 seta-hover d-flex align-items-center justify-content-center botao-focus">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+      </div>
 
-    <div class=" d-flex justify-content-between pt-2 pb-2">
-      <a href="#multi-item-example" data-slide="prev"
-        class="btn bg-verde ml-5 seta-hover d-flex align-items-center justify-content-center botao-focus">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      </a>
-      <a href="#multi-item-example" data-slide="next"
-        class="btn bg-verde mr-5 seta-hover d-flex align-items-center justify-content-center botao-focus">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      </a>
     </div>
-
   </div>
 
 </div>
-
-
-<!--/PRODUTOS EM DESTAQUE -->
-
-<!-- banner -->
-
-
-<!-- Categorias 
-<div class="container">
-  <div class="row d-flex justify-content-center">
-
-    <div class="col-md-11 mb-3 p-0">
-      <h2 class="text-center bg-verde text-white mb-2 p-2" style="font-weight: 700">
-        CATEGORIAS POPULARES
-      </h2>
-    </div>
-
-
-  </div>
-</div>
-Categorias -->
 
 <div class="container">
   <div class="row">
@@ -360,7 +308,7 @@ Categorias -->
 <div class="card text-white bg-dark mt-3">
   <img class="card-img img-fluid imgMenu" src="../../../assets/images/home/IMG2.3.jpg" alt="Imagem do card"
     width="500px">
-  <div class="card-img-overlay d-flex flex-column align-items-start" style="margin-left: 12%; margin-top:4.8%;">
+  <div class="card-img-overlay d-flex flex-column align-items-start" style="margin-left: 12%; margin-top:5.5%;">
     <h4 class="card-title text-white">GREEN STYLE</h4>
     <p class="card-text">CONHEÇA OS BENEFÍCIOS<br>DA MODA SUSTENTÁVEL!</p>
     <button routerLink="/sobre-nos" class="btn btn-outline-light btn-lg mt-3 fs-verde" type="button">Venha ver quem
@@ -446,27 +394,72 @@ Categorias -->
 
 <div class="modal fade" id="modal-produto" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-produto"
   aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <div>
-          <h6 id="titulo-modal-produto">{{produtoModal.brecho.nome}} | {{produtoModal.nome}}</h6>
+          <h5 class="d-inline pl-1" id="titulo-modal-produto" style="font-size: 150%;">{{produtoModal.nome}}</h5>
         </div>
         <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body d-flex justify-content-around align-items-center">
-        <div class="col-md-8 p-0 m-0" style="overflow: hidden;">
+      <div class="modal-body d-flex justify-content-around align-items-around pb-0 pr-0">
+        <div class="col-md-5 p-0 m-0 d-flex flex-column" style="overflow: hidden;">
           <figure class="zoom bordaImgModal" onmousemove="zoom(event)"
             style="background-image: url({{produtoModal.foto}}); width: 100%; height: 100%;">
             <img src="{{produtoModal.foto}}" style="width:100%; height: 100%;">
           </figure>
         </div>
-        <div class="col-md-4">
-          Descrição:
-          <br>
-          {{produtoModal.descricao}}
+        <div class="col-md-7 d-flex flex-column justify-content-start">
+
+          <div style="border: 1px solid #75A26C; border-radius: 5px; padding-left: 15px; padding-right: 15px;">
+            <div class="row d-flex justify-content-around mt-3">
+              <div class="col-md-6 d-flex flex-column align-items-center">
+                <h5>Tamanho:</h5>
+                <p class="text-center">{{produtoModal.tamanho}}</p>
+              </div>
+
+              <div class="col-md-6 d-flex flex-column align-items-center">
+                <h5>Cor:</h5>
+                <p class="text-center">{{produtoModal.cor}}</p>
+              </div>
+            </div>
+
+            <div class="row d-flex justify-content-around mt-3 pb-1">
+              <div class="col-md-6 d-flex flex-column align-items-center">
+                <h5>Brechó:</h5>
+                <p class="text-center">{{produtoModal.brecho.nome}}</p>
+              </div>
+
+              <div class="col-md-6 d-flex flex-column align-items-center">
+                <h5>Descrição:</h5>
+                <p class="text-center">{{produtoModal.descricao}}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="row d-flex align-items-center justify-content-around mt-auto mb-auto">
+
+            <div class="col-md-6 d-flex flex-column align-items-center">
+              <p style="font-weight: 600; font-size: 200%;" class="mb-0">{{produtoModal.preco | currency:'BRL'}}</p>
+            </div>
+
+            <div class="col-md-6 d-flex flex-column align-items-center">
+              <button type="button"
+                class="btn btn-lg bg-green d-flex justify-content-around align-items-center botao-focus botao-modal"
+                (click)="addToCarrinho(produtoModal)" data-dismiss="modal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-cart4"
+                  viewBox="0 0 16 16">
+                  <path
+                    d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l.5 2H5V5H3.14zM6 5v2h2V5H6zm3 0v2h2V5H9zm3 0v2h1.36l.5-2H12zm1.11 3H12v2h.61l.5-2zM11 8H9v2h2V8zM8 8H6v2h2V8zM5 8H3.89l.5 2H5V8zm0 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z">
+                  </path>
+                </svg>
+                &nbsp;Comprar
+              </button>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

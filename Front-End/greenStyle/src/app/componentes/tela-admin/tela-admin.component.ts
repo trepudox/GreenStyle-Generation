@@ -41,7 +41,7 @@ export class TelaAdminComponent implements OnInit {
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.verificaUser()
