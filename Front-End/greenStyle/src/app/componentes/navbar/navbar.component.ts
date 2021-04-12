@@ -80,8 +80,8 @@ export class NavbarComponent implements OnInit {
       environment.token=''
 
       this.usuarioLogin = new UsuarioLogin()
-      this.logado()
       this.router.navigate(['/home'])
+      this.logado()
   }
 
   pesquisarProduto(s: string) {
