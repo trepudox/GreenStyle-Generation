@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from 'src/app/Models/Produto';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
 import { ProdutoService } from 'src/app/service/produto.service';
 
@@ -30,13 +31,13 @@ export class CarrinhoComponent implements OnInit {
 
   constructor(
     private carrinhoService: CarrinhoService,
+    private alertas: AlertasService,
     private produtoService: ProdutoService,
     private router: Router
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0)
-
   }
 
   finalizarCompra() {
@@ -55,7 +56,7 @@ export class CarrinhoComponent implements OnInit {
           this.produtoService.putProduto(element).subscribe((resp: Produto)=> {element = resp})
     });
     
-    alert("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
+     this.alertas.showAlertSuccess("Compra finalizada com sucesso! Você receberá uma confirmação por email assim que o pagamento for aprovado")
     this.carrinhoService.limparCarrinho()
     this.router.navigate(['/home'])
     /* }

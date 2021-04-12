@@ -23,6 +23,9 @@ export class ListaProdutosBrechoComponent implements OnInit {
   listaProduto: Produto[]
   listaCategoria: Categoria[]
 
+  key = "disponivel"
+  reverse = true
+
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
