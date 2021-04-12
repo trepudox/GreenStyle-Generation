@@ -69,7 +69,7 @@ export class NavbarComponent implements OnInit {
       environment.email = this.usuarioLogin.email
       environment.tipo = this.usuarioLogin.tipo
 
-
+      this.alertas.showAlertInfo("Logado com sucesso!")
     }, erro => {
       if(erro.status == 500){
         this.alertas.showAlertDanger("Usuário ou senha estão incorretos")
@@ -86,6 +86,7 @@ export class NavbarComponent implements OnInit {
 
       this.usuarioLogin = new UsuarioLogin()
       this.router.navigate(['/home'])
+      this.alertas.showAlertInfo("Deslogado com sucesso!")
       this.logado()
   }
 

@@ -114,7 +114,7 @@
         <div class="carousel-item active mt-3">
 
           <div *ngFor="let produto of listaProduto1" class="col-md-3" style="float: left;">
-            <div class="card principal animado2 b-verde mx-2 my-3" style="max-width: 500px;">
+            <div class="card animado2 b-verde mx-2 my-3" style="max-width: 500px;">
 
               <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;"
                 data-toggle="modal" data-target="#modal-produto" (click)="setProdutoModal(produto.id)">
@@ -143,13 +143,14 @@
           </div>
 
         </div>
-
         <!-- /Carrossel Pag 1 -->
 
+        <!-- Carrossel Pag 2 -->
         <div class="carousel-item mt-3">
 
           <div *ngFor="let produto of listaProduto2" class="col-md-3" style="float: left;">
-            <div class="card principal animado2 b-verde mx-2 my-3" style="max-width: 500px;">
+            
+            <div class="card animado2 b-verde mx-2 my-3" style="max-width: 500px;">
 
               <img src="{{produto.foto}}" alt="Card image cap" class="card-img-top" style="width: 100%;"
                 data-toggle="modal" data-target="#modal-produto" (click)="setProdutoModal(produto.id)">
@@ -176,10 +177,13 @@
 
             </div>
           </div>
+          
 
         </div>
+        <!-- /Carrossel Pag 2 -->
 
       </div>
+      <!-- /PRODUTOS EM DESTAQUE -->
 
       <div class=" d-flex justify-content-between pb-2">
         <a href="#multi-item-example" data-slide="prev"

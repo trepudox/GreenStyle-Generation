@@ -195,4 +195,5 @@ figure.zoom img {
 .indisponivel
 {
   opacity: 40%;
+  cursor: default;
 }
