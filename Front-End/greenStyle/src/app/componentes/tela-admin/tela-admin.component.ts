@@ -42,7 +42,7 @@ export class TelaAdminComponent implements OnInit {
     private categoriaService: CategoriaService,
     private router: Router,
     private alertas: AlertasService,
-    private produtoService: ProdutoService,
+    private produtoService: ProdutoService
   ) {}
 
   ngOnInit() {
@@ -92,7 +92,7 @@ export class TelaAdminComponent implements OnInit {
       this.brecho=new Brecho
       this.getAllBrechos()
     }, erro => {
-      alert("Preencha os campos do parceiro corretamente!")
+      this.alertas.showAlertDanger("Preencha os campos do parceiro corretamente!")
     })
   }
   atualizarBrecho(){
@@ -109,7 +109,7 @@ export class TelaAdminComponent implements OnInit {
 
       this.getAllBrechos()
     }, erro => {
-      alert("Preencha os campos do parceiro corretamente!")
+      this.alertas.showAlertDanger("Preencha os campos do parceiro corretamente!")
     })
   }
   deletarBrecho(){
@@ -204,7 +204,7 @@ export class TelaAdminComponent implements OnInit {
     this.disponibilidade()
 
     this.produtoService.postProduto(this.produto).subscribe(()=>{
-      alert('Produto cadastrado com sucesso!');
+      this.alertas.showAlertSuccess('Produto cadastrado com sucesso!');
       this.produto = new Produto()
       this.listaProdutosBrecho()
     })
@@ -213,7 +213,7 @@ export class TelaAdminComponent implements OnInit {
   atualizarProduto() {
     this.produtoModal.categoria = this.categoriaProduto2
     this.produtoService.putProduto(this.produtoModal).subscribe(() => {
-      alert("Produto atualizado com sucesso!")
+      this.alertas.showAlertSuccess("Produto atualizado com sucesso!")
       this.produtoModal = new Produto()
       this.listaProdutosBrecho()
     })
@@ -221,7 +221,7 @@ export class TelaAdminComponent implements OnInit {
 
   deletarProduto() {
     this.produtoService.deleteProduto(this.produtoModal.id).subscribe(() => {
-      alert("Produto deletado com sucesso!")
+      this.alertas.showAlertSuccess("Produto deletado com sucesso!")
       this.produtoModal = new Produto()
       this.listaProdutosBrecho()
     })
