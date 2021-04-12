@@ -54,12 +54,12 @@ export class CarrinhoComponent implements OnInit {
       else {
         if (this.rua == null && this.numero == null && this.bairro == null && this.cep == null && this.telefone == null && this.nomeDestinatario == null) {
 
-          alert("Por favor, preencha corretamente os dados de entrega")
+          this.alertas.showAlertDanger("Por favor, preencha corretamente os dados de entrega")
         }
         else {
 
           if (this.numeroCartao == null && this.nomeCartao == null && this.cvv == null && this.validade == null && this.cpf == null) {
-            alert("Por favor, preencha corretamente os dados do cartão")
+            this.alertas.showAlertDanger("Por favor, preencha corretamente os dados do cartão")
           }
           else {
             this.produto.forEach(element => {
