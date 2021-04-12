@@ -185,3 +185,27 @@ figure.zoom img {
   opacity: 40%;
   cursor: default;
 }
+
+
+.card-disp:hover .card-img-top {
+  transition: 0.25s; 
+  filter: brightness(.35);
+  
+}
+
+.card-disp:hover .texto-detalhe {
+  transition: 0.25s; 
+  color: rgba(255, 255, 255, 1);
+  
+}
+
+.card-disp:not(:hover) .card-img-top {
+  transition: 0.25s; 
+  filter: brightness(1);
+}
+
+.card-disp:not(:hover) .texto-detalhe {
+  transition: 0.25s; 
+  color: rgba(0, 0, 0, 0);
+  
+}
