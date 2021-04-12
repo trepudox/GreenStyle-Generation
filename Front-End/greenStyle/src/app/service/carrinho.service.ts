@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Produto } from '../Models/Produto';
+import { AlertasService } from './alertas.service';
 import { ProdutoService } from './produto.service';
 
 @Injectable({
@@ -13,6 +14,7 @@ export class CarrinhoService {
 
   constructor(
     private http: HttpClient,
+    private alertas: AlertasService
   ) { }
 
   addToCarrinho(produto: Produto) {
@@ -27,10 +29,10 @@ export class CarrinhoService {
     if (cont == 0) {
       this.produto.push(produto)
       this.total = this.total + produto.preco
-      alert("Item adicionado com sucesso")
+      this.alertas.showAlertSuccess("Item adicionado com sucesso")
     }
     else {
-      alert("Esse produto já foi adicionado no carrinho")
+      this.alertas.showAlertInfo("Esse produto já foi adicionado no carrinho")
     }
   }
 
