@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Produto } from '../Models/Produto';
 import { AlertasService } from './alertas.service';
-import { ProdutoService } from './produto.service';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +31,7 @@ export class CarrinhoService {
       this.alertas.showAlertSuccess("Item adicionado com sucesso")
     }
     else {
-      this.alertas.showAlertInfo("Esse produto já foi adicionado no carrinho")
+      this.alertas.showAlertDanger("Esse produto já foi adicionado no carrinho")
     }
   }
 
@@ -43,6 +42,7 @@ export class CarrinhoService {
       this.produto.splice(index, 1)
     }
     this.total = this.total - produto.preco
+    this.alertas.showAlertDanger("Item removido do carrinho")
   }
 
   getProdutos() {
