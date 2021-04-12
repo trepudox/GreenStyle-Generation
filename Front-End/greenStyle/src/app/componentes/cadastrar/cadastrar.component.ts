@@ -31,8 +31,16 @@ export class CadastrarComponent implements OnInit {
   }
 
   cadastrar() {
-    if (this.usuario.senha != this.confirmeSenha) {
-      this.alertas.showAlertDanger('As senhas não são iguais')
+    if (this.usuario.nome == null) {
+      this.alertas.showAlertDanger('O campo de nome está vazio!')
+    } else if (this.usuario.sobrenome == null) {
+      this.alertas.showAlertDanger('O campo de sobrenome está vazio!')
+    } else if (this.usuario.email == null) {
+      this.alertas.showAlertDanger('O campo de email está vazio!')
+    } else if (this.usuario.cpf == null) {
+      this.alertas.showAlertDanger('O campo de CPF está vazio!')
+    } else if (this.usuario.senha != this.confirmeSenha) {
+      this.alertas.showAlertDanger('As senhas não são iguais!')
     } else {
       if(this.usuario.nome.startsWith("G@S")) {
         this.usuario.tipo = "adm"
@@ -42,7 +50,7 @@ export class CadastrarComponent implements OnInit {
       this.authService.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
         this.router.navigate(['/home'])
-        this.alertas.showAlertSuccess("Cadastro Realizado com sucesso!")
+        this.alertas.showAlertSuccess("Cadastro realizado com sucesso!")
       })
 
     }

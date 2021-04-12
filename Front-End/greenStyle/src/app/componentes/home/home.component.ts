@@ -38,55 +38,23 @@ export class HomeComponent implements OnInit {
     this.setListasProduto()
   }
 
-
-
-
   setListasProduto() {
-
-    for (let x = 1; x <= 8; x++) {
-
-      this.produtoService.getByIdProduto(x).subscribe((resp: Produto) => {
-        if (x < 5) {
-          this.listaProduto1.push(resp)
-        } else {
-          this.listaProduto2.push(resp)
-        }
-      })
-
-    }
-
-  }
-
-  setListasProduto2() {
-    let listaProdutoRandom: Produto[] = []
-    
     this.produtoService.getAllProdutos().subscribe((resp: Produto[]) => {
-      let listaTodosOsProdutos: Produto[] = resp
-
-      for ( ; listaProdutoRandom.length < 8;) {
-        let nDaVez = Math.floor(Math.random() * listaTodosOsProdutos.length)
-        
-        if(listaProdutoRandom.indexOf(listaTodosOsProdutos[nDaVez]) === -1) {
-          
-          this.produtoService.getByIdProduto(nDaVez).subscribe((resp: Produto) => {
-
-            listaProdutoRandom.push(resp)
-
-          })
-          
+      resp.forEach((p: Produto) => {
+        if (this.listaProduto1.length < 4 && p.disponivel == true) {
+          this.listaProduto1.push(p)
+        } else if (this.listaProduto2.length < 4 && p.disponivel == true) {
+          this.listaProduto2.push(p)
         }
-      
-      }
 
-      this.listaProduto1 = listaProdutoRandom.slice(0, 4)
-      this.listaProduto2 = listaProdutoRandom.slice(4, 8)
-      this.alertas.showAlertInfo("Deslogado com sucesso!")
+        if (this.listaProduto1.length + this.listaProduto2.length == 8) {
+          return
+        }
 
+      })
     })
 
   }
-
-
 
   setProdutoModal(id: number) {
     this.produtoService.getByIdProduto(id).subscribe((resp: Produto) => {
