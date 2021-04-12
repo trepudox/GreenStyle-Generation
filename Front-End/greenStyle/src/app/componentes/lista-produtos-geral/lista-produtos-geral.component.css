@@ -179,3 +179,8 @@ figure.zoom img {
   transform: scale(1);
 
 }
+
+.indisponivel
+{
+  opacity: 40%;
+}
