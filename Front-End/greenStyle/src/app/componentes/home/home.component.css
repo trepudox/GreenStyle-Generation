@@ -36,9 +36,9 @@
 }
 
 .b-verde {
-  border-width: .1px;
+  border-width: .2px;
   border-style: solid;
-  border-color: #c1d1c0;
+  border-color: #bdcebc;
 }
 
 .seta-hover:hover {
@@ -143,4 +143,64 @@
   border: 1;
   outline: 0;
   border-color: #75A26C;
+}
+
+
+.animado2:hover {
+  transition: 0.25s;
+  transform: scale(.98);
+  background-color: #5e8c58;
+  color: white;
+  font-weight: bold;
+}
+
+.animado2 {
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+
+.bg-green{    
+  background-color: #5e8c58;
+  color: white;
+}
+
+
+.animado2:hover .bg-green{
+  background-color: #daa520;
+}
+
+figure.zoom {
+  background-position: 50% 50%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: zoom-in;
+}
+figure.zoom img:hover {
+  opacity: 0;
+}
+figure.zoom img {
+  transition: opacity 0.5s;
+  display: block;
+  width: 100%;
+}
+
+.bordaImgModal {
+  border-radius: 5px;
+  border-style: solid;
+  color: #75A26C;
+  border-width: 1px;
+}
+
+.botao-modal:hover {
+  transition: .15s;
+  transform: scale(1.05);
+  background-color: #daa520;
+}
+
+.botao-modal:not(:hover) {
+  transition: .15s;
+  transform: scale(1);
+
 }

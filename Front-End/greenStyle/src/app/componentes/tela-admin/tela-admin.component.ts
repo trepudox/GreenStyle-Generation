@@ -4,8 +4,10 @@ import { Router } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { AlertasService } from 'src/app/service/alertas.service';
+import { Produto } from 'src/app/Models/Produto';
 import { BrechoService } from 'src/app/service/brecho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
+import { ProdutoService } from 'src/app/service/produto.service';
 import { environment } from 'src/environments/environment.prod';
 
 @Component({
@@ -15,8 +17,6 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class TelaAdminComponent implements OnInit {
 
-  idBrecho:number
-
   brecho:Brecho = new Brecho
   listaBrechos:Brecho[]
   brechoModal = new Brecho
@@ -25,12 +25,25 @@ export class TelaAdminComponent implements OnInit {
   listaCategorias:Categoria[]
   categoriaModal = new Categoria
 
+  produto:Produto = new Produto
+  listaProdutos:Produto[]
+  idBrecho:number
+  idCategoria:number
+  idCategoria2:number
+  brechoProduto:Brecho = new Brecho
+  categoriaProduto:Categoria = new Categoria
+  categoriaProduto2: Categoria = new Categoria
+  idListaBrecho:number
+  produtoModal= new Produto
+  disponibilidadevar:string
+
   constructor(
     private brechoService: BrechoService,
     private categoriaService: CategoriaService,
     private router: Router,
-    private alertas: AlertasService
-  ) { }
+    private alertas: AlertasService,
+    private produtoService: ProdutoService,
+  ) {}
 
   ngOnInit() {
     this.verificaUser()
@@ -38,12 +51,13 @@ export class TelaAdminComponent implements OnInit {
 
   verificaUser(){
     if(environment.token==''){
-      this.alertas.showAlertInfo('AVISO: VOCÊ NÃO ESTA LOGADO, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
       this.router.navigate(['/home'])
+       this.alertas.showAlertInfo('AVISO: VOCÊ NÃO ESTA LOGADO, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
+
     }
     else if(environment.tipo != 'adm'){
-      this.alertas.showAlertInfo('AVISO: VOCÊ NÃO É UM ADM, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
       this.router.navigate(['/home'])
+       this.alertas.showAlertInfo('AVISO: VOCÊ NÃO É UM ADM, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
     }
     else{
       this.getAllBrechos()
@@ -77,6 +91,8 @@ export class TelaAdminComponent implements OnInit {
       this.alertas.showAlertSuccess('Parceiro Cadastrado com sucesso')
       this.brecho=new Brecho
       this.getAllBrechos()
+    }, erro => {
+      alert("Preencha os campos do parceiro corretamente!")
     })
   }
   atualizarBrecho(){
@@ -92,6 +108,8 @@ export class TelaAdminComponent implements OnInit {
       })
 
       this.getAllBrechos()
+    }, erro => {
+      alert("Preencha os campos do parceiro corretamente!")
     })
   }
   deletarBrecho(){
@@ -131,6 +149,8 @@ export class TelaAdminComponent implements OnInit {
         this.alertas.showAlertSuccess("Categoria Cadastrada com sucesso")
         this.categoria=new Categoria
         this.getAllCategorias()
+    }, erro => {
+      alert("")
     })
   }
   atualizarCategoria(){
@@ -163,12 +183,65 @@ export class TelaAdminComponent implements OnInit {
   }
 
 // CRUD PRODUTOS
-findByIdBrecho(){
+  findByIdBrecho(){
+    this.brechoService.getById(this.idBrecho).subscribe((resp: Brecho) => {
+      this.brechoProduto = resp
+    })
+  }
+  findByIdCategoria(){
+    this.categoriaService.getById(this.idCategoria).subscribe((resp: Categoria)=>{
+      this.categoriaProduto = resp
+    })
+  }
+  findByIdCategoria2(){
+    this.categoriaService.getById(this.idCategoria2).subscribe((resp: Categoria)=>{
+      this.categoriaProduto2 = resp
+    })
+  }
+  cadastrarProduto(){
+    this.produto.brecho = this.brechoProduto
+    this.produto.categoria = this.categoriaProduto
+    this.disponibilidade()
 
-}
-findByIdCategoria(){
+    this.produtoService.postProduto(this.produto).subscribe(()=>{
+      alert('Produto cadastrado com sucesso!');
+      this.produto = new Produto()
+      this.listaProdutosBrecho()
+    })
+  }
 
-}
+  atualizarProduto() {
+    this.produtoModal.categoria = this.categoriaProduto2
+    this.produtoService.putProduto(this.produtoModal).subscribe(() => {
+      alert("Produto atualizado com sucesso!")
+      this.produtoModal = new Produto()
+      this.listaProdutosBrecho()
+    })
+  }
+
+  deletarProduto() {
+    this.produtoService.deleteProduto(this.produtoModal.id).subscribe(() => {
+      alert("Produto deletado com sucesso!")
+      this.produtoModal = new Produto()
+      this.listaProdutosBrecho()
+    })
+  }
+
+  listaProdutosBrecho(){
+    this.produtoService.getByIdBrechoProdutos(this.idListaBrecho).subscribe((resp:Produto[])=>{
+      this.listaProdutos=resp
+    })
+  }
+  setProdutoModal(id:number){
+    this.produtoService.getByIdProduto(id).subscribe((resp:Produto)=>{
+      this.produtoModal=resp
+    })
+  }
+  disponibilidade(){
+    this.produto.disponivel = this.disponibilidadevar == "true" ? true : false
+  }
+
+
 
 
 

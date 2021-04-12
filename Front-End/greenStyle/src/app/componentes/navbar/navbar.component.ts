@@ -32,19 +32,30 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     window.scroll(0,0)
     this.logado()
-
+    this.adm()
   }
 
   logado(){
-    let ok = false
 
       if(environment.token != ''){
-        ok = true
         this.nome=environment.nome
         this.tipo=environment.tipo
+
+        return true
+      }
+      else{
+        return false
       }
 
-    return ok
+  }
+
+  adm(){
+    if(environment.tipo=="adm"){
+      return true
+    }
+    else{
+      return false
+    }
   }
 
   entrar(){
@@ -58,6 +69,7 @@ export class NavbarComponent implements OnInit {
       environment.email = this.usuarioLogin.email
       environment.tipo = this.usuarioLogin.tipo
 
+
     }, erro => {
       if(erro.status == 500){
         this.alertas.showAlertDanger("Usuário ou senha estão incorretos")
@@ -65,7 +77,19 @@ export class NavbarComponent implements OnInit {
     })
   }
 
-pesquisarProduto(s: string) {
+  sair(){
+      environment.id=0
+      environment.email=''
+      environment.nome=''
+      environment.tipo=''
+      environment.token=''
+
+      this.usuarioLogin = new UsuarioLogin()
+      this.router.navigate(['/home'])
+      this.logado()
+  }
+
+  pesquisarProduto(s: string) {
     this.router.navigate([`/produtos-geral/filtro/0/search/${s}`])
   }
 
