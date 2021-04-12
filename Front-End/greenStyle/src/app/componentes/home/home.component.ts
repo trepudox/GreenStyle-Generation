@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
 import { ProdutoService } from 'src/app/service/produto.service';
 
@@ -19,7 +20,8 @@ export class HomeComponent implements OnInit {
 
   constructor(
     private produtoService: ProdutoService,
-    private carrinhoService: CarrinhoService
+    private carrinhoService: CarrinhoService,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
@@ -78,7 +80,7 @@ export class HomeComponent implements OnInit {
 
       this.listaProduto1 = listaProdutoRandom.slice(0, 4)
       this.listaProduto2 = listaProdutoRandom.slice(4, 8)
-      alert("saiu")
+      this.alertas.showAlertInfo("Deslogado com sucesso!")
 
     })
 
