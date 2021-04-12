@@ -26,6 +26,9 @@ export class ListaProdutosGeralComponent implements OnInit {
   listaCategoria: Categoria[]
   produtoModal: Produto
 
+  key = "disponivel"
+  reverse = true
+
   constructor(
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,

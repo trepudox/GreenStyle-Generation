@@ -5,6 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { OrderModule } from 'ngx-order-pipe'
 
 import { HashLocationStrategy, LocationStrategy } from "@angular/common";
 
@@ -43,6 +44,7 @@ import { AlertasComponent } from './componentes/alertas/alertas.component';
     FontAwesomeModule,
     HttpClientModule,
     FormsModule,
+    OrderModule,
     ModalModule.forRoot()
   ],
 
