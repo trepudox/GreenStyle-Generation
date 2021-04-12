@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Produto } from '../Models/Produto';
 import { AlertasService } from './alertas.service';
-import { ProdutoService } from './produto.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +11,28 @@ export class CarrinhoService {
   produto: Produto[] = []
   total: number = 0
 
-
   constructor(
     private http: HttpClient,
     private alertas: AlertasService
   ) { }
 
   addToCarrinho(produto: Produto) {
+    let cont = 0
+    this.produto.forEach(element => {
 
-    const index: number = this.produto.indexOf(produto)
-    if (index == -1) {
+      if (element.id == produto.id) {
+        cont++
+
+      }
+    })
+    if (cont == 0) {
       this.produto.push(produto)
       this.total = this.total + produto.preco
       this.alertas.showAlertSuccess("Item adicionado com sucesso")
     }
     else {
-      this.alertas.showAlertInfo("Esse produto já foi adicionado no carrinho")
+      this.alertas.showAlertDanger("Esse produto já foi adicionado no carrinho")
     }
-
   }
 
   apagarItem(produto: Produto) {
@@ -39,6 +42,7 @@ export class CarrinhoService {
       this.produto.splice(index, 1)
     }
     this.total = this.total - produto.preco
+    this.alertas.showAlertDanger("Item removido do carrinho")
   }
 
   getProdutos() {
