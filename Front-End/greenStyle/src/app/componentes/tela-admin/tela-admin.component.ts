@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { Produto } from 'src/app/Models/Produto';
 import { BrechoService } from 'src/app/service/brecho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
@@ -39,8 +40,9 @@ export class TelaAdminComponent implements OnInit {
   constructor(
     private brechoService: BrechoService,
     private categoriaService: CategoriaService,
+    private router: Router,
+    private alertas: AlertasService,
     private produtoService: ProdutoService,
-    private router: Router
   ) {}
 
   ngOnInit() {
@@ -50,12 +52,12 @@ export class TelaAdminComponent implements OnInit {
   verificaUser(){
     if(environment.token==''){
       this.router.navigate(['/home'])
-      alert('AVISO: VOCÊ NÃO ESTA LOGADO, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
+       this.alertas.showAlertInfo('AVISO: VOCÊ NÃO ESTA LOGADO, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
 
     }
     else if(environment.tipo != 'adm'){
       this.router.navigate(['/home'])
-      alert('AVISO: VOCÊ NÃO É UM ADM, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
+       this.alertas.showAlertInfo('AVISO: VOCÊ NÃO É UM ADM, POR GENTILEZA LOGUE COMO ADM PARA TER ACESSO Á ESTE SERVIÇO')
     }
     else{
       this.getAllBrechos()
@@ -86,7 +88,7 @@ export class TelaAdminComponent implements OnInit {
   cadastrarBrecho(){
     this.brechoService.post(this.brecho).subscribe((resp: Brecho)=>{
       this.brecho = resp
-      alert('Parceiro Cadastrado com sucesso')
+      this.alertas.showAlertSuccess('Parceiro Cadastrado com sucesso')
       this.brecho=new Brecho
       this.getAllBrechos()
     }, erro => {
@@ -96,7 +98,7 @@ export class TelaAdminComponent implements OnInit {
   atualizarBrecho(){
     this.brechoService.put(this.brechoModal).subscribe((resp: Brecho)=>{
       this.brechoModal = resp
-      alert('Parceiro Atualizado com sucesso')
+      this.alertas.showAlertSuccess('Parceiro Atualizado com sucesso')
       this.brechoModal = <Brecho> ({
         id:0,
         nome:'',
@@ -114,7 +116,7 @@ export class TelaAdminComponent implements OnInit {
 
     this.brechoService.deleteBrecho(this.brechoModal.id).subscribe(()=>{
 
-      alert('Parceiro apagado com sucesso')
+      this.alertas.showAlertSuccess('Parceiro apagado com sucesso')
 
       this.brechoModal = <Brecho> ({
         id:0,
@@ -144,7 +146,7 @@ export class TelaAdminComponent implements OnInit {
   cadastrarCategoria(){
     this.categoriaService.postCategoria(this.categoria).subscribe((resp:Categoria)=>{
         this.categoria=resp
-        alert("Categoria Cadastrada com sucesso")
+        this.alertas.showAlertSuccess("Categoria Cadastrada com sucesso")
         this.categoria=new Categoria
         this.getAllCategorias()
     }, erro => {
@@ -154,7 +156,7 @@ export class TelaAdminComponent implements OnInit {
   atualizarCategoria(){
     this.categoriaService.putCategoria(this.categoriaModal).subscribe((resp: Categoria)=>{
       this.categoriaModal = resp
-      alert('Categoria Atualizada com sucesso')
+      this.alertas.showAlertSuccess('Categoria Atualizada com sucesso')
       this.categoriaModal = <Categoria> ({
         id:0,
         nome:''
@@ -171,7 +173,7 @@ export class TelaAdminComponent implements OnInit {
   deletarCategoria(){
     this.categoriaService.deleteCategoria(this.categoriaModal.id).subscribe(()=>{
 
-      alert('Categoria apagada com sucesso')
+      this.alertas.showAlertSuccess('Categoria apagada com sucesso')
       this.categoriaModal = <Categoria> ({
         id:0,
         nome:''

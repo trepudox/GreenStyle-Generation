@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/Models/Usuario';
 
 import { UsuarioLogin } from 'src/app/Models/UsuarioLogin';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { AuthService } from 'src/app/service/auth.service';
 import { environment } from 'src/environments/environment.prod';
 
@@ -22,7 +23,11 @@ export class NavbarComponent implements OnInit {
   nome:string
   tipo:string = environment.tipo
 
-  constructor( private auth: AuthService, private router: Router) { }
+  constructor( 
+    private auth: AuthService, 
+    private router: Router,
+    private alertas: AlertasService
+    ) { }
 
   ngOnInit() {
     window.scroll(0,0)
@@ -67,7 +72,7 @@ export class NavbarComponent implements OnInit {
 
     }, erro => {
       if(erro.status == 500){
-        alert("Usuário ou senha estão incorretos")
+        this.alertas.showAlertDanger("Usuário ou senha estão incorretos")
       }
     })
   }

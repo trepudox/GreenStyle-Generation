@@ -4,6 +4,7 @@ import { ActivatedRoute, NavigationEnd, ResolveEnd, Router, RoutesRecognized } f
 import { Brecho } from 'src/app/Models/Brecho';
 import { Categoria } from 'src/app/Models/Categoria';
 import { Produto } from 'src/app/Models/Produto';
+import { AlertasService } from 'src/app/service/alertas.service';
 import { CarrinhoService } from 'src/app/service/carrinho.service';
 import { CategoriaService } from 'src/app/service/categoria.service';
 import { ProdutoService } from 'src/app/service/produto.service';
@@ -30,6 +31,7 @@ export class ListaProdutosGeralComponent implements OnInit {
     private produtoService: ProdutoService,
     private carrinhoService: CarrinhoService,
     private route: ActivatedRoute,
+    private alertas: AlertasService,
     private router: Router
   ) {
 
