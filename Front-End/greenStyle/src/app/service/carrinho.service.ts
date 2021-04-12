@@ -11,15 +11,20 @@ export class CarrinhoService {
   produto: Produto[] = []
   total: number = 0
 
-
   constructor(
     private http: HttpClient,
   ) { }
 
   addToCarrinho(produto: Produto) {
+    let cont = 0
+    this.produto.forEach(element => {
 
-    const index: number = this.produto.indexOf(produto)
-    if (index == -1) {
+      if (element.id == produto.id) {
+        cont++
+
+      }
+    })
+    if (cont == 0) {
       this.produto.push(produto)
       this.total = this.total + produto.preco
       alert("Item adicionado com sucesso")
@@ -27,7 +32,6 @@ export class CarrinhoService {
     else {
       alert("Esse produto já foi adicionado no carrinho")
     }
-
   }
 
   apagarItem(produto: Produto) {
