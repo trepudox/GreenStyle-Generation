@@ -14,18 +14,18 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class CarrinhoComponent implements OnInit {
 
-  rua: string
-  numero: string
-  bairro: string
-  cep: string
-  telefone: string
-  nomeDestinatario: string
+  rua: string = "Rua Green Style"
+  numero: string = "100"
+  bairro: string = "Parque da Alegria"
+  cep: string = "01000-010"
+  telefone: string = "(11) 9 1111-9999"
+  nomeDestinatario: string = "Sr. Green Style"
 
-  numeroCartao: string
-  nomeCartao: string
-  cvv: string
-  validade: string
-  cpf: string
+  numeroCartao: string = "1234 5678 9101 1121"
+  nomeCartao: string = "SENHOR GREEN STYLE"
+  cvv: string = "011"
+  validade: string = "03/25"
+  cpf: string = "401.593.682-46"
 
   produto = this.carrinhoService.getProdutos()
   total = this.carrinhoService.calculaTotal()
