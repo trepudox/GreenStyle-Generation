@@ -1,162 +1,224 @@
-.opa{
-    width: 100%;
-    background-color: black;
+.opa {
+  width: 100%;
+  background-color: black;
 }
 
 
 .bg-estilo {
-    background-color: rgba(0, 0, 0, 0.7);
-    border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
 }
 
 
 .filtrar:hover {
-    transition: 0.2s;
-    transform: scale(.975);
-    opacity: 0.80;
-    color: #75A26C;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  transition: 0.2s;
+  transform: scale(.975);
+  opacity: 0.80;
+  color: #75A26C;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 
 .filtrar:not(:hover) {
-    transition: 0.2s;
-    transform: scale(1);
-    opacity: 1;
-    color: #75A26C;
+  transition: 0.2s;
+  transform: scale(1);
+  opacity: 1;
+  color: #75A26C;
 }
 
 
-.imagem{
-    opacity: .3;
-    max-height: 400px;
-    object-fit: cover;
+.imagem {
+  opacity: .3;
+  max-height: 400px;
+  object-fit: cover;
 }
 
 
-a{
-    text-decoration: none;
-    color: black;
+a {
+  text-decoration: none;
+  color: black;
 }
 
 
-ul{
-    list-style: none;
+ul {
+  list-style: none;
 }
 
 
-.ff{
-    font-family: arial;
+.ff {
+  font-family: arial;
 }
 
 
-.fs-13{
-    font-size: 13pt;
+.fs-13 {
+  font-size: 13pt;
 }
 
 
-.cursor{
-    cursor: pointer;
+.cursor {
+  cursor: pointer;
 }
 
 
-input[class="unic"]{
-    display: none;
+input[class="unic"] {
+  display: none;
 }
 
 
-nav{
-    background-color: white;
-    border-style: solid;
-    border-radius: 0px 10px 10px 0px;
-    border-color: #5e8c58;
-    border-width: .25px;
-    border-left-width: 0px;
-    margin-top: 45px;
-    width: 150px;
-    height: 325px;
-    left: -300px;
-    position: absolute;
-    transition: all .5s;
-    z-index: 1;
-    top: 9px;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+nav {
+  background-color: white;
+  border-style: solid;
+  border-radius: 0px 10px 10px 0px;
+  border-color: #5e8c58;
+  border-width: .25px;
+  border-left-width: 0px;
+  margin-top: 45px;
+  width: 150px;
+  height: 325px;
+  left: -300px;
+  position: absolute;
+  transition: all .5s;
+  z-index: 1;
+  top: 9px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 
-input[type="checkbox"]:checked ~ nav{
-    transform: translateX(300px)
+input[type="checkbox"]:checked~nav {
+  transform: translateX(300px)
 }
 
 
-ul{
-    position: absolute;
-    width: 100%;
-    padding-left: 10px;
+ul {
+  position: absolute;
+  width: 100%;
+  padding-left: 10px;
 }
 
 
-label{
-    padding: 15px;
-    position: absolute;
-    z-index: 1;
+label {
+  padding: 15px;
+  position: absolute;
+  z-index: 1;
 }
 
 
 .animado1:hover {
-    transition: 0.25s;
-    transform: scale(.98);
-    background-color: #5e8c58;
-    color: white;
-    font-weight: bold;
-  }
-  
-  .animado1 {
-    transition: 0.25s;
-    cursor: pointer;
-  }
+  transition: 0.25s;
+  transform: scale(.98);
+  background-color: #5e8c58;
+  color: white;
+  font-weight: bold;
+}
 
-
-  .bg-green{    
-    background-color: #5e8c58;
-    color: white;
+.animado1 {
+  transition: 0.25s;
+  cursor: pointer;
 }
 
 
-.animado1:hover .bg-green{
-    background-color: #daa520;
+.bg-green {
+  background-color: #5e8c58;
+  color: white;
 }
 
 
-.bordaImgModal{
-    border-radius: 15px;
-    border-style: solid;
-    color: #5e8c58;
+.animado1:hover .bg-green {
+  background-color: #daa520;
+}
+
+
+.bordaImgModal {
+  border-radius: 15px;
+  border-style: solid;
+  color: #5e8c58;
+  border-width: 2px;
 }
 
 
 figure.zoom {
-    background-position: 50% 50%;
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    cursor: zoom-in;
-  }
-  figure.zoom img:hover {
-    opacity: 0;
-  }
-  figure.zoom img {
-    transition: opacity 0.5s;
-    display: block;
-    width: 100%;
-  }
+  background-position: 50% 50%;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  cursor: zoom-in;
+}
 
-  .btn-gambiarra
-  {
-    color: #5e8c58;
-    font-weight: bold;
-  }
+figure.zoom img:hover {
+  opacity: 0;
+}
 
-  .btn-gambiarra:focus{
-    box-shadow: 0 0 0 0;
-  }
+figure.zoom img {
+  transition: opacity 0.5s;
+  display: block;
+  width: 100%;
+}
+
+/*    LEGADO!!!!!!!
+
+.btn-gambiarra {
+  color: #5e8c58;
+  font-weight: bold;
+}
+
+.btn-gambiarra:focus {
+  box-shadow: 0 0 0 0;
+}
+*/
+.bordaImgModal {
+  border-radius: 5px;
+  border-style: solid;
+  color: #75A26C;
+  border-width: 1px;
+}
+
+.botao-focus:focus {
+  /* box-shadow: 0 0 0 0; */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.045), 0 0 5px #75A26C;
+  border: 1;
+  outline: 0;
+  border-color: #75A26C;
+}
+
+.botao-modal:hover {
+  transition: .15s;
+  transform: scale(1.05);
+  background-color: #daa520;
+}
+
+.botao-modal:not(:hover) {
+  transition: .15s;
+  transform: scale(1);
+
+}
+
+.indisponivel
+{
+  opacity: 40%;
+  cursor: default;
+}
+
+
+.card-disp:hover .card-img-top {
+  transition: 0.25s; 
+  filter: brightness(.35);
+  
+}
+
+.card-disp:hover .texto-detalhe {
+  transition: 0.25s; 
+  color: rgba(255, 255, 255, 1);
+  
+}
+
+.card-disp:not(:hover) .card-img-top {
+  transition: 0.25s; 
+  filter: brightness(1);
+}
+
+.card-disp:not(:hover) .texto-detalhe {
+  transition: 0.25s; 
+  color: rgba(0, 0, 0, 0);
+  
+}
+

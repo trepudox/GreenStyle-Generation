@@ -23,6 +23,9 @@ export class ListaProdutosBrechoComponent implements OnInit {
   listaProduto: Produto[]
   listaCategoria: Categoria[]
 
+  key = "disponivel"
+  reverse = true
+
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
@@ -88,7 +91,6 @@ export class ListaProdutosBrechoComponent implements OnInit {
   addToCarrinho(produto: Produto)
   {
     this.carrinhoService.addToCarrinho(produto)
-    alert("Item adicionado com sucesso")
   }
 
 }

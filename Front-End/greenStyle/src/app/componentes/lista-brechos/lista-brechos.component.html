@@ -3,7 +3,7 @@
   <!-- Inicio Titulo-->
   <div class="row">
     <div class="col-md-12 mb-1 pl-0 pr-0">
-      <img src="../../../assets/images/banner-brechos.png" alt="" class="w-100">
+      <img src="../../../assets/images/lista-brecho-banner.png" alt="" class="w-100">
       <!-- <h1 class="text-center fc-verde" >OS MELHORES BRECHOS</h1>
             <p class="text-center fc-verde">Escolha a Loja ou Brecho que deseja e veja os seus produtos</p> -->
     </div>
@@ -14,7 +14,7 @@
 
 <!-- Inicio Lista de Brechos -->
 
-<div class="container col-md-10 my-4">
+<div class="container col-md-10 my-4" style="overflow-y: auto; max-height: 450px;">
   <div class="row my-3 d-flex justify-content-center">
 
     <div class="col-md-12">
@@ -262,14 +262,14 @@
           <input class="form-control " type="email" name="email-parceiro" id="email-parceiro">
 
           <label for="razao-social-parceiro">Razão social</label>
-          <textarea cols="2" class="form-control text" type="text" name="razao-socail-parceiro"
+          <textarea cols="2" class="form-control text" type="text" name="razao-social-parceiro"
             id="razao-social-parceiro"></textarea>
 
         </div>
 
         <div class="modal-footer mt-4 pb-0 d-flex justify-content-center">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-green ml-5">Enviar</button>
+          <button type="button" class="btn btn-danger botao-cancelar-focus" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-green ml-5 botao-focus" (click)="enviarSolicitacao()" data-dismiss="modal">Enviar</button>
         </div>
 
 

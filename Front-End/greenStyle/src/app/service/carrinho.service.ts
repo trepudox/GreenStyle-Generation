@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Produto } from '../Models/Produto';
-import { ProdutoService } from './produto.service';
+import { AlertasService } from './alertas.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,38 +13,50 @@ export class CarrinhoService {
 
   constructor(
     private http: HttpClient,
-    private produtoService: ProdutoService
+    private alertas: AlertasService
   ) { }
 
-  addToCarrinho(produto: Produto)
-  {
-    this.produto.push(produto)
-    this.total = this.total + produto.preco
-  }
+  addToCarrinho(produto: Produto) {
+    let cont = 0
+    this.produto.forEach(element => {
 
-  apagarItem(id: number)
-  {
-    let itemDelete = new Produto
-    this.produtoService.getByIdProduto(id).subscribe((resp: Produto)=> { itemDelete = resp
+      if (element.id == produto.id) {
+        cont++
+
+      }
     })
-   this.produto = this.produto.filter(item => item !== itemDelete)
-   console.log(itemDelete)
+    if (cont == 0) {
+      this.produto.push(produto)
+      this.total = this.total + produto.preco
+      this.alertas.showAlertSuccess("Item adicionado com sucesso")
+    }
+    else {
+      this.alertas.showAlertDanger("Esse produto já foi adicionado no carrinho")
+    }
   }
 
-  getProdutos()
-  {
+  apagarItem(produto: Produto) {
+
+    const index: number = this.produto.indexOf(produto)
+    if (index !== -1) {
+      this.produto.splice(index, 1)
+    }
+    this.total = this.total - produto.preco
+    this.alertas.showAlertDanger("Item removido do carrinho")
+  }
+
+  getProdutos() {
     return this.produto
   }
 
-  limparCarrinho()
-  {
+  limparCarrinho() {
     this.produto = []
     this.total = 0
     return this.produto
   }
 
-  calculaTotal()
-  {
+  calculaTotal() {
     return this.total
   }
+
 }
