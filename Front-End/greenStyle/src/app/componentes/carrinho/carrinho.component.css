@@ -38,9 +38,20 @@
     color: white;
     transition: all 0.5s;
   }
-  
+
   .btn-green:hover{
     background-color: #4c7247;
     color: white;
+  }
+
+  .excluir-produto{
+    color:red;
+    transition: all 0.3s;
+  }
+
+  .excluir-produto:hover{
+    transform: scale(0.96);
+    color:white;
+    transition: all 0.3s;
   }
 
