@@ -6,6 +6,7 @@ import { Usuario } from 'src/app/Models/Usuario';
 import { UsuarioLogin } from 'src/app/Models/UsuarioLogin';
 import { AlertasService } from 'src/app/service/alertas.service';
 import { AuthService } from 'src/app/service/auth.service';
+import { CarrinhoService } from 'src/app/service/carrinho.service';
 import { environment } from 'src/environments/environment.prod';
 
 
@@ -16,6 +17,7 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class NavbarComponent implements OnInit {
 
+  tamanhoCarrinho: number = 0
 
   textoPesquisa: string
 
@@ -26,13 +28,15 @@ export class NavbarComponent implements OnInit {
   constructor( 
     private auth: AuthService, 
     private router: Router,
-    private alertas: AlertasService
+    private alertas: AlertasService,
+    private carrinhoService: CarrinhoService
     ) { }
 
   ngOnInit() {
     window.scroll(0,0)
     this.logado()
     this.adm()
+    this.carrinhoService.currentMessage.subscribe(tamanho => this.tamanhoCarrinho = tamanho)
   }
 
   logado(){

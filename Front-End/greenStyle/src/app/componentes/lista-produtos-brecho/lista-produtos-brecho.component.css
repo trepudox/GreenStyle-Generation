@@ -29,7 +29,7 @@
 
 .imagem {
   opacity: .3;
-  max-height: 400px;
+  max-height: 300px;
   object-fit: cover;
 }
 

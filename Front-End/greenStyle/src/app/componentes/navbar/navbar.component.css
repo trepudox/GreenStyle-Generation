@@ -1,3 +1,11 @@
+#navbar {
+  transition: all 0.25s;
+}
+
+#navbar-margem {
+  transition: all 0.25s;
+}
+
 .hover-item:hover {
   transition: 0.15s;
   transform: scale(1.03);

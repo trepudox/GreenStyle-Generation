@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { Produto } from '../Models/Produto';
 import { AlertasService } from './alertas.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,9 @@ export class CarrinhoService {
 
   produto: Produto[] = []
   total: number = 0
+
+  private messageSource = new BehaviorSubject<number>(0);
+  currentMessage = this.messageSource.asObservable();
 
   constructor(
     private http: HttpClient,
@@ -29,6 +33,7 @@ export class CarrinhoService {
       this.produto.push(produto)
       this.total = this.total + produto.preco
       this.alertas.showAlertSuccess("Item adicionado com sucesso")
+      this.messageSource.next(this.produto.length)
     }
     else {
       this.alertas.showAlertDanger("Esse produto já foi adicionado no carrinho")
@@ -43,6 +48,7 @@ export class CarrinhoService {
     }
     this.total = this.total - produto.preco
     this.alertas.showAlertDanger("Item removido do carrinho")
+    this.messageSource.next(this.produto.length)
   }
 
   getProdutos() {
@@ -52,6 +58,7 @@ export class CarrinhoService {
   limparCarrinho() {
     this.produto = []
     this.total = 0
+    this.messageSource.next(this.produto.length)
     return this.produto
   }
 
