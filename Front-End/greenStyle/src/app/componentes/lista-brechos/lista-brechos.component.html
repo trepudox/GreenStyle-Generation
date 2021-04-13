@@ -262,14 +262,14 @@
           <input class="form-control " type="email" name="email-parceiro" id="email-parceiro">
 
           <label for="razao-social-parceiro">Razão social</label>
-          <textarea cols="2" class="form-control text" type="text" name="razao-socail-parceiro"
+          <textarea cols="2" class="form-control text" type="text" name="razao-social-parceiro"
             id="razao-social-parceiro"></textarea>
 
         </div>
 
         <div class="modal-footer mt-4 pb-0 d-flex justify-content-center">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-green ml-5">Enviar</button>
+          <button type="button" class="btn btn-danger botao-cancelar-focus" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-green ml-5 botao-focus" (click)="enviarSolicitacao()" data-dismiss="modal">Enviar</button>
         </div>
 
 
