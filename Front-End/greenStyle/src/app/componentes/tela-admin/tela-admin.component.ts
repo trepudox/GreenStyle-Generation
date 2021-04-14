@@ -37,6 +37,8 @@ export class TelaAdminComponent implements OnInit {
   produtoModal= new Produto
   disponibilidadevar:string
 
+  paginaAtual:number=1
+  paginaAtualProdutos:number=1
   constructor(
     private brechoService: BrechoService,
     private categoriaService: CategoriaService,
