@@ -6,6 +6,18 @@
   transition: all 0.25s;
 }
 
+ul {
+  display: block
+}
+
+li {
+  display: inline-block;
+}
+
+.fs-11 {
+  font-size: 11pt;
+}
+
 .hover-item:hover {
   transition: 0.15s;
   transform: scale(1.03);
