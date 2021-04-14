@@ -97,7 +97,7 @@ export class ListaProdutosBrechoComponent implements OnInit {
 
   deslocamento(){
     window.scroll({
-      top: 0,
+      top: 300,
       behavior: 'smooth'
     })
   }

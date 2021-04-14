@@ -128,7 +128,7 @@ export class ListaProdutosGeralComponent implements OnInit {
 
   deslocamento(){
     window.scroll({
-      top: 0,
+      top: 300,
       behavior: 'smooth'
     })
   }
