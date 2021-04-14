@@ -29,6 +29,9 @@ export class ListaProdutosGeralComponent implements OnInit {
   key = "disponivel"
   reverse = true
 
+
+  paginaAtual:number=1
+
   constructor(
     private categoriaService: CategoriaService,
     private produtoService: ProdutoService,
@@ -48,6 +51,7 @@ export class ListaProdutosGeralComponent implements OnInit {
 
         this.setNomeCategoriaAtual(this.idFiltro)
         this.setListaProduto(this.idFiltro, this.stringPesquisa)
+        this.paginaAtual=1
       }
 
     })
@@ -121,6 +125,13 @@ export class ListaProdutosGeralComponent implements OnInit {
     }
 
     this.nomeCategoriaAtual = this.nomeCategoriaAtual == undefined ? "Erro 404" : this.nomeCategoriaAtual
+  }
+
+  deslocamento(){
+    window.scroll({
+      top: 300,
+      behavior: 'smooth'
+    })
   }
 
 }

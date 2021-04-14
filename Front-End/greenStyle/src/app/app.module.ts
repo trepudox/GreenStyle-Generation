@@ -21,6 +21,7 @@ import { CarrinhoComponent } from './componentes/carrinho/carrinho.component';
 import { CadastrarComponent } from './componentes/cadastrar/cadastrar.component';
 import { TelaAdminComponent } from './componentes/tela-admin/tela-admin.component';
 import { AlertasComponent } from './componentes/alertas/alertas.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { AlertasComponent } from './componentes/alertas/alertas.component';
     HttpClientModule,
     FormsModule,
     OrderModule,
+    NgxPaginationModule,
     ModalModule.forRoot()
   ],
 

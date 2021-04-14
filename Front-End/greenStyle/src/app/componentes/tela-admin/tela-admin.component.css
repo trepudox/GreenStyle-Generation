@@ -45,3 +45,7 @@
 .fc-verde{
   color:  #659260;
 }
+
+.my-pagination /deep/ .ngx-pagination .current {
+  background: #5e8c58;
+}

@@ -37,6 +37,8 @@ export class TelaAdminComponent implements OnInit {
   produtoModal= new Produto
   disponibilidadevar:string
 
+  paginaAtual:number=1
+  paginaAtualProdutos:number=1
   constructor(
     private brechoService: BrechoService,
     private categoriaService: CategoriaService,
@@ -231,6 +233,7 @@ export class TelaAdminComponent implements OnInit {
     this.produtoService.getByIdBrechoProdutos(this.idListaBrecho).subscribe((resp:Produto[])=>{
       this.listaProdutos=resp
     })
+    this.paginaAtual=1
   }
   setProdutoModal(id:number){
     this.produtoService.getByIdProduto(id).subscribe((resp:Produto)=>{

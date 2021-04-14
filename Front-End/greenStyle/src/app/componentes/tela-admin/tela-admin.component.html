@@ -338,7 +338,7 @@
               </h5>
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              
+
 
 
               <div class="container" style="overflow-x: auto;">
@@ -368,7 +368,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr *ngFor="let produto of listaProdutos">
+                    <tr *ngFor="let produto of listaProdutos | paginate: { itemsPerPage: 6, currentPage: paginaAtualProdutos }; let i = index">
                       <th scope="row">{{produto.id}}</th>
                       <td>{{produto.nome}}</td>
                       <td>{{produto.categoria.nome}}</td>
@@ -387,6 +387,11 @@
 
                   </tbody>
                 </table>
+                <!--Paginação -->
+                  <div class="col-md-12 d-flex justify-content-center mb-4">
+                    <pagination-controls class="my-pagination"  (pageChange)="paginaAtualProdutos = $event" previousLabel="" nextLabel=""></pagination-controls>
+                  </div>
+                <!--Paginação -->
               </div>
               </div>
 
