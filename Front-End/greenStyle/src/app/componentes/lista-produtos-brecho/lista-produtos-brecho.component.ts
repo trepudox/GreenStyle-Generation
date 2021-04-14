@@ -95,4 +95,11 @@ export class ListaProdutosBrechoComponent implements OnInit {
     this.carrinhoService.addToCarrinho(produto)
   }
 
+  deslocamento(){
+    window.scroll({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
 }

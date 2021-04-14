@@ -90,7 +90,7 @@
     </div>
     <!--Paginação -->
     <div class="col-md-12 d-flex justify-content-center mb-4">
-      <pagination-controls class="my-pagination"  (pageChange)="paginaAtual = $event" previousLabel="" nextLabel="" ></pagination-controls>
+      <pagination-controls class="my-pagination"  (pageChange)="paginaAtual = $event; deslocamento() " previousLabel="" nextLabel="" ></pagination-controls>
     </div>
     <!--Paginação -->
   </div>
