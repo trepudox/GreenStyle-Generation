@@ -233,6 +233,7 @@ export class TelaAdminComponent implements OnInit {
     this.produtoService.getByIdBrechoProdutos(this.idListaBrecho).subscribe((resp:Produto[])=>{
       this.listaProdutos=resp
     })
+    this.paginaAtual=1
   }
   setProdutoModal(id:number){
     this.produtoService.getByIdProduto(id).subscribe((resp:Produto)=>{
