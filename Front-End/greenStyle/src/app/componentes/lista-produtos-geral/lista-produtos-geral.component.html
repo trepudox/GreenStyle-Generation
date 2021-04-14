@@ -99,7 +99,7 @@
 
 </div>
 
-<!--Modal-->
+<!-- MODAL PRODUTO -->
 <div class="modal fade" id="modal-produto" tabindex="-1" role="dialog" aria-labelledby="titulo-modal-produto"
   aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -112,14 +112,14 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body d-flex justify-content-around align-items-around pb-0 pr-0">
+      <div class="modal-body d-flex flex-wrap justify-content-around align-items-around">
         <div class="col-md-5 p-0 m-0 d-flex flex-column" style="overflow: hidden;">
           <figure class="zoom bordaImgModal" onmousemove="zoom(event)"
             style="background-image: url({{produtoModal.foto}}); width: 100%; height: 100%;">
             <img src="{{produtoModal.foto}}" style="width:100%; height: 100%;">
           </figure>
         </div>
-        <div class="col-md-7 d-flex flex-column justify-content-start">
+        <div class="col-md-7 d-flex flex-column justify-content-start px-0 py-2 py-md-0 pl-md-3">
 
           <div style="border: 1px solid #75A26C; border-radius: 5px; padding-left: 15px; padding-right: 15px;">
             <div class="row d-flex justify-content-around mt-3">
@@ -147,7 +147,7 @@
             </div>
           </div>
 
-          <div class="row d-flex align-items-center justify-content-around mt-auto mb-auto">
+          <div class="row d-flex align-items-center justify-content-around pt-2 pt-md-0 mt-auto mb-auto">
 
             <div class="col-md-6 d-flex flex-column align-items-center">
               <p style="font-weight: 600; font-size: 200%;" class="mb-0">{{produtoModal.preco | currency:'BRL'}}</p>
@@ -173,4 +173,4 @@
     </div>
   </div>
 </div>
-<!--/Modal-->
+<!-- /MODAL PRODUTO -->
