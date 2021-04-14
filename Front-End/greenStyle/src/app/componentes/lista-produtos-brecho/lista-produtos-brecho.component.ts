@@ -52,6 +52,7 @@ export class ListaProdutosBrechoComponent implements OnInit {
     this.setBrecho()
     this.setListaCategoria()
     this.setListaProduto(this.idBrecho)
+    this.paginaAtual=1
   }
 
   setListaCategoria () {
@@ -62,6 +63,7 @@ export class ListaProdutosBrechoComponent implements OnInit {
     this.produtoService.getByIdBrechoProdutos(id).subscribe((resp: Produto[]) => {
       this.listaProduto = resp
     })
+    this.paginaAtual=1
   }
 
   setListaFiltro(id: number) {
@@ -76,6 +78,7 @@ export class ListaProdutosBrechoComponent implements OnInit {
 
       }
     })
+    this.paginaAtual=1
   }
 
   setBrecho() {

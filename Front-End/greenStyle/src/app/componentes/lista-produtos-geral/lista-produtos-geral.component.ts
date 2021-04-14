@@ -51,6 +51,7 @@ export class ListaProdutosGeralComponent implements OnInit {
 
         this.setNomeCategoriaAtual(this.idFiltro)
         this.setListaProduto(this.idFiltro, this.stringPesquisa)
+        this.paginaAtual=1
       }
 
     })
