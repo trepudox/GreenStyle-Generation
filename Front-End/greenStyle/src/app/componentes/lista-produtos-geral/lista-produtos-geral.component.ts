@@ -29,7 +29,7 @@ export class ListaProdutosGeralComponent implements OnInit {
   key = "disponivel"
   reverse = true
 
-  contador : number = 5;
+  
   paginaAtual:number=1
 
   constructor(

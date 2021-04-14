@@ -26,6 +26,8 @@ export class ListaProdutosBrechoComponent implements OnInit {
   key = "disponivel"
   reverse = true
 
+  paginaAtual:number=1
+
   constructor(
     private produtoService: ProdutoService,
     private categoriaService: CategoriaService,
@@ -51,7 +53,7 @@ export class ListaProdutosBrechoComponent implements OnInit {
     this.setListaCategoria()
     this.setListaProduto(this.idBrecho)
   }
-  
+
   setListaCategoria () {
     this.categoriaService.getAllCategoria().subscribe((resp: Categoria[])=> this.listaCategoria = resp)
   }
@@ -67,7 +69,7 @@ export class ListaProdutosBrechoComponent implements OnInit {
       this.listaProduto = []
 
       for(let item of resp) {
-        
+
         if(item.brecho.id == this.idBrecho) {
           this.listaProduto.push(item)
         }
