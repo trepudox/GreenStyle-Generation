@@ -58,7 +58,7 @@ export class ListaProdutosGeralComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     window.scroll(0, 0)
 
     this.idFiltro = 0

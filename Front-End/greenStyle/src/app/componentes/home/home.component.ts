@@ -66,5 +66,5 @@ export class HomeComponent implements OnInit {
     this.carrinhoService.addToCarrinho(produto)
   }
 
-}
+ }
 

@@ -38,7 +38,7 @@
           <h2 class="text-center">Não há nenhum produto com esses filtros!</h2>
       </div>
 
-      <div *ngFor="let produto of listaProduto | orderBy : key : reverse | paginate: { itemsPerPage: 12, currentPage: paginaAtual }; let i = index" class="card principal mb-2 animado1 b-verde mx-2 my-3"
+      <div *ngFor="let produto of listaProduto | orderBy : key : reverse | paginate: { itemsPerPage: 20, currentPage: paginaAtual }; let i = index" class="card principal mb-2 animado1 b-verde mx-2 my-3"
         style="max-width: 250px;">
 
          <!--card produto indisponivel-->
