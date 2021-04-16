@@ -74,6 +74,9 @@ export class NavbarComponent implements OnInit {
       environment.tipo = this.usuarioLogin.tipo
 
       this.alertas.showAlertInfo("Logado com sucesso!")
+      if(this.router.url.includes("cadastrar")) {
+        this.router.navigate(["/home"])
+      }
     }, erro => {
       if(erro.status == 500){
         this.alertas.showAlertDanger("Usuário ou senha estão incorretos")

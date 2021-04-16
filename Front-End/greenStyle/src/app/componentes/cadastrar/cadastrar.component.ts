@@ -60,6 +60,17 @@ export class CadastrarComponent implements OnInit {
     }
 
   }
-  
+
+  /*
+  verSenha1(id: string) {
+    let campo = document.getElementById(id)
+    campo?.setAttribute("type", "text")
+
+  }
+
+  verSenha2() {
+
+  }
+  */
 
 }
