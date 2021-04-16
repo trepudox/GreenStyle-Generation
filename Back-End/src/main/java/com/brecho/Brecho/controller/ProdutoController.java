@@ -35,8 +35,8 @@ public class ProdutoController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> findById(@PathVariable(name="id") Long id) {
-		return service.findById(id).isEmpty() ? ResponseEntity.status(HttpStatus.NO_CONTENT).build() : 
-			ResponseEntity.status(HttpStatus.OK).body(service.findById(id).get());
+		return service.findById(id).isPresent() ? ResponseEntity.status(HttpStatus.OK).body(service.findById(id).get()) : 
+			ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
 	
 	@GetMapping("/nomeProduto/{nome}")
