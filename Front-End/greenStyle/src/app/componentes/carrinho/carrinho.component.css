@@ -1,0 +1,57 @@
+.icone
+{
+    font-size: 24pt;
+    margin-bottom: 8px;
+}
+
+.nav-item :hover .teste
+{
+    transform: scale(0.9);
+    color: gray;
+}
+
+.teste
+{
+    transition: all 0.3s;
+}
+
+.fs-100
+{
+    font-size: 100pt;
+}
+
+.fs-16
+{
+    font-size: 16pt;
+}
+
+.text:focus, input:focus, select:focus {
+    /* box-shadow: 0 0 0 0; */
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.045), 0 0 5px #75A26C;
+    border: 1;
+    outline: 0;
+    border-color: #75A26C;
+  }
+
+  .btn-green{
+    background-color: #5e8c58;
+    color: white;
+    transition: all 0.5s;
+  }
+
+  .btn-green:hover{
+    background-color: #4c7247;
+    color: white;
+  }
+
+  .excluir-produto{
+    color:red;
+    transition: all 0.3s;
+  }
+
+  .excluir-produto:hover{
+    transform: scale(0.96);
+    color:white;
+    transition: all 0.3s;
+  }
+

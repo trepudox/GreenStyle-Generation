@@ -1,0 +1,51 @@
+.bg-verde{
+  background-color: #75A26C;
+}
+.nav-item{
+  display: flex;
+  align-items: center;
+}
+
+.content-pag{
+  transition: all .5s;
+}
+.nav-item:hover .content-pag
+{
+  text-decoration: none;
+    color: rgb(66, 66, 66);
+}
+
+.subTitulo{
+  color: white;
+}
+
+.subTitulo:focus{
+  box-shadow: 0 0 0 0;
+}
+
+.text:focus, input:focus, select:focus, textarea:focus {
+  /* box-shadow: 0 0 0 0; */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.045), 0 0 5px #75A26C;
+  border: 1;
+  outline: 0;
+  border-color: #75A26C;
+}
+
+.btn-green{
+  background-color: #5e8b58;
+  color: white;
+  transition: all 0.5s;
+}
+
+.btn-green:hover{
+  background-color: #3c5a38;
+  color: white;
+}
+
+.fc-verde{
+  color:  #659260;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+  background: #5e8c58;
+}

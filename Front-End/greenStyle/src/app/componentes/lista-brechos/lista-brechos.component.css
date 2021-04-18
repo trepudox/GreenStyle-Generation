@@ -1,0 +1,117 @@
+.div-brecho {
+  width: 32rem;
+}
+
+.div-brecho:hover {
+  transition: 0.25s;
+  transform: scale(0.985);
+  cursor: pointer;
+}
+
+.div-brecho:not(:hover) {
+  transition: 0.25s;
+  transform: scale(1);
+}
+
+.div-brecho:hover .titulo {
+  transition: 0.2s;
+  color: #75A26C;
+}
+
+.div-brecho:not(:hover) .titulo {
+  transition: 0.2s;
+  color: #000000;
+}
+
+.imagem-brecho {
+  height: auto;
+  width: 150px;
+  border-radius: 8.5px 0px 0px 8.5px;
+}
+
+.br-8 {
+  border-radius: 8px;
+}
+
+.b-verde {
+  border-width: .2px;
+  border-style: solid;
+  border-color: #bdcebc;
+}
+
+.quadrado:hover {
+  transition: 0.3s;
+  background-color: #75A26C;
+  transform: scale(1.025);
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  color: white;
+}
+
+.quadrado:not(:hover) {
+  transition: 0.3s;
+  background-color: white;
+  transform: scale(1.0);
+  color: #75A26C;
+  border-width: .2px;
+  border-style: solid;
+  border-color: #bdcebc;
+}
+
+.btn-sm:hover {
+  color: #75A26C
+}
+
+
+.circle {
+  border-style: solid;
+  border-width: 2px;
+  border-color: #75A26C;
+  border-radius: 50%;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+}
+
+.lista-brechos {
+  width: 100%;
+  height: 100%;
+}
+
+.justify-self-start {
+  justify-self: start;
+}
+
+.btn-green {
+  background-color: #5e8c58;
+  color: white;
+  transition: all 0.25s;
+}
+
+.btn-green:hover {
+  background-color: #4c7247;
+  color: white;
+}
+
+label {
+  display: inline;
+  margin-top: 15px;
+}
+
+.text:focus,
+input:focus,
+select:focus,
+.botao-focus:focus {
+  /* box-shadow: 0 0 0 0; */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.045), 0 0 5px #75A26C;
+  border: 1;
+  outline: 0;
+  border-color: #75A26C;
+}
+
+.botao-cancelar-focus:focus {
+  /* box-shadow: 0 0 0 0; */
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.045), 0 0 5px #b66363;
+  border: 1;
+  outline: 0;
+  border-color: #b66363;
+}

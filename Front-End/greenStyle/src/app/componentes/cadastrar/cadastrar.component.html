@@ -1,0 +1,62 @@
+<div class="container-fluid bg-img">
+
+        <div class="row mx-1">
+            <div class="col-md-1"></div>
+
+            <div class="col-md-4 mb-5 mt-5" style="border-radius: 5px; background-color: rgba(255, 255, 255, 0.95);">
+    
+                        <!-- CADASTRO -->
+                        <div class="py-4 px-2">
+                        <h3 class="text-center mb-4">CADASTRE-SE</h3>
+                        <form class="bold fc-verde">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nome">Nome</label>
+                                    <input [(ngModel)]='usuario.nome' type="text" class="form-control" id="nome" placeholder="Ex. João" name="nome">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="sobrenome">Sobrenome</label>
+                                    <input [(ngModel)]='usuario.sobrenome' type="text" class="form-control" id="sobrenome" placeholder="Ex. Silva " name="Sobrenome">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="cpf">CPF</label>
+                                <input [(ngModel)]='usuario.cpf' type="text" class="form-control" id="cpf" placeholder="12345678900" name="cpf">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input [(ngModel)]='usuario.email' type="email" class="form-control" id="email" placeholder="Ex. email@email.com" name="email">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="senha">Senha</label>
+                                    <div style="position: relative;">
+                                        <input (input)='confirmarSenha($event)' type="password" class="form-control" id="senha-cadastro" name="senha">
+                                        <i class="bi bi-eye-fill" style="position: absolute; top: 18%; left: 86.5%; font-size: 14pt; cursor: pointer;" id="verS1" onclick="verSenha('senha-cadastro', 'verS1')"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="usuario">Confirme a senha</label>
+                                    <div style="position: relative;">
+                                        <input [(ngModel)]='usuario.senha' type="password" class="form-control" id="confirmeSenha-cadastro" name="confirmeSenha">
+                                        <i class="bi bi-eye-fill" style="position: absolute; top: 18%; left: 86.5%; font-size: 14pt; cursor: pointer;" id="verS2" onclick="verSenha('confirmeSenha-cadastro', 'verS2')"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row d-flex justify-content-center botao-focus">
+                                <button type="submit" class="btn btn-green mt-3" (click)='cadastrar()'>Cadastrar</button>
+                            </div>
+
+                        </form>
+                        <div class="row d-flex justify-content-center mt-3">
+                            <span class="text-center">Já tem cadastro? Faça o <a class="fc-verde login"
+                                    data-toggle="modal" data-target="#loginModal" href="">Login</a></span>
+                        </div>
+                        </div>
+                        <!-- /CADASTRO -->
+
+            </div>
+        </div>
+
+</div>

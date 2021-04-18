@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <title>GreenStyle</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/campo-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/dfcb366083.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light pr-0">
+  <app-root></app-root>
+  <script>
+    var prevScrollpos = window.pageYOffset;
+    window.onscroll = function () {
+      var currentScrollPos = window.pageYOffset;
+      if (currentScrollPos == 0) {
+        document.getElementById("navbar").style.top = "0";
+      }
+      if (currentScrollPos > 96) {
+        if (prevScrollpos > currentScrollPos) {
+          document.getElementById("navbar").style.top = "0";
+        } else {
+          document.getElementById("navbar").style.top = "-64px";
+        }
+        prevScrollpos = currentScrollPos;
+      }
+    }
+
+  </script>
+  <script type="text/javascript">
+    function zoom(e) {
+      var zoomer = e.currentTarget;
+      e.offsetX ? (offsetX = e.offsetX) : (offsetX = e.touches[0].pageX);
+      e.offsetY ? (offsetY = e.offsetY) : (offsetX = e.touches[0].pageX);
+      campo = (offsetX / zoomer.offsetWidth) * 100;
+      y = (offsetY / zoomer.offsetHeight) * 100;
+      zoomer.style.backgroundPosition = campo + "% " + y + "%";
+    }
+
+  </script>
+
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+  </script>
+
+  <script>
+    function verSenha(idCampo, idIcone) {
+      var campo = document.getElementById(idCampo);
+      if (campo.type === "password") {
+        document.getElementById(idIcone).className = "bi bi-eye-slash-fill";
+        campo.type = "text";
+      } else {
+        document.getElementById(idIcone).className = "bi bi-eye-fill";
+        campo.type = "password";
+      }
+    }
+  </script>
+
+</body>
+
+</html>
